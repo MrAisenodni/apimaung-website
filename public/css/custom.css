@@ -1,0 +1,14 @@
+/*------------------------------------------------------------------
+    ADD YOUR OWN THEME STYLING HERE 
+-------------------------------------------------------------------*/
+label {
+    color: white;
+}
+
+header .logo {
+	margin-left: -5%;
+}
+
+.dark-bg{
+	background:#333333 !important;
+}
