@@ -133,8 +133,3 @@ function checkmail(input){
 		}}
 	});
 }};
-
-
-
-
-

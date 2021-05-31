@@ -82,13 +82,13 @@
   <header class="header coporate-header">
     <div class="sticky">
       <div class="container">
-        <div class="logo"><a href="{{ URL('/') }}"><img src="images/logo.png" alt=""></a> </div>
+        <div class="logo"><a href="{{ URL('/') }}"><img src="images/logo.png" alt="logo"></a> </div>
         
         <!-- Nav -->
         <nav>
           <ul id="ownmenu" class="ownmenu">
-            <li class="active"><a href="{{ URL('/') }}">BERANDA</a></li>
-            <li><a href="{{ URL('/') }}">TENTANG KAMI</a>
+            <li><a href="{{ URL('/') }}">BERANDA</a></li>
+            <li><a href="{{ URL('/tentang') }}">TENTANG KAMI</a>
               <ul class="dropdown">
                 <li><a href="{{ URL('sejarah') }}">SEJARAH DESA</a></li>
                 <li><a href="{{ URL('profil') }}">PROFIL WILAYAH DESA</a></li>
