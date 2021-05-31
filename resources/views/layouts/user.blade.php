@@ -86,18 +86,36 @@
         
         <!-- Nav -->
         <nav>
-          <ul id="ownmenu" class="ownmenu">
-            <li><a href="{{ URL('/') }}">BERANDA</a></li>
-            <li><a href="{{ URL('/tentang') }}">TENTANG KAMI</a>
+          <ul id="ownmenu" class="ownmenu">\
+            <li><a href="{{ URL('/') }}">PROFIL DESA</a>
               <ul class="dropdown">
-                <li><a href="{{ URL('sejarah') }}">SEJARAH DESA</a></li>
-                <li><a href="{{ URL('profil') }}">PROFIL WILAYAH DESA</a></li>
-                <li><a href="{{ URL('peta') }}">PETA DESA</a></li>
+                <li><a href="{{ URL('sejarah') }}">Sejarah Desa</a></li>
+                <li><a href="{{ URL('profil') }}">Profil Wilayah Desa</a></li>
+                <li><a href="{{ URL('peta') }}">Peta Desa</a></li>
               </ul>
             </li>
-            <li><a href="{{ URL('pemerintah') }}">PEMERINTAH DESA</a></li>
-            <li><a href="{{ URL('lem') }}">LEM MAS</a></li>
-            <li><a href="{{ URL('desa') }}">DATA DESA</a></li>
+            <li><a href="{{ URL('pemerintah') }}">PEMERINTAH DESA</a>
+              <ul class="dropdown">
+                <li><a href="{{ URL('visimisi') }}">Visi dan Misi</a></li>
+                <li><a href="{{ URL('pemda') }}">Pemerintah Desa</a></li>
+                <li><a href="{{ URL('bpd') }}">Badan Permusyawaratan Desa</a></li>
+              </ul>
+            </li>
+            <li><a href="{{ URL('lem') }}">LEM MAS</a>
+              <ul class="dropdown">
+                <li><a href="{{ URL('lpm') }}">LPM</a></li>
+                <li><a href="{{ URL('karang') }}">Karang Taruna</a></li>
+                <li><a href="{{ URL('pkk') }}">PKK</a></li>
+              </ul>
+            </li>
+            <li><a href="{{ URL('desa') }}">DATA DESA</a>
+              <ul class="dropdown">
+                <li><a href="{{ URL('dapen') }}">Data Pendidikan</a></li>
+                <li><a href="{{ URL('dapek') }}">Data Pekerjaan</a></li>
+                <li><a href="{{ URL('dajen') }}">Data Jenis Kelamin</a></li>
+                <li><a href="{{ URL('daper') }}">Data Perkawinan</a></li>
+              </ul>
+            </li>
             <li><a href="{{ URL('pengaduan') }}">PENGADUAN</a></li>
             <li><a href="{{ URL('transparan') }}">TRANSPARANSI KEUANGAN</a></li>
             
