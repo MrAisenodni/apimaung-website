@@ -115,4 +115,15 @@ class PagesController extends Controller
     public function admin() {
         return view('admin.index');
     }
+
+    /*  
+    ========================================
+    =              OPERATOR                =
+    ======================================== 
+    */
+    
+    // Dashboard Operator
+    public function operator() {
+        return view('operator.index');
+    }
 }

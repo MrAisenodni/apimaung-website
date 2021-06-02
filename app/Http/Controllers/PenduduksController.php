@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PengaduansController extends Controller
+class PenduduksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class PengaduansController extends Controller
      */
     public function index()
     {
-        // Menampilkan halaman pengaduan untuk Admin
-        return view('admin.pengaduan.index');
+        // Menampilkan halaman penduduk untuk admin
+        return view('admin.penduduk.index');
     }
 
     /**
@@ -24,10 +24,10 @@ class PengaduansController extends Controller
      */
     public function create()
     {
-        // Menampilkan halaman pengaduan untuk User
-        return view('user.pengaduan.create');
+        // Menampilkan form tambah penduduk
+        return view('admin.penduduk.create');
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -36,9 +36,9 @@ class PengaduansController extends Controller
      */
     public function store(Request $request)
     {
-        // Mengirimkan pengaduan baru ke database
+        // Mengirimkan data penduduk baru ke database
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -47,10 +47,10 @@ class PengaduansController extends Controller
      */
     public function show($id)
     {
-        // Menampilkan form detail pengaduan untuk Admin
-        return view('admin.pengaduan.show');
+        // Menampilkan form detail penduduk
+        return view('admin.penduduk.show');
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -59,8 +59,8 @@ class PengaduansController extends Controller
      */
     public function edit($id)
     {
-        // Menampilkan form ubah pengaduan untuk Admin
-        return view('admin.pengaduan.edit');
+        // Menampilkan form ubah penduduk
+        return view('admin.penduduk.edit');
     }
 
     /**
@@ -72,7 +72,7 @@ class PengaduansController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Mengirimkan perubahan pengaduan ke database oleh Admin
+        // Mengirimkan perubahan penduduk ke database
     }
 
     /**
@@ -83,6 +83,6 @@ class PengaduansController extends Controller
      */
     public function destroy($id)
     {
-        // Menghapus pengaduan dari database oleh Admin
+        // Menghapus penduduk dari database
     }
 }

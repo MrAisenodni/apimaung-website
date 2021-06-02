@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="Muhammad Fiqri Alfayed" />
-        <title>@yield('title') | Admin E-Government Tengkurak</title>
+        <title>@yield('title') | Operator Pemda E-Government Tengkurak</title>
         
         <!-- Favicon -->
         <link rel="shortcut icon" href="{{ url('images/favicon.ico') }}" type="image/x-icon">
@@ -19,7 +19,7 @@
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Admin Web</a>
+            <a class="navbar-brand" href="index.html">Operator Pemda</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -47,15 +47,11 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link" href="{{ url('/dashboard') }}">
+                            <a class="nav-link" href="{{ url('/operator/dashboard') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <a class="nav-link" href="{{ url('/penduduk') }}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                Penduduk
-                            </a>
-                            <a class="nav-link" href="{{ url('/pengaduan') }}">
+                            <a class="nav-link" href="{{ url('/operator/pengaduan') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                                 Pengaduan
                             </a>
@@ -63,7 +59,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Masuk sebagai:</div>
-                        Administrator
+                        Operator Pemda
                     </div>
                 </nav>
             </div>

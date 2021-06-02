@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PengaduansController extends Controller
+class PesansController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +13,10 @@ class PengaduansController extends Controller
      */
     public function index()
     {
-        // Menampilkan halaman pengaduan untuk Admin
-        return view('admin.pengaduan.index');
+        // Menampilkan pengaduan untuk operator pemda
+        return view('operator.pengaduan.index');
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -24,10 +24,10 @@ class PengaduansController extends Controller
      */
     public function create()
     {
-        // Menampilkan halaman pengaduan untuk User
-        return view('user.pengaduan.create');
+        // Menampilkan form tanggapan pengaduan untuk operator pemda
+        return view('operator.pengaduan.create');
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -36,9 +36,9 @@ class PengaduansController extends Controller
      */
     public function store(Request $request)
     {
-        // Mengirimkan pengaduan baru ke database
+        // Mengirimkan balasan tanggapan pengaduan ke database
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -47,10 +47,10 @@ class PengaduansController extends Controller
      */
     public function show($id)
     {
-        // Menampilkan form detail pengaduan untuk Admin
-        return view('admin.pengaduan.show');
+        // Menampilkan detail pengaduan dari user untuk operator
+        return view('operator.pengaduan.show');
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -59,8 +59,8 @@ class PengaduansController extends Controller
      */
     public function edit($id)
     {
-        // Menampilkan form ubah pengaduan untuk Admin
-        return view('admin.pengaduan.edit');
+        // Menampilkan form ubah tanggapan pengaduan untuk operator
+        return view('operator.pengaduan.edit');
     }
 
     /**
@@ -72,7 +72,7 @@ class PengaduansController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Mengirimkan perubahan pengaduan ke database oleh Admin
+        //
     }
 
     /**
@@ -83,6 +83,6 @@ class PengaduansController extends Controller
      */
     public function destroy($id)
     {
-        // Menghapus pengaduan dari database oleh Admin
+        //
     }
 }
