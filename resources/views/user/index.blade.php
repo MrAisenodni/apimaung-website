@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Beranda | E-Government Tengkurak')
+@section('title', 'Beranda')
 
 @section('content')   
   <!-- Content -->

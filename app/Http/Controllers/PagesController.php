@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    /*  =======================================
+    /*  
+        =======================================
         =            PROFIL DESA              =
-        ======================================= */
+        ======================================= 
+    */
 
     // Halaman Profil Desa
     public function home() {
@@ -29,16 +31,18 @@ class PagesController extends Controller
     public function peta() {
         return view('user.peta');
     }
-
-    /*  =======================================
-        =           PEMERINTAH DESA           =
-        ======================================= */
-
+    
+    /*  
+    =======================================
+    =           PEMERINTAH DESA           =
+    ======================================= 
+    */
+    
     // Halaman Pemerintah Desa
     public function pemda() {
         return view('user.pemda');
     }
-
+    
     // Halaman Visi dan Misi
     public function visimisi() {
         return view('user.visimisi');
@@ -47,5 +51,42 @@ class PagesController extends Controller
     // Halaman Profil Wilayah Desa
     public function bpd() {
         return view('user.bpd');
+    }
+    
+    /*  
+        =======================================
+        =            PROFIL DESA              =
+        ======================================= 
+    */
+
+    // Halaman Profil Desa
+    public function lem() {
+        return view('user.lem');
+    }
+
+    // Halaman Sejarah Desa
+    public function lpm() {
+        return view('user.lpm');
+    }
+    
+    // Halaman Profil Wilayah Desa
+    public function karangtaruna() {
+        return view('user.karangtaruna');
+    }
+
+    // Halaman Peta Desa
+    public function pkk() {
+        return view('user.pkk');
+    }
+
+    /*  
+    ========================================
+    =               ADMIN                  =
+    ======================================== 
+    */
+    
+    // Dashboard Admin
+    public function admin() {
+        return view('admin.index');
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Profil Wilayah Desa')
+@section('title', 'Pemerintah Desa')
 
 @section('content')
   <!--======= SUB BANNER =========-->
@@ -8,10 +8,10 @@
     <img src="{{ url('images/bg/peta-subbg.jpg') }}" alt="foto" width="100%" height="100%">
     <div class="container">
       <div class="position-center-center">
-        <h2>Profil Wilayah Desa</h2>
+        <h2>Pemerintah Desa</h2>
         <ul class="breadcrumb">
           <li><a href="{{ url('/') }}">home</a></li>
-          <li>profil wilayah desa</li>
+          <li>pemerintah desa</li>
         </ul>
       </div>
     </div>

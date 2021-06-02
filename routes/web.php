@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PengaduansController;
+use App\Http\Controllers\LoginsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +16,44 @@ use App\Http\Controllers\PengaduansController;
 |
 */
 
+/*
+    =============================
+    =       ROUTES USER         =
+    =============================
+*/
+
 // Routes Profil Desa
 Route::get('/', [PagesController::class, 'home']);
 Route::get('/sejarah', [PagesController::class, 'sejarah']);
 Route::get('/wilayah', [PagesController::class, 'wilayah']);
 Route::get('/peta', [PagesController::class, 'peta']);
 
+// Routes Pemerintah Desa
+Route::get('/pemda', [PagesController::class, 'pemda']);
+Route::get('/visimisi', [PagesController::class, 'visimisi']);
+Route::get('/bpd', [PagesController::class, 'bpd']);
+
+// Routes Lembaga Masyarakat
+Route::get('/lem', [PagesController::class, 'lem']);
+Route::get('/lpm', [PagesController::class, 'lpm']);
+Route::get('/karangtaruna', [PagesController::class, 'karangtaruna']);
+Route::get('/pkk', [PagesController::class, 'pkk']);
+
 // Routes Pengaduan
 Route::get('/pengaduan', [PengaduansController::class, 'index']);
 
-// Auth::routes();
+/*
+    ==============================
+    =       ROUTES ADMIN         =
+    ==============================
+*/
+
+Auth::routes();
+
+// Routes Login Admin/Operator Desa
+Route::get('/login', [LoginsController::class, 'index']);
+
+// Routes Admin
+Route::get('/dashboard', [PagesController::class, 'admin']);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('/login', [App\Http\Controllers::class, 'login'])->name('login');

@@ -5,7 +5,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="author" content="Muhammad Fiqri Alfayed" />
 <!-- Document Title -->
-<title>@yield('title')</title>
+<title>@yield('title') | E-Government Tengkurak</title>
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="{{ url('images/favicon.ico') }}" type="image/x-icon">
@@ -104,7 +104,7 @@
             <li><a href="{{ url('lem') }}">LEM MAS</a>
               <ul class="dropdown">
                 <li><a href="{{ url('lpm') }}">LPM</a></li>
-                <li><a href="{{ url('karang') }}">Karang Taruna</a></li>
+                <li><a href="{{ url('karangtaruna') }}">Karang Taruna</a></li>
                 <li><a href="{{ url('pkk') }}">PKK</a></li>
               </ul>
             </li>
@@ -138,6 +138,7 @@
   <!-- End Header --> 
   
   @yield('content')
+  @yield('sidebar')
   
   <!-- Footer -->
   <footer>

@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Peta Desa | E-Government Tengkurak')
+@section('title', 'Peta Desa')
 
 @section('content')
   <!--======= SUB BANNER =========-->
