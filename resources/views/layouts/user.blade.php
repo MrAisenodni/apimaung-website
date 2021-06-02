@@ -3,35 +3,35 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="author" content="M_Adnan" />
+<meta name="author" content="Muhammad Fiqri Alfayed" />
 <!-- Document Title -->
 <title>@yield('title')</title>
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="{{ URL::asset('images/favicon.ico') }}" type="image/x-icon">
-<link rel="icon" href="{{ URL::asset('images/favicon.ico') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ url('images/favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url('images/favicon.ico') }}" type="image/x-icon">
 
 <!-- FontsOnline -->
-<link href='{{ URL::asset('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800') }}' rel='stylesheet' type='text/css'>
-<link href='{{ URL::asset('https://fonts.googleapis.com/css?family=Montserrat:400,700') }}' rel='stylesheet' type='text/css'>
-<link href='{{ URL::asset('https://fonts.googleapis.com/css?family=Alegreya+Sans:400,500,700,800,900,300,100') }}' rel='stylesheet' type='text/css'>
+<link href='{{ url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800') }}' rel='stylesheet' type='text/css'>
+<link href='{{ url('https://fonts.googleapis.com/css?family=Montserrat:400,700') }}' rel='stylesheet' type='text/css'>
+<link href='{{ url('https://fonts.googleapis.com/css?family=Alegreya+Sans:400,500,700,800,900,300,100') }}' rel='stylesheet' type='text/css'>
 
 <!-- StyleSheets -->
-<link rel="stylesheet" href="{{ URL::asset('http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('css/bootstrap/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
-<link rel="stylesheet" href="{{ URL::asset('css/responsive.css') }}">
+<link rel="stylesheet" href="{{ url('http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
+<link rel="stylesheet" href="{{ url('css/bootstrap/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ url('css/font-awesome.min.css') }}">
+<link rel="stylesheet" href="{{ url('css/main.css') }}">
+<link rel="stylesheet" href="{{ url('css/style.css') }}">
+<link rel="stylesheet" href="{{ url('css/responsive.css') }}">
 
 <!-- Custom CSS -->
-<link rel="stylesheet" href="{{ URL::asset('css/custom.css') }}">
+<link rel="stylesheet" href="{{ url('css/custom.css') }}">
 
 <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('rs-plugin/css/settings.css') }}" media="screen" />
+<link rel="stylesheet" type="text/css" href="{{ url('rs-plugin/css/settings.css') }}" media="screen" />
 
 <!-- JavaScripts -->
-<script src="{{ URL::asset('js/vendors/modernizr.js') }}"></script>
+<script src="{{ url('js/vendors/modernizr.js') }}"></script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -82,42 +82,42 @@
   <header class="header coporate-header">
     <div class="sticky">
       <div class="container">
-        <div class="logo"><a href="{{ URL('/') }}"><img src="{{ url('images/logo.png') }}" alt="logo" width="35%" height="35%"></a> </div>
+        <div class="logo"><a href="{{ url('/') }}"><img src="{{ url('images/logo.png') }}" alt="logo" width="35%" height="35%"></a> </div>
         
         <!-- Nav -->
         <nav>
           <ul id="ownmenu" class="ownmenu">
-            <li><a href="{{ URL('/') }}">PROFIL DESA</a>
+            <li><a href="{{ url('/') }}">PROFIL DESA</a>
               <ul class="dropdown">
-                <li><a href="{{ URL('sejarah') }}">Sejarah Desa</a></li>
-                <li><a href="{{ URL('wilayah') }}">Profil Wilayah Desa</a></li>
-                <li><a href="{{ URL('peta') }}">Peta Desa</a></li>
+                <li><a href="{{ url('sejarah') }}">Sejarah Desa</a></li>
+                <li><a href="{{ url('wilayah') }}">Profil Wilayah Desa</a></li>
+                <li><a href="{{ url('peta') }}">Peta Desa</a></li>
               </ul>
             </li>
-            <li><a href="{{ URL('pemerintah') }}">PEMERINTAH DESA</a>
+            <li><a href="{{ url('pemda') }}">PEMERINTAH DESA</a>
               <ul class="dropdown">
-                <li><a href="{{ URL('visimisi') }}">Visi dan Misi</a></li>
-                <li><a href="{{ URL('pemda') }}">Pemerintah Desa</a></li>
-                <li><a href="{{ URL('bpd') }}">Badan Permusyawaratan Desa</a></li>
+                <li><a href="{{ url('pemda') }}">Pemerintah Desa</a></li>
+                <li><a href="{{ url('visimisi') }}">Visi dan Misi</a></li>
+                <li><a href="{{ url('bpd') }}">Badan Permusyawaratan Desa</a></li>
               </ul>
             </li>
-            <li><a href="{{ URL('lem') }}">LEM MAS</a>
+            <li><a href="{{ url('lem') }}">LEM MAS</a>
               <ul class="dropdown">
-                <li><a href="{{ URL('lpm') }}">LPM</a></li>
-                <li><a href="{{ URL('karang') }}">Karang Taruna</a></li>
-                <li><a href="{{ URL('pkk') }}">PKK</a></li>
+                <li><a href="{{ url('lpm') }}">LPM</a></li>
+                <li><a href="{{ url('karang') }}">Karang Taruna</a></li>
+                <li><a href="{{ url('pkk') }}">PKK</a></li>
               </ul>
             </li>
-            <li><a href="{{ URL('desa') }}">DATA DESA</a>
+            <li><a href="{{ url('desa') }}">DATA DESA</a>
               <ul class="dropdown">
-                <li><a href="{{ URL('dapen') }}">Data Pendidikan</a></li>
-                <li><a href="{{ URL('dapek') }}">Data Pekerjaan</a></li>
-                <li><a href="{{ URL('dajen') }}">Data Jenis Kelamin</a></li>
-                <li><a href="{{ URL('daper') }}">Data Perkawinan</a></li>
+                <li><a href="{{ url('dapen') }}">Data Pendidikan</a></li>
+                <li><a href="{{ url('dapek') }}">Data Pekerjaan</a></li>
+                <li><a href="{{ url('dajen') }}">Data Jenis Kelamin</a></li>
+                <li><a href="{{ url('daper') }}">Data Perkawinan</a></li>
               </ul>
             </li>
-            <li><a href="{{ URL('pengaduan') }}">PENGADUAN</a></li>
-            <li><a href="{{ URL('transparan') }}">TRANSPARANSI KEUANGAN</a></li>
+            <li><a href="{{ url('pengaduan') }}">PENGADUAN</a></li>
+            <li><a href="{{ url('transparan') }}">TRANSPARANSI KEUANGAN</a></li>
             
             <!--======= SEARCH ICON =========-->
             <li class="search-nav right"><a href="#."><i class="fa fa-search"></i></a>
@@ -195,20 +195,20 @@
 <!-- End Page Wrapper --> 
 
 <!-- JavaScripts --> 
-<script src="{{ URL::asset('js/vendors/jquery/jquery.min.js') }}"></script> 
-<script src="{{ URL::asset('js/vendors/wow.min.js') }}"></script> 
-<script src="{{ URL::asset('js/vendors/bootstrap.min.js') }}"></script> 
-<script src="{{ URL::asset('js/vendors/own-menu.js') }}"></script> 
-<script src="{{ URL::asset('js/vendors/flexslider/jquery.flexslider-min.js') }}"></script> 
-<script src="{{ URL::asset('js/vendors/jquery.countTo.js') }}"></script> 
-<script src="{{ URL::asset('js/vendors/jquery.isotope.min.js') }}"></script> 
-<script src="{{ URL::asset('js/vendors/jquery.bxslider.min.js') }}"></script> 
-<script src="{{ URL::asset('js/vendors/owl.carousel.min.js') }}"></script> 
-<script src="{{ URL::asset('js/vendors/jquery.sticky.js') }}"></script> 
+<script src="{{ url('js/vendors/jquery/jquery.min.js') }}"></script> 
+<script src="{{ url('js/vendors/wow.min.js') }}"></script> 
+<script src="{{ url('js/vendors/bootstrap.min.js') }}"></script> 
+<script src="{{ url('js/vendors/own-menu.js') }}"></script> 
+<script src="{{ url('js/vendors/flexslider/jquery.flexslider-min.js') }}"></script> 
+<script src="{{ url('js/vendors/jquery.countTo.js') }}"></script> 
+<script src="{{ url('js/vendors/jquery.isotope.min.js') }}"></script> 
+<script src="{{ url('js/vendors/jquery.bxslider.min.js') }}"></script> 
+<script src="{{ url('js/vendors/owl.carousel.min.js') }}"></script> 
+<script src="{{ url('js/vendors/jquery.sticky.js') }}"></script> 
 
 <!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
-<script type="text/javascript" src="{{ URL::asset('rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script> 
-<script type="text/javascript" src="{{ URL::asset('rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script> 
-<script src="{{ URL::asset('js/main.js') }}"></script> 
+<script type="text/javascript" src="{{ url('rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script> 
+<script type="text/javascript" src="{{ url('rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script> 
+<script src="{{ url('js/main.js') }}"></script> 
 </body>
 </html>

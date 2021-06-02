@@ -29,4 +29,23 @@ class PagesController extends Controller
     public function peta() {
         return view('user.peta');
     }
+
+    /*  =======================================
+        =           PEMERINTAH DESA           =
+        ======================================= */
+
+    // Halaman Pemerintah Desa
+    public function pemda() {
+        return view('user.pemda');
+    }
+
+    // Halaman Visi dan Misi
+    public function visimisi() {
+        return view('user.visimisi');
+    }
+    
+    // Halaman Profil Wilayah Desa
+    public function bpd() {
+        return view('user.bpd');
+    }
 }

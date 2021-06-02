@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PengaduansController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ Route::get('/', [PagesController::class, 'home']);
 Route::get('/sejarah', [PagesController::class, 'sejarah']);
 Route::get('/wilayah', [PagesController::class, 'wilayah']);
 Route::get('/peta', [PagesController::class, 'peta']);
+
+// Routes Pengaduan
+Route::get('/pengaduan', [PengaduansController::class, 'index']);
 
 // Auth::routes();
 
