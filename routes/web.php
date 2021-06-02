@@ -39,6 +39,12 @@ Route::get('/lpm', [PagesController::class, 'lpm']);
 Route::get('/karangtaruna', [PagesController::class, 'karangtaruna']);
 Route::get('/pkk', [PagesController::class, 'pkk']);
 
+// Routes Data Desa
+Route::get('/dapen', [PagesController::class, 'pendidikan']);
+Route::get('/dapek', [PagesController::class, 'pekerjaan']);
+Route::get('/dajen', [PagesController::class, 'jenkel']);
+Route::get('/daper', [PagesController::class, 'perkawinan']);
+
 // Routes Pengaduan
 Route::get('/pengaduan', [PengaduansController::class, 'index']);
 

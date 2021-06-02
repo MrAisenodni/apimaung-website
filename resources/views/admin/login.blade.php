@@ -7,6 +7,12 @@
         <meta name="description" content="" />
         <meta name="author" content="Muhammad Fiqri Alfayed" />
         <title>Login Page | Admin E-Government Tengkurak</title>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{{ url('images/favicon.ico') }}" type="image/x-icon">
+        <link rel="icon" href="{{ url('images/favicon.ico') }}" type="image/x-icon">
+
+        <!-- Stylesheet -->
         <link href="{{ url('admin/css/styles.css') }}" rel="stylesheet" />
         <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js') }}" crossorigin="anonymous"></script>
     </head>

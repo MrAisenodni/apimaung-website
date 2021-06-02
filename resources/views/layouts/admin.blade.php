@@ -7,6 +7,12 @@
         <meta name="description" content="" />
         <meta name="author" content="Muhammad Fiqri Alfayed" />
         <title>@yield('title')</title>
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{{ url('images/favicon.ico') }}" type="image/x-icon">
+        <link rel="icon" href="{{ url('images/favicon.ico') }}" type="image/x-icon">
+
+        <!-- Stylesheet -->
         <link href="{{ url('admin/css/styles.css') }}" rel="stylesheet" />
         <link href="{{ url('https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" crossorigin="anonymous" />
         <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js') }}" crossorigin="anonymous"></script>
@@ -44,6 +50,18 @@
                             <a class="nav-link" href="{{ url('/dashboard') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
+                            </a>
+                            <a class="nav-link" href="{{ url('/penduduk') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Penduduk
+                            </a>
+                            <a class="nav-link" href="{{ url('/pendidikan') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
+                                Pendidikan
+                            </a>
+                            <a class="nav-link" href="{{ url('/pekerjaan') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
+                                Pendidikan
                             </a>
                         </div>
                     </div>

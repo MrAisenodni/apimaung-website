@@ -80,6 +80,32 @@ class PagesController extends Controller
     }
 
     /*  
+        =====================================
+        =            DATA DESA              =
+        ===================================== 
+    */
+
+    // Halaman Data Pendidikan
+    public function pendidikan() {
+        return view('user.pendidikan');
+    }
+
+    // Halaman Data Pekerjaan
+    public function pekerjaan() {
+        return view('user.pekerjaan');
+    }
+    
+    // Halaman Data Jenis Kelamin
+    public function jenkel() {
+        return view('user.jenkel');
+    }
+
+    // Halaman Data Perkawinan
+    public function perkawinan() {
+        return view('user.perkawinan');
+    }
+
+    /*  
     ========================================
     =               ADMIN                  =
     ======================================== 
