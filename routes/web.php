@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('user/index');
-});
-Route::get('/pengaduan', function () {
-    return view('user/pengaduan');
-});
+// Routes Profil Desa
+Route::get('/', [PagesController::class, 'home']);
+Route::get('/sejarah', [PagesController::class, 'sejarah']);
+Route::get('/wilayah', [PagesController::class, 'wilayah']);
+Route::get('/peta', [PagesController::class, 'peta']);
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/login', [App\Http\Controllers::class, 'login'])->name('login');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/login', [App\Http\Controllers::class, 'login'])->name('login');

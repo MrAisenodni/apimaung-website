@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Beranda | E-Government Tengkurak')
+@section('title', 'Porfil Wilayah Desa | E-Government Tengkurak')
 
 @section('content')   
   <!-- Content -->
@@ -12,43 +12,41 @@
         
         <!-- Tittle -->
         <div class="heading-block text-center margin-bottom-80">
-          <h2>Selamat Datang di E-Government Tengkurak</h2>
-          <span>E-Government Tengkurang merupakan sebuah wadah yang memberikan pelayanan terpadu kepada masyarakat di Desa Tengkurak Kabupaten Serang, Banten</span> 
+          <h2>Selamat Datang di E-Government</h2>
+          <span>Berikan kritik dan saran Anda mengenaik pembangunan berkelanjutan demi kemajuan daerah</span> 
         </div>
         <ul class="row text-center">
           
-          <!-- Layanan Mandiri -->
-          <li class="col-md-3"> <img src="{{ url('images/services/mandiri.png') }}" alt="Layanan Mandiri" width="100px" height="100px">
-            <h6>Layanan Mandiri</h6>
-            <p>Diberikan kepada masyarakat
-              di Desa Tengkurak untuk memberikan
-              pengaduan terhadap layanan yang
-              diberikan oleh Pemerintah.
-            </p>
+          <!-- Web Analytics -->
+          <li class="col-md-3"> <img src="images/icon-1.png" alt="">
+            <h6>Web Analytics</h6>
+            <p>Duis posuere blandit orci sed tinc in 
+              Curabitur porttitor nisi ac nunc 
+              fringilla nisl blandit.</p>
           </li>
           
-          <!-- Pengaduan Online -->
-          <li class="col-md-3"> <img src="{{ url('images/services/complaint.png') }}" alt="Pengaduan Online" width="100px" height="100px">
-            <h6>Pengaduan Online</h6>
-            <p>Memudahkan masyarakat mengirimkan 
-              berbagai keluhan terkait pelayanan 
-              yang diberikan oleh Pemerintah.</p>
+          <!-- Keyword Targeting -->
+          <li class="col-md-3"> <img src="images/icon-2.png" alt="">
+            <h6>Keyword Targeting</h6>
+            <p>Duis posuere blandit orci sed tinc in 
+              Curabitur porttitor nisi ac nunc 
+              fringilla nisl blandit.</p>
           </li>
           
-          <!-- Surat Online -->
-          <li class="col-md-3"> <img src="{{ url('images/services/mail.png') }}" alt="Surat Online" width="100px" height="100px">
-            <h6>Surat Online</h6>
-            <p>Layanan pembuatan surat untuk
-              kebutuhan administrasi masyarakat 
-              secara online.</p>
+          <!-- Technical Service -->
+          <li class="col-md-3"> <img src="images/icon-3.png" alt="">
+            <h6>Technical Service</h6>
+            <p>Duis posuere blandit orci sed tinc in 
+              Curabitur porttitor nisi ac nunc 
+              fringilla nisl blandit.</p>
           </li>
           
-          <!-- Kritik dan Saran -->
-          <li class="col-md-3"> <img src="{{ url('images/services/chat.png') }}" alt="Kritik dan Saran" width="100px" height="100px">
-            <h6>Kritik dan Saran</h6>
-            <p>Memberikan wadah kepada masyarakat
-              untuk menyampaikan aspirasi demi
-              kemajuan desa.</p>
+          <!-- Support Center -->
+          <li class="col-md-3"> <img src="images/icon-4.png" alt="">
+            <h6>Support Center</h6>
+            <p>Duis posuere blandit orci sed tinc in 
+              Curabitur porttitor nisi ac nunc 
+              fringilla nisl blandit.</p>
           </li>
         </ul>
       </div>

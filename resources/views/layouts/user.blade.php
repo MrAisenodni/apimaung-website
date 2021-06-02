@@ -82,15 +82,15 @@
   <header class="header coporate-header">
     <div class="sticky">
       <div class="container">
-        <div class="logo"><a href="{{ URL('/') }}"><img src="images/logo.png" alt="logo"></a> </div>
+        <div class="logo"><a href="{{ URL('/') }}"><img src="{{ url('images/logo.png') }}" alt="logo" width="35%" height="35%"></a> </div>
         
         <!-- Nav -->
         <nav>
-          <ul id="ownmenu" class="ownmenu">\
+          <ul id="ownmenu" class="ownmenu">
             <li><a href="{{ URL('/') }}">PROFIL DESA</a>
               <ul class="dropdown">
                 <li><a href="{{ URL('sejarah') }}">Sejarah Desa</a></li>
-                <li><a href="{{ URL('profil') }}">Profil Wilayah Desa</a></li>
+                <li><a href="{{ URL('wilayah') }}">Profil Wilayah Desa</a></li>
                 <li><a href="{{ URL('peta') }}">Peta Desa</a></li>
               </ul>
             </li>
@@ -141,68 +141,30 @@
   
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 padding-top-50"> 
-          
-          <!-- News Letter -->
-          <div class="news-letter">
-            <h6>News Letter</h6>
-            <form>
-              <input type="email" placeholder="Enter your email..." >
-              <button type="submit"><i class="fa fa-envelope-o"></i></button>
-            </form>
-          </div>
-        </div>
-        
-        <!-- Folow Us -->
-        <div class="col-md-6 padding-top-50">
-          <div class="news-letter">
-            <h6>Follow us</h6>
-            <ul class="social_icons pull-left margin-left-50 margin-top-10">
-              <li><a href="#."><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#."><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#."><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="#."><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#."><i class="fa fa-dribbble"></i></a></li>
-              <li><a href="#."><i class="fa fa-skype"></i></a></li>
-              <li><a href="#."><i class="fa fa-behance"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    
     <!-- Footer Info -->
     <div class="footer-info">
       <div class="container">
         <div class="row"> 
           
           <!-- About -->
-          <div class="col-md-4"> <img class="margin-bottom-30" src="images/logo-footer.png" alt="" >
+          <div class="col-md-4"> <a class="margin-bottom-30" href="{{ URL('/') }}"><img src="{{ url('images/logo-footer.png') }}" alt="logo" width="85%" height="85%"></a>
             <p>Aoluptas sit aspernatur aut odit aut fugit, sed elits quias consequuntur magni dolores eos qui ratione volust  luptatem sequi nesciunt. .</p>
             <ul class="personal-info">
               <li><i class="fa fa-map-marker"></i> 10th Floor,Washington Square Park, 
                 NY, United States.</li>
-              <li><i class="fa fa-envelope"></i> Support@domain.com</li>
-              <li><i class="fa fa-phone"></i> (004)+ 124 45 78 678 </li>
+              <li><i class="fa fa-envelope"></i> fikrialfayed@gmail.com</li>
+              <li><i class="fa fa-phone"></i> +62 858 8978 4451 </li>
             </ul>
           </div>
           
           <!-- Service provided -->
           <div class="col-md-4">
-            <h6>Service provided</h6>
+            <h6>Memberikan Pelayanan</h6>
             <ul class="links">
-              <li><a href="#.">SEO Services</a></li>
-              <li><a href="#.">Pay per click</a></li>
-              <li><a href="#.">Social Media</a></li>
-              <li><a href="#.">Web Analytics</a></li>
-              <li><a href="#.">Web Developement</a></li>
-              <li><a href="#.">Content Management</a></li>
-              <li><a href="#.">Blog Management</a></li>
-              <li><a href="#.">Virtual Marketing</a></li>
-              <li><a href="#.">Email Marketing</a></li>
-              <li><a href="#.">Keyword Analytics</a></li>
+              <li><a href="#.">Layanan Mandiri</a></li>
+              <li><a href="#.">Pengaduan Online</a></li>
+              <li><a href="#.">Surat Online</a></li>
+              <li><a href="#.">Kritik dan Saran</a></li>
             </ul>
           </div>
           
@@ -225,7 +187,7 @@
     <!-- Rights -->
     <div class="rights">
       <div class="container">
-        <p>Copyright © 2021 Posyandu. All Rights Reserved.</p>
+        <p>Copyright © 2021 E-Government Tengkurak. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
