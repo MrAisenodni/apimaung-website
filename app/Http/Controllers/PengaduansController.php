@@ -25,7 +25,7 @@ class PengaduansController extends Controller
     public function create()
     {
         // Menampilkan halaman pengaduan untuk User
-        return view('user.pengaduan.create');
+        return view('user.pengaduan');
     }
 
     /**

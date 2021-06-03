@@ -69,8 +69,8 @@
           <!-- Social Icon -->
           <div class="col-md-9">
             <ul class="some-info font-montserrat">
-              <li><i class="fa fa-phone"></i> +62 8588-8978-4451</li>
-              <li><i class="fa fa-envelope"></i> fikrialfayed@gmail.com</li>
+              <li><i class="fa fa-phone"></i> +62 895-3924-08109</li>
+              <li><i class="fa fa-envelope"></i> afimaulidiyah30@gmail.com</li>
             </ul>
           </div>
         </div>
@@ -101,14 +101,14 @@
                 <li><a href="{{ url('bpd') }}">Badan Permusyawaratan Desa</a></li>
               </ul>
             </li>
-            <li><a href="{{ url('lem') }}">LEM MAS</a>
+            {{-- <li><a href="{{ url('lem') }}">LEM MAS</a>
               <ul class="dropdown">
                 <li><a href="{{ url('lpm') }}">LPM</a></li>
                 <li><a href="{{ url('karangtaruna') }}">Karang Taruna</a></li>
                 <li><a href="{{ url('pkk') }}">PKK</a></li>
               </ul>
-            </li>
-            <li><a href="{{ url('desa') }}">DATA DESA</a>
+            </li> --}}
+            <li><a href="#">DATA DESA</a>
               <ul class="dropdown">
                 <li><a href="{{ url('dapen') }}">Data Pendidikan</a></li>
                 <li><a href="{{ url('dapek') }}">Data Pekerjaan</a></li>
@@ -116,8 +116,8 @@
                 <li><a href="{{ url('daper') }}">Data Perkawinan</a></li>
               </ul>
             </li>
-            <li><a href="{{ url('pengaduan') }}">PENGADUAN</a></li>
-            <li><a href="{{ url('transparan') }}">TRANSPARANSI KEUANGAN</a></li>
+            <li><a href="{{ url('pengaduan/create') }}">PENGADUAN</a></li>
+            {{-- <li><a href="{{ url('transparan') }}">TRANSPARANSI KEUANGAN</a></li> --}}
             
             <!--======= SEARCH ICON =========-->
             <li class="search-nav right"><a href="#."><i class="fa fa-search"></i></a>
@@ -149,12 +149,11 @@
           
           <!-- About -->
           <div class="col-md-4"> <a class="margin-bottom-30" href="{{ URL('/') }}"><img src="{{ url('images/logo-footer.png') }}" alt="logo" width="85%" height="85%"></a>
-            <p>Aoluptas sit aspernatur aut odit aut fugit, sed elits quias consequuntur magni dolores eos qui ratione volust  luptatem sequi nesciunt. .</p>
+            <p>Bismillah bisa menyelesaikan Skripsi tepat waktu dan dosen pengujinya tidak memberikan revisi yang memberatkan saya Aamiin.</p>
             <ul class="personal-info">
-              <li><i class="fa fa-map-marker"></i> 10th Floor,Washington Square Park, 
-                NY, United States.</li>
-              <li><i class="fa fa-envelope"></i> fikrialfayed@gmail.com</li>
-              <li><i class="fa fa-phone"></i> +62 858 8978 4451 </li>
+              <li><i class="fa fa-map-marker"></i> Jl Sawangan, Depok.</li>
+              <li><i class="fa fa-envelope"></i> afimaulidiyah30@gmail.com</li>
+              <li><i class="fa fa-phone"></i> +62 895-3924-08109</li>
             </ul>
           </div>
           

@@ -48,7 +48,7 @@ Route::get('/dajen', [PagesController::class, 'jenkel']);
 Route::get('/daper', [PagesController::class, 'perkawinan']);
 
 // Routes Pengaduan
-Route::get('/pengaduan', [PengaduansController::class, 'create']);
+Route::get('/pengaduan/create', [PengaduansController::class, 'create']);
 
 /*
     ==============================
