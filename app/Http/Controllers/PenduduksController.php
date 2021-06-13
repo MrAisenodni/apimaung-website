@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Penduduk;
 
 class PenduduksController extends Controller
 {
+    public function __construct() {
+        $this->penduduk = new Penduduk();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,10 @@ class PenduduksController extends Controller
     public function index()
     {
         // Menampilkan halaman penduduk untuk admin
-        return view('admin.penduduk.index');
+        $data = [
+            'penduduk' => $this->penduduk->getAllData(),
+        ];
+        return view('admin.penduduk.index', $data);
     }
 
     /**

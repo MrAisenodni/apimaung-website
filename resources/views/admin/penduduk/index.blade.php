@@ -29,18 +29,23 @@
                                                 <th>Nama</th>
                                                 <th>Jenis Kelamin</th>
                                                 <th>Pendidikan</th>
-                                                <th>Status</th>
+                                                <th>Pekerjaan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($penduduk as $data)
                                             <tr>
                                                 <td>1</td>
-                                                <td>3275040091197012</td>
-                                                <td>Muhammad Fiqri Alfayed</td>
-                                                <td>Laki-laki</td>
-                                                <td>Doktor</td>
-                                                <td>Lajang</td>
+                                                <td>{{ $data->nik }}</td>
+                                                <td>{{ $data->nama }}</td>
+                                                @if ($data->jenkel == 'l')
+                                                    <td>Laki-laki</td>
+                                                @else
+                                                    <td>Perempuan</td>
+                                                @endif
+                                                <td>{{ $data->pendidikan }}</td>
+                                                <td>{{ $data->pekerjaan }}</td>
                                                 <td width="16%">
                                                     <a href="penduduk/1/edit" class="btn btn-warning">
                                                         <i class="fas fa-edit"></i>
@@ -57,6 +62,7 @@
                                                     </a>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
