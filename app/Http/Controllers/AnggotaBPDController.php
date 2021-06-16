@@ -55,7 +55,10 @@ class AnggotaBPDController extends Controller
     public function show($id)
     {
         //
-        return view('admin.angbpd.show');
+        $data = [
+            'angbpd'        => $this->angbpd->getData($id),
+        ];
+        return view('admin.angbpd.show', $data);
     }
     
     /**
@@ -67,7 +70,10 @@ class AnggotaBPDController extends Controller
     public function edit($id)
     {
         //
-        return view('admin.angbpd.edit');
+        $data = [
+            'angbpd'        => $this->angbpd->getData($id),
+        ];
+        return view('admin.angbpd.edit', $data);
     }
 
     /**
