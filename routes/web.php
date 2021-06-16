@@ -91,7 +91,7 @@ Route::post('/pengaduan', [PengaduansController::class, 'store']);
 Route::put('/pengaduan/{id}', [PengaduansController::class, 'update']);
 Route::delete('/pengaduan/{id}', [PengaduansController::class, 'destroy']);
 
-// Routes Admin mengelola Desa
+// Routes Admin mengelola Profil Desa
 Route::get('/profildesa', [DesaController::class, 'index']);
 Route::get('/profildesa/create', [DesaController::class, 'create']);
 Route::get('/profildesa/edit/{id}', [DesaController::class, 'edit']);

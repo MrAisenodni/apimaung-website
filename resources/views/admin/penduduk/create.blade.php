@@ -42,7 +42,7 @@
                                         <input type="text" class="form-control" id="inputZip">
                                     </div>
                                     <div class="col-12 mt-3">
-                                        <button type="submit" class="btn btn-info"><span class="fas fa-times-circle"></span> BATAL</button>
+                                        <button type="button" class="btn btn-info"><a href="/penduduk" class="text-white"><span class="fas fa-times-circle"></span> KEMBALI</a></button>
                                         <button type="submit" class="btn btn-success"><span class="fas fa-location-arrow"></span> SIMPAN</button>
                                     </div>
                                 </form>

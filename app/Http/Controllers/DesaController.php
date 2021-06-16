@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Desa;
 
 class DesaController extends Controller
 {
+    public function __construct() {
+        $this->desa = new Desa();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +18,10 @@ class DesaController extends Controller
     public function index()
     {
         //
+        $data = [
+            'profildesa'      => $this->desa->getAllData(),
+        ];
+        return view('admin.profildesa.index', $data);
     }
 
     /**
@@ -24,6 +32,7 @@ class DesaController extends Controller
     public function create()
     {
         //
+        return view('admin.profildesa.create');
     }
 
     /**
@@ -46,6 +55,10 @@ class DesaController extends Controller
     public function show($id)
     {
         //
+        $data = [
+            'profildesa'      => $this->desa->getData($id),
+        ];
+        return view('admin.profildesa.show', $data);
     }
 
     /**
@@ -57,6 +70,10 @@ class DesaController extends Controller
     public function edit($id)
     {
         //
+        $data = [
+            'profildesa'      => $this->desa->getData($id),
+        ];
+        return view('admin.profildesa.edit', $data);
     }
 
     /**

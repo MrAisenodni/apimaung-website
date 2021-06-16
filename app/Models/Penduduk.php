@@ -16,4 +16,17 @@ class Penduduk extends Model
                     ->where('id_penduduk', $id)
                     ->first();
     }
+
+    public function tambahData($data) {
+        return DB::table('penduduk')
+                    ->insert($data);
+    }
+
+    public function ubahData($data,$id) {
+
+    }
+
+    public function hapusData($id) {
+
+    }
 }

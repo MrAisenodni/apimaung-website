@@ -70,7 +70,10 @@ class PenduduksController extends Controller
     public function edit($id)
     {
         // Menampilkan form ubah penduduk
-        return view('admin.penduduk.edit');
+        $data = [
+            'penduduk'      => $this->penduduk->getData($id),
+        ];
+        return view('admin.penduduk.edit', $data);
     }
 
     /**

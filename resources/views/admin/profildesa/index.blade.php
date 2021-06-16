@@ -1,23 +1,23 @@
 @extends('layouts.admin')
 
-@section('title', 'Penduduk')
+@section('title', 'Profil Desa')
 
 @section('content')
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">MANAJEMEN PENDUDUK</h1>
+                        <h1 class="mt-4">MANAJEMEN PROFIL DESA</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Penduduk</li>
+                            <li class="breadcrumb-item active">Profil Desa</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                Data Penduduk
+                                Data Profil Desa
                             </div>
                             <div class="mt-3 col-lg-9">
-                                <a href="penduduk/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Penduduk</a>
+                                <a href="profildesa/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Profil Desa</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -25,29 +25,23 @@
                                         <thead class="text-center">
                                             <tr>
                                                 <th>No</th>
-                                                <th>NIK</th>
+                                                <th>Dasar Hukum Pembentukan</th>
                                                 <th>Nama</th>
-                                                <th>Jenis Kelamin</th>
-                                                <th>Pendidikan</th>
-                                                <th>Pekerjaan</th>
+                                                <th>Nomor Kode Wilayah</th>
+                                                <th>Kecamatan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($penduduk as $data)
+                                            @foreach ($profildesa as $data)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $data->nik }}</td>
+                                                <td>{{ $data->dasar_hukum }}</td>
                                                 <td>{{ $data->nama }}</td>
-                                                @if ($data->jenkel == 'l')
-                                                    <td>Laki-laki</td>
-                                                @else
-                                                    <td>Perempuan</td>
-                                                @endif
-                                                <td>{{ $data->pendidikan }}</td>
-                                                <td>{{ $data->pekerjaan }}</td>
+                                                <td>{{ $data->no_kode_wilayah }}</td>
+                                                <td>{{ $data->kecamatan }}</td>
                                                 <td width="16%">
-                                                    <a href="penduduk/edit/{{ $data->id_penduduk }}" class="btn btn-warning">
+                                                    <a href="profildesa/edit/{{ $data->id_desa }}" class="btn btn-warning">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
                                                     <form action="" method="POST" class="d-inline">
@@ -57,7 +51,7 @@
                                                             <i class="fas fa-trash"></i>
                                                         </a>
                                                     </form>
-                                                    <a href="/penduduk/{{ $data->id_penduduk }}" class="btn btn-info">
+                                                    <a href="/profildesa/{{ $data->id_desa }}" class="btn btn-info">
                                                         <i class="fas fa-list"></i>
                                                     </a>
                                                 </td>

@@ -35,7 +35,7 @@
                                         <tbody>
                                             @foreach ($angbpd as $data)
                                             <tr>
-                                                <td>1</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $data->nip }}</td>
                                                 <td>{{ $data->nama }}</td>
                                                 @if ($data->jenkel == 'l')
