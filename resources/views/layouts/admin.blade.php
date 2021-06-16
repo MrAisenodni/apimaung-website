@@ -54,10 +54,22 @@
                             <a class="nav-link" href="{{ url('/penduduk') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Penduduk
-                            </a>
+                            </a> 
+                            <a class="nav-link" href="{{ url('/profildesa') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                                Profil Desa
+                            </a> 
+                            <a class="nav-link" href="{{ url('/angbpd') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-id-card-alt"></i></div>
+                                Anggota BPD
+                            </a> 
                             <a class="nav-link" href="{{ url('/pengaduan') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                                 Pengaduan
+                            </a>
+                            <a class="nav-link" href="{{ url('/operator/kritiksaran') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
+                                Kritik dan Saran
                             </a>
                         </div>
                     </div>

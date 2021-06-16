@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Penduduk;
+use App\Models\AnggotaBPD;
 
-class PenduduksController extends Controller
+class AnggotaBPDController extends Controller
 {
     public function __construct() {
-        $this->penduduk = new Penduduk();
+        $this->angbpd   = new AnggotaBPD();
     }
     /**
      * Display a listing of the resource.
@@ -17,11 +17,11 @@ class PenduduksController extends Controller
      */
     public function index()
     {
-        // Menampilkan halaman penduduk untuk admin
+        //
         $data = [
-            'penduduk' => $this->penduduk->getAllData(),
+            'angbpd'        => $this->angbpd->getAllData(),
         ];
-        return view('admin.penduduk.index', $data);
+        return view('admin.angbpd.index', $data);
     }
 
     /**
@@ -31,8 +31,8 @@ class PenduduksController extends Controller
      */
     public function create()
     {
-        // Menampilkan form tambah penduduk
-        return view('admin.penduduk.create');
+        //
+        return view('admin.angbpd.create');
     }
     
     /**
@@ -43,7 +43,7 @@ class PenduduksController extends Controller
      */
     public function store(Request $request)
     {
-        // Mengirimkan data penduduk baru ke database
+        //
     }
     
     /**
@@ -54,11 +54,8 @@ class PenduduksController extends Controller
      */
     public function show($id)
     {
-        // Menampilkan form detail penduduk
-        $data = [
-            'penduduk'      => $this->penduduk->getData($id),
-        ];
-        return view('admin.penduduk.show', $data);
+        //
+        return view('admin.angbpd.show');
     }
     
     /**
@@ -69,8 +66,8 @@ class PenduduksController extends Controller
      */
     public function edit($id)
     {
-        // Menampilkan form ubah penduduk
-        return view('admin.penduduk.edit');
+        //
+        return view('admin.angbpd.edit');
     }
 
     /**
@@ -82,7 +79,7 @@ class PenduduksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Mengirimkan perubahan penduduk ke database
+        //
     }
 
     /**
@@ -93,6 +90,6 @@ class PenduduksController extends Controller
      */
     public function destroy($id)
     {
-        // Menghapus penduduk dari database
+        //
     }
 }

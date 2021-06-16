@@ -55,6 +55,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                                 Pengaduan
                             </a>
+                            <a class="nav-link" href="{{ url('/operator/kritiksaran') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
+                                Kritik dan Saran
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

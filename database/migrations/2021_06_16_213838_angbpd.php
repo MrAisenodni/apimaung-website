@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Penduduk extends Migration
+class Angbpd extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,15 @@ class Penduduk extends Migration
      */
     public function up()
     {
-        //  Struktur tabel penduduk
-        Schema::create('penduduk', function (Blueprint $table) {
-            $table->id('id_penduduk');
-            $table->string('nik')->unique();
-            $table->string('nokk')->unique();
+        //  Struktur tabel anggota bpd
+        Schema::create('angbpd', function (Blueprint $table) {
+            $table->id('id_angbpd');
+            $table->string('nip')->unique();
             $table->string('nama');
-            $table->string('tmpt_lahir');
-            $table->date('tgl_lahir');
             $table->enum('jenkel', ['l','p']);
             $table->enum('agama', ['islam', 'kristen', 'konghucu', 'hindu', 'buddha']);
             $table->string('alamat');
-            $table->string('rt');
-            $table->string('rw');
-            $table->string('pendidikan');
-            $table->string('pekerjaan');
+            $table->string('jabatan');
             $table->datetime('created_at')->nullable();
             $table->datetime('updated_at')->nullable(); 
             $table->datetime('deleted_at')->nullable();
@@ -41,7 +35,7 @@ class Penduduk extends Migration
      */
     public function down()
     {
-        // Fungsi untuk menghapus tabel penduduk
-        Schema::dropIfExists('penduduk');
+        // Fungsi untuk menghapus tabel anggota bpd
+        Schema::dropIfExists('angbpd');
     }
 }

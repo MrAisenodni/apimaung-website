@@ -1,23 +1,23 @@
 @extends('layouts.admin')
 
-@section('title', 'Penduduk')
+@section('title', 'Anggota BPD')
 
 @section('content')
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">MANAJEMEN PENDUDUK</h1>
+                        <h1 class="mt-4">MANAJEMEN ANGGOTA BPD</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Penduduk</li>
+                            <li class="breadcrumb-item active">BPD</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                Data Penduduk
+                                Data Anggota BPD
                             </div>
                             <div class="mt-3 col-lg-9">
-                                <a href="penduduk/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Penduduk</a>
+                                <a href="angbpd/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Anggota BPD</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -25,29 +25,27 @@
                                         <thead class="text-center">
                                             <tr>
                                                 <th>No</th>
-                                                <th>NIK</th>
+                                                <th>NIP</th>
                                                 <th>Nama</th>
                                                 <th>Jenis Kelamin</th>
-                                                <th>Pendidikan</th>
-                                                <th>Pekerjaan</th>
+                                                <th>Jabatan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($penduduk as $data)
+                                            @foreach ($angbpd as $data)
                                             <tr>
                                                 <td>1</td>
-                                                <td>{{ $data->nik }}</td>
+                                                <td>{{ $data->nip }}</td>
                                                 <td>{{ $data->nama }}</td>
                                                 @if ($data->jenkel == 'l')
                                                     <td>Laki-laki</td>
                                                 @else
                                                     <td>Perempuan</td>
                                                 @endif
-                                                <td>{{ $data->pendidikan }}</td>
-                                                <td>{{ $data->pekerjaan }}</td>
+                                                <td>{{ $data->jabatan }}</td>
                                                 <td width="16%">
-                                                    <a href="penduduk/edit/"{{ $data->id_penduduk }} class="btn btn-warning">
+                                                    <a href="angbpd/edit/{{ $data->id_angbpd }}" class="btn btn-warning">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
                                                     <form action="" method="POST" class="d-inline">
@@ -57,7 +55,7 @@
                                                             <i class="fas fa-trash"></i>
                                                         </a>
                                                     </form>
-                                                    <a href="/penduduk/{{ $data->id_penduduk }}" class="btn btn-info">
+                                                    <a href="/angbpd/{{ $data->id_angbpd }}" class="btn btn-info">
                                                         <i class="fas fa-list"></i>
                                                     </a>
                                                 </td>

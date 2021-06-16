@@ -10,4 +10,10 @@ class Penduduk extends Model
     public function getAllData() {
         return DB::table('penduduk')->get(); // get() => SELECT * FROM penduduk
     }
+
+    public function getData($id) {
+        return DB::table('penduduk')
+                    ->where('id_penduduk', $id)
+                    ->first();
+    }
 }
