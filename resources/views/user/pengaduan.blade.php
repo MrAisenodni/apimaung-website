@@ -15,6 +15,12 @@
                 <div class="col-lg-12 col-xs-12">
                     <!-- /.box-title -->
                         <div class="row">
+                            <div class="col-lg-12 col-xs-10">
+                                <div class="form-group">
+                                    <label for="nik">NIK</label>
+                                    <input type="text" class="form-control" id="nik" placeholder="Masukkan NIK Anda" name="nik">
+                                </div>
+                            </div>
                             <div class="col-lg-6 col-xs-12">
                                 <div class="form-group">
                                     <label for="judul">Judul Pengaduan</label>
@@ -52,8 +58,8 @@
                                     <label for="kategori">Kategori Pengaduan Anda</label>
                                     <select class="form-control" name="kategori" id="kategori">
                                         <option value="">-- Pilih Kategori Pengaduan --</option>
-                                        <option value=""></option>
-                                        <option value=""></option>
+                                        <option value="penting">Penting</option>
+                                        <option value="umum">Umum</option>
                                     </select>
                                 </div>
                             </div>

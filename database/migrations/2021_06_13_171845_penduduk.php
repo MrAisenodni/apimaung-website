@@ -16,18 +16,18 @@ class Penduduk extends Migration
         //  Struktur tabel penduduk
         Schema::create('penduduk', function (Blueprint $table) {
             $table->id('id_penduduk');
-            $table->string('nik')->unique();
-            $table->string('nokk')->unique();
-            $table->string('nama');
-            $table->string('tmpt_lahir');
+            $table->string('nik',16)->unique();
+            $table->string('nokk',16)->unique();
+            $table->string('nama',100);
+            $table->string('tmpt_lahir',50);
             $table->date('tgl_lahir');
             $table->enum('jenkel', ['l','p']);
             $table->enum('agama', ['islam', 'kristen', 'konghucu', 'hindu', 'buddha']);
             $table->string('alamat');
-            $table->string('rt');
-            $table->string('rw');
-            $table->string('pendidikan');
-            $table->string('pekerjaan');
+            $table->string('rt',3);
+            $table->string('rw',3);
+            $table->string('pendidikan',100);
+            $table->string('pekerjaan',100);
             $table->datetime('created_at')->nullable();
             $table->datetime('updated_at')->nullable(); 
             $table->datetime('deleted_at')->nullable();

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Angbpd extends Migration
+class Pengaduan extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,14 @@ class Angbpd extends Migration
     public function up()
     {
         //  Struktur tabel anggota bpd
-        Schema::create('angbpd', function (Blueprint $table) {
-            $table->id('id_angbpd');
-            $table->string('nip',19)->unique();
-            $table->string('nama',100);
-            $table->enum('jenkel', ['l','p']);
-            $table->enum('agama', ['islam', 'kristen', 'konghucu', 'hindu', 'buddha']);
-            $table->string('alamat');
-            $table->string('jabatan',100);
+        Schema::create('pengaduan', function (Blueprint $table) {
+            $table->id('id_pengaduan');
+            $table->foreignId('id_penduduk');
+            $table->string('judul',100);
+            $table->date('tgl_kejadian');
+            $table->string('lokasi',100);
+            $table->string('instansi',100);
+            $table->enum('kategori', ['penting', 'umum']);
             $table->datetime('created_at')->nullable();
             $table->datetime('updated_at')->nullable(); 
             $table->datetime('deleted_at')->nullable();
@@ -36,6 +36,6 @@ class Angbpd extends Migration
     public function down()
     {
         // Fungsi untuk menghapus tabel anggota bpd
-        Schema::dropIfExists('angbpd');
+        Schema::dropIfExists('pengaduan');
     }
 }
