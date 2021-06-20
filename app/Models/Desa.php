@@ -16,4 +16,21 @@ class Desa extends Model
                     ->where('id_desa', $id)
                     ->first();
     }
+
+    public function tambahData($data) {
+        return DB::table('desa')->insert($data);
+
+    }
+
+    public function hapusData($id) {
+        return DB::table('desa')
+                    ->where('id_desa', $id)
+                    ->delete();
+    }
+
+    public function ubahData($data, $id) {
+        return DB::table('desa')
+                    ->where('id_desa', $id)
+                    ->update($data);
+    }
 }

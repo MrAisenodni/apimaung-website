@@ -9,7 +9,7 @@
                         <h1 class="mt-4">TAMBAH DATA DESA</h1>
                         <div class="card mb-4">
                             <div class="card-body">
-                                <form class="row g-3" action="/angbpd">
+                                <form class="row g-3" action="/profildesa" method="POST">
                                     @csrf
                                     <div class="col-md-12 form-group">
                                         <label for="nama" class="form-label">Nama Desa</label>

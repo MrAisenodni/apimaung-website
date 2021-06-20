@@ -16,6 +16,11 @@
                                 <i class="fas fa-table mr-1"></i>
                                 Data Profil Desa
                             </div>
+                            @if (session('status'))
+                                <div class="alert alert-success">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
                             <div class="mt-3 col-lg-9">
                                 <a href="profildesa/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Profil Desa</a>
                             </div>
@@ -44,12 +49,12 @@
                                                     <a href="profildesa/edit/{{ $data->id_desa }}" class="btn btn-warning">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <form action="" method="POST" class="d-inline">
+                                                    <form action="/profildesa/{{ $data->id_desa }}" method="POST" class="d-inline">
                                                         @method('delete')
                                                         @csrf
-                                                        <a href="#" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
-                                                            <i class="fas fa-trash"></i>
-                                                        </a>
+                                                        {{-- <a href="/profildesa/{{ $data->id_desa }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');"> --}}
+                                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                                        {{-- </a> --}}
                                                     </form>
                                                     <a href="/profildesa/{{ $data->id_desa }}" class="btn btn-info">
                                                         <i class="fas fa-list"></i>

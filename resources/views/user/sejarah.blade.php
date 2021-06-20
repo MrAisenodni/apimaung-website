@@ -53,65 +53,7 @@
               </div>
             </article>
             
-            <!--=======  COMMENTS =========-->
-            <div class="comments">
-              <h4 class="text-uppercase">3 comments </h4>
-              <ul class="media-list">
-                
-                <!--=======  COMMENTS =========-->
-                <li class="media">
-                  <div class="media-left"> <a href="#"> <img class="media-object" src="images/com-avatar-1.jpg" alt=""> </a> </div>
-                  <div class="media-body light-gray-bg">
-                    <h6 class="media-heading">Steave Hans<span> Sep 23, 2017</span></h6>
-                    <p>Taque ipsa quae abe illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemosala enim ipsam volupitatem quia voluptas sit aspernatur aut odit aut fugite.</p>
-                    <a href="#." class="reply">Reply</a> </div>
-                </li>
-                
-                <!--=======  COMMENTS =========-->
-                <li class="media margin-left-80">
-                  <div class="media-left"> <a href="#"> <img class="media-object" src="images/com-avatar-2.jpg" alt=""> </a> </div>
-                  <div class="media-body light-gray-bg">
-                    <h6 class="media-heading">Jhon Kennadi <span> Sep 23, 2017</span></h6>
-                    <p>Taque ipsa quae abe illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemosala enim ipsam volupitatem quia voluptas sit aspernatur aut odit aut fugite.</p>
-                    <a href="#." class="reply">Reply</a> </div>
-                </li>
-                
-                <!--=======  COMMENTS =========-->
-                <li class="media">
-                  <div class="media-left"> <a href="#"> <img class="media-object" src="images/com-avatar-3.jpg" alt=""> </a> </div>
-                  <div class="media-body light-gray-bg">
-                    <h6 class="media-heading">Rock Lancer <span>Sep 23, 2017</span></h6>
-                    <p>Taque ipsa quae abe illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemosala enim ipsam volupitatem quia voluptas sit aspernatur aut odit aut fugite.</p>
-                    <a href="#." class="reply">Reply</a> </div>
-                </li>
-              </ul>
-              
-              <!--=======  LEAVE COMMENTS =========-->
-              <h4 class="font-alegreya">leave a comment</h4>
-              <form>
-                    <ul class="row">
-                      <li class="col-sm-6">
-                        <label> Name
-                          <input type="text" class="form-control" name="name" placeholder="" >
-                        </label>
-                      </li>
-                      <li class="col-sm-6">
-                        <label> Email
-                          <input type="text" class="form-control" name="name" placeholder="" >
-                        </label>
-                      </li>
-                      
-                      <li class="col-sm-12">
-                        <label> COMMENTS
-                          <textarea class="form-control" ></textarea>
-                        </label>
-                      </li>
-                      <li class="col-sm-12">
-                        <button type="submit" class="btn">post comment </button>
-                      </li>
-                    </ul>
-              </form>
-            </div>
+            
           </div>
           
           <!-- Side Bar -->

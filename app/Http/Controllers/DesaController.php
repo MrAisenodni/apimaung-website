@@ -44,6 +44,18 @@ class DesaController extends Controller
     public function store(Request $request)
     {
         //
+        $data=[
+            'nama' => $request->nama,
+            'tahun_bentuk' => $request->tahun_bentuk,
+            'dasar_hukum' => $request->dasar_hukum,
+            'no_kode_wilayah' => $request->no_kode_wilayah,
+            'kecamatan' => $request->kecamatan,
+            'kota' => $request->kabupaten,
+            'provinsi' => $request->provinsi,
+            'kode_pos' => $request->kode_pos,
+        ];
+        $this->desa->tambahData($data);
+        return redirect('/profildesa')->with('status', 'Data berhasil ditambahkan.');
     }
 
     /**
@@ -86,6 +98,18 @@ class DesaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data=[
+            'nama' => $request->nama,
+            'tahun_bentuk' => $request->tahun_bentuk,
+            'dasar_hukum' => $request->dasar_hukum,
+            'no_kode_wilayah' => $request->no_kode_wilayah,
+            'kecamatan' => $request->kecamatan,
+            'kota' => $request->kota,
+            'provinsi' => $request->provinsi,
+            'kode_pos' => $request->kode_pos,
+        ];
+        $this->desa->ubahData($data, $id);
+        return redirect('/profildesa')->with('status', 'Data berhasil diubah!');
     }
 
     /**
@@ -97,5 +121,7 @@ class DesaController extends Controller
     public function destroy($id)
     {
         //
+        $this->desa->hapusData($id);
+        return redirect('/profildesa')->with('status', 'Data Berhasil Dihapus!'); 
     }
 }

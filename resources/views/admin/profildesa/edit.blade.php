@@ -9,7 +9,8 @@
                         <h1 class="mt-4">UBAH DATA DESA</h1>
                         <div class="card mb-4">
                             <div class="card-body">
-                                <form class="row g-3" action="/profildesa">
+                                <form class="row g-3" method="POST" action="/profildesa/{{ $profildesa->id_desa }}">
+                                    @method('put')
                                     @csrf
                                     <div class="col-md-12 form-group">
                                         <label for="nama" class="form-label">Nama Desa</label>
