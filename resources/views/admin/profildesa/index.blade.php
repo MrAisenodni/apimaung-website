@@ -40,12 +40,12 @@
                                         <tbody>
                                             @foreach ($profildesa as $data)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $data->dasar_hukum }}</td>
                                                 <td>{{ $data->nama }}</td>
                                                 <td>{{ $data->no_kode_wilayah }}</td>
                                                 <td>{{ $data->kecamatan }}</td>
-                                                <td width="16%">
+                                                <td width="16%" class="text-center">
                                                     <a href="profildesa/edit/{{ $data->id_desa }}" class="btn btn-warning">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
