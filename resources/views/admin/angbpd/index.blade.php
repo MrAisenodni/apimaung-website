@@ -35,7 +35,7 @@
                                         <tbody>
                                             @foreach ($angbpd as $data)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $data->nip }}</td>
                                                 <td>{{ $data->nama }}</td>
                                                 @if ($data->jenkel == 'l')
@@ -44,7 +44,7 @@
                                                     <td>Perempuan</td>
                                                 @endif
                                                 <td>{{ $data->jabatan }}</td>
-                                                <td width="16%">
+                                                <td width="16%" class="text-center">
                                                     <a href="angbpd/edit/{{ $data->id_angbpd }}" class="btn btn-warning">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
