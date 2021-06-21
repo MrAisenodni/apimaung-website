@@ -21,7 +21,11 @@ class KritikSaranController extends Controller
         $data = [
             'kritiksaran'       => $this->kritiksaran->getAllData(),
         ];
-        return view('admin.kritiksaran.index', $data);
+        if(request()->is('/admin')) {
+            return view('admin.kritiksaran.index', $data);
+        } elseif (request()->is('/operator')) {
+            return view('operator.kritiksaran.index', $data);
+        }
     }
 
     /**

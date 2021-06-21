@@ -132,9 +132,4 @@ Route::delete('/operator/pengaduan/{id}', [PesanController::class, 'destroy']);
 
 // Routes Admin mengelola Kritik dan Saran
 Route::get('/operator/kritiksaran', [KritikSaranController::class, 'index']);
-Route::get('/operator/kritiksaran/create', [KritikSaranController::class, 'create']);
-Route::get('/operator/kritiksaran/edit/{id}', [KritikSaranController::class, 'edit']);
 Route::get('/operator/kritiksaran/{id}', [KritikSaranController::class, 'show']);
-Route::post('/operator/kritiksaran', [KritikSaranController::class, 'store']);
-Route::put('/operator/kritiksaran/{id}', [KritikSaranController::class, 'update']);
-Route::delete('/operator/kritiksaran/{id}', [KritikSaranController::class, 'destroy']);
