@@ -52,9 +52,9 @@
                                                     <form action="/profildesa/{{ $data->id_desa }}" method="POST" class="d-inline">
                                                         @method('delete')
                                                         @csrf
-                                                        {{-- <a href="/profildesa/{{ $data->id_desa }}" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');"> --}}
+                                                        <a href="" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
                                                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                        {{-- </a> --}}
+                                                        </a>
                                                     </form>
                                                     <a href="/profildesa/{{ $data->id_desa }}" class="btn btn-info">
                                                         <i class="fas fa-list"></i>

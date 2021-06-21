@@ -18,6 +18,7 @@ class Pengaduan extends Migration
             $table->id('id_pengaduan');
             $table->foreignId('id_penduduk');
             $table->string('judul',100);
+            $table->longText('pesan');
             $table->date('tgl_kejadian');
             $table->string('lokasi',100);
             $table->string('instansi',100);

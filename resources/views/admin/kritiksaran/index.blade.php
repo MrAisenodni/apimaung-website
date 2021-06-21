@@ -1,23 +1,20 @@
 @extends('layouts.admin')
 
-@section('title', 'Anggota BPD')
+@section('title', 'Kritik dan Saran')
 
 @section('content')
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">MANAJEMEN ANGGOTA BPD</h1>
+                        <h1 class="mt-4">KRITIK DAN SARAN</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">BPD</li>
+                            <li class="breadcrumb-item active">Kritik dan Saran</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                Data Anggota BPD
-                            </div>
-                            <div class="mt-3 col-lg-9">
-                                <a href="angbpd/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Anggota BPD</a>
+                                Data Kritik dan Saran
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -25,37 +22,28 @@
                                         <thead class="text-center">
                                             <tr>
                                                 <th>No</th>
-                                                <th>NIP</th>
                                                 <th>Nama</th>
-                                                <th>Jenis Kelamin</th>
-                                                <th>Jabatan</th>
+                                                <th>Email</th>
+                                                <th>Judul</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($angbpd as $data)
+                                            @foreach ($kritiksaran as $data)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $data->nip }}</td>
+                                                <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $data->nama }}</td>
-                                                @if ($data->jenkel == 'l')
-                                                    <td>Laki-laki</td>
-                                                @else
-                                                    <td>Perempuan</td>
-                                                @endif
-                                                <td>{{ $data->jabatan }}</td>
-                                                <td width="16%">
-                                                    <a href="angbpd/edit/{{ $data->id_angbpd }}" class="btn btn-warning">
-                                                        <i class="fas fa-edit"></i>
-                                                    </a>
-                                                    <form action="" method="POST" class="d-inline">
+                                                <td>{{ $data->no_hp }}</td>
+                                                <td width="50%">{{ $data->pesan }}</td>
+                                                <td width="16%" class="text-center">
+                                                    <form action="/kritiksaran/{{ $data->id_kritiksaran }}" method="POST" class="d-inline">
                                                         @method('delete')
                                                         @csrf
                                                         <a href="#" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
                                                             <i class="fas fa-trash"></i>
                                                         </a>
                                                     </form>
-                                                    <a href="/angbpd/{{ $data->id_angbpd }}" class="btn btn-info">
+                                                    <a href="/kritiksaran/{{ $data->id_kritiksaran }}" class="btn btn-info">
                                                         <i class="fas fa-list"></i>
                                                     </a>
                                                 </td>

@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\KritikSaran;
 
 class KritikSaranController extends Controller
 {
+    public function __construct() {
+        $this->kritiksaran = new KritikSaran();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,28 +17,11 @@ class KritikSaranController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        // Fungsi untuk menampilkan data pada tabel kritiksaran
+        $data = [
+            'kritiksaran'       => $this->kritiksaran->getAllData(),
+        ];
+        return view('admin.kritiksaran.index', $data);
     }
 
     /**
@@ -45,30 +32,11 @@ class KritikSaranController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        // Fungsi untuk menampilkan detail dari satu row pada tabel kritiksaran berdasarkan $id
+        $data = [
+            'kritiksaran'       =>$this->kritiksaran->getData($id),
+        ];
+        return view('admin.kritiksaran.show', $data);
     }
 
     /**
@@ -79,6 +47,10 @@ class KritikSaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Fungsi untuk menghapus data dari tabel kritiksaran
+        $data = [
+            'kritiksaran'       => $this->kritiksaran->hapusData($id),
+        ];
+        return redirect()->with('status', 'Data berhasil dihapus.');
     }
 }
