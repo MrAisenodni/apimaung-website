@@ -16,6 +16,11 @@
                                 <i class="fas fa-table mr-1"></i>
                                 Data Kritik dan Saran
                             </div>
+                            @if (session('status'))
+                                <div class="m-3 alert alert-success">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

@@ -48,9 +48,7 @@ class KritikSaranController extends Controller
     public function destroy($id)
     {
         // Fungsi untuk menghapus data dari tabel kritiksaran
-        $data = [
-            'kritiksaran'       => $this->kritiksaran->hapusData($id),
-        ];
-        return redirect()->with('status', 'Data berhasil dihapus.');
+        $this->kritiksaran->hapusData($id);
+        return redirect('/kritiksaran')->with('status', 'Data berhasil dihapus.');
     }
 }

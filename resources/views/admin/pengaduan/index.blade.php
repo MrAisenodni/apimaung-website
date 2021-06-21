@@ -30,32 +30,11 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
+                                                <td class="text-center">1</td>
                                                 <td>Muhammad Fiqri Alfayed</td>
                                                 <td>fiqrialfayed@gmail.com</td>
                                                 <td class="text-center"><p class="btn btn-warning">PENDING</p></td>
-                                                <td width="18%">
-                                                    <a href="pengaduan/1/edit" class="btn btn-warning">
-                                                        <i class="fas fa-edit"></i>
-                                                    </a>
-                                                    <form action="" method="POST" class="d-inline">
-                                                        @method('delete')
-                                                        @csrf
-                                                        <a href="#" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
-                                                            <i class="fas fa-trash"></i>
-                                                        </a>
-                                                    </form>
-                                                    <a href="/pengaduan/1" class="btn btn-info">
-                                                        <i class="fas fa-list"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Afi Maung</td>
-                                                <td>afimaung@gmail.com</td>
-                                                <td class="text-center"><p class="btn btn-success">COMPLETED</p></td>
-                                                <td width="18%">
+                                                <td width="18%" class="text-center">
                                                     <a href="pengaduan/1/edit" class="btn btn-warning">
                                                         <i class="fas fa-edit"></i>
                                                     </a>

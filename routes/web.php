@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\LoginsController;
 use App\Http\Controllers\PenduduksController;
-use App\Http\Controllers\PengaduansController;
+use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PesansController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\AnggotaBPDController;
@@ -51,7 +51,7 @@ Route::get('/dajen', [PagesController::class, 'jenkel']);
 Route::get('/daper', [PagesController::class, 'perkawinan']);
 
 // Routes Pengaduan
-Route::get('/pengaduan/create', [PengaduansController::class, 'create']);
+Route::get('/pengaduan/create', [PengaduanController::class, 'create']);
 
 /*
     ==============================
@@ -83,13 +83,11 @@ Route::put('/penduduk/{id}', [PenduduksController::class, 'update']);
 Route::delete('/penduduk/{id}', [PenduduksController::class, 'destroy']);
 
 // Routes Admin mengelola Pengaduan
-Route::get('/pengaduan', [PengaduansController::class, 'index']);
-Route::get('/pengaduan/create', [PengaduansController::class, 'create']);
-Route::get('/pengaduan/edit/{id}', [PengaduansController::class, 'edit']);
-Route::get('/pengaduan/{id}', [PengaduansController::class, 'show']);
-Route::post('/pengaduan', [PengaduansController::class, 'store']);
-Route::put('/pengaduan/{id}', [PengaduansController::class, 'update']);
-Route::delete('/pengaduan/{id}', [PengaduansController::class, 'destroy']);
+Route::get('/pengaduan', [PengaduanController::class, 'index']);
+Route::get('/pengaduan/{id}/edit', [PengaduanController::class, 'edit']);
+Route::get('/pengaduan/{id}', [PengaduanController::class, 'show']);
+Route::put('/pengaduan/{id}', [PengaduanController::class, 'update']);
+Route::delete('/pengaduan/{id}', [PengaduanController::class, 'destroy']);
 
 // Routes Admin mengelola Profil Desa
 Route::get('/profildesa', [DesaController::class, 'index']);

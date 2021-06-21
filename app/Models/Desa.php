@@ -21,16 +21,16 @@ class Desa extends Model
         return DB::table('desa')->insert($data);
 
     }
+    
+    public function ubahData($data, $id) {
+        return DB::table('desa')
+                    ->where('id_desa', $id)
+                    ->update($data);
+    }
 
     public function hapusData($id) {
         return DB::table('desa')
                     ->where('id_desa', $id)
                     ->delete();
-    }
-
-    public function ubahData($data, $id) {
-        return DB::table('desa')
-                    ->where('id_desa', $id)
-                    ->update($data);
     }
 }

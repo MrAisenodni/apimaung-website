@@ -120,7 +120,7 @@ class DesaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Fungsi untuk menghapus data dari tabel desa
         $this->desa->hapusData($id);
         return redirect('/profildesa')->with('status', 'Data berhasil dihapus.'); 
     }

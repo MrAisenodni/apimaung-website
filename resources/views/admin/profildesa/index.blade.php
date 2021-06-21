@@ -17,7 +17,7 @@
                                 Data Profil Desa
                             </div>
                             @if (session('status'))
-                                <div class="alert alert-success">
+                                <div class="m-3 alert alert-success">
                                     {{ session('status') }}
                                 </div>
                             @endif
@@ -52,7 +52,7 @@
                                                     <form action="/profildesa/{{ $data->id_desa }}" method="POST" class="d-inline">
                                                         @method('delete')
                                                         @csrf
-                                                        <a href="" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
+                                                        <a href="" onclick="return confirm('Apakah Anda Yakin?');">
                                                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                                         </a>
                                                     </form>

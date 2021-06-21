@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PengaduansController extends Controller
+class PengaduanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,29 +16,7 @@ class PengaduansController extends Controller
         // Menampilkan halaman pengaduan untuk Admin
         return view('admin.pengaduan.index');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        // Menampilkan halaman pengaduan untuk User
-        return view('user.pengaduan');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        // Mengirimkan pengaduan baru ke database
-    }
-
+    
     /**
      * Display the specified resource.
      *
