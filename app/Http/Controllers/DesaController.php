@@ -109,7 +109,7 @@ class DesaController extends Controller
             'kode_pos' => $request->kode_pos,
         ];
         $this->desa->ubahData($data, $id);
-        return redirect('/profildesa')->with('status', 'Data berhasil diubah!');
+        return redirect('/profildesa')->with('status', 'Data berhasil diubah.');
     }
 
     /**
@@ -122,6 +122,6 @@ class DesaController extends Controller
     {
         //
         $this->desa->hapusData($id);
-        return redirect('/profildesa')->with('status', 'Data Berhasil Dihapus!'); 
+        return redirect('/profildesa')->with('status', 'Data berhasil dihapus.'); 
     }
 }
