@@ -8,7 +8,7 @@
                     <div class="container-fluid">
                         <h1 class="mt-4">MANAJEMEN PENGADUAN</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="/operator/dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/operator/dashboard') }}">Dashboard</a></li>
                             <li class="breadcrumb-item active">Pengaduan</li>
                         </ol>
                         <div class="card mb-4">
@@ -30,35 +30,18 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1</td>
+                                                <td class="text-center">1</td>
                                                 <td>Muhammad Fiqri Alfayed</td>
                                                 <td>fiqrialfayed@gmail.com</td>
                                                 <td class="text-center"><p class="btn btn-warning">PENDING</p></td>
-                                                <td width="16%">
-                                                    <a href="pengaduan/create" class="btn btn-success">
+                                                <td width="16%" class="text-center">
+                                                    <a href="/operator/pengaduan/create" class="btn btn-success">
                                                         <i class="fas fa-location-arrow"></i>
                                                     </a>
-                                                    <a href="pengaduan/1/edit" class="btn btn-warning">
+                                                    <a href="/operator/pengaduan/1/edit" class="btn btn-warning">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <a href="pengaduan/1" class="btn btn-info">
-                                                        <i class="fas fa-eye"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Afi Maung</td>
-                                                <td>afimaung@gmail.com</td>
-                                                <td class="text-center"><p class="btn btn-success">COMPLETED</p></td>
-                                                <td width="16%">
-                                                    <a href="pengaduan/create" class="btn btn-success">
-                                                        <i class="fas fa-location-arrow"></i>
-                                                    </a>
-                                                    <a href="pengaduan/1/edit" class="btn btn-warning">
-                                                        <i class="fas fa-edit"></i>
-                                                    </a>
-                                                    <a href="pengaduan/1" class="btn btn-info">
+                                                    <a href="/operator/pengaduan/1" class="btn btn-info">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
                                                 </td>

@@ -1,49 +1,41 @@
 @extends('layouts.operator')
 
-@section('title', 'Ubah Pengaduan')
+@section('title', 'Ubah Balasan Pengaduan')
 
 @section('content')
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">UBAH DATA PENGADUAN</h1>
+                        <h1 class="mt-4">UBAH BALASAN PENGADUAN</h1>
                         <div class="card mb-4">
                             <div class="card-body">
-                                <form class="row g-3" action="/operator/pengaduan">
+                                <form class="row g-3" action="/operator/pengaduan/1" method="POST">
+                                    @method('put')
+                                    @csrf
                                     <div class="col-md-6 form-group">
-                                        <label for="inputEmail4" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="inputEmail4">
-                                    </div>
-                                    <div class="col-md-6 form-group">
-                                        <label for="inputPassword4" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword4">
-                                    </div>
-                                    <div class="col-12 form-group">
-                                        <label for="inputAddress" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                                    </div>
-                                    <div class="col-12 form-group">
-                                        <label for="inputAddress2" class="form-label">Address 2</label>
-                                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                        <label for="nama" class="form-label">Nama Pengadu</label>
+                                        <input type="text" class="form-control" id="nama" value="" disabled>
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <label for="inputCity" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="inputCity">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="text" class="form-control" id="email" value="" disabled>
                                     </div>
-                                    <div class="col-md-4 form-group">
-                                        <label for="inputState" class="form-label">State</label>
-                                        <select id="inputState" class="form-control">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
+                                    <div class="col-md-9 form-group">
+                                        <label for="judul" class="form-label">Judul</label>
+                                        <input type="text" class="form-control" id="judul" value="" disabled>
                                     </div>
-                                    <div class="col-md-2 form-group">
-                                        <label for="inputZip" class="form-label">Zip</label>
-                                        <input type="text" class="form-control" id="inputZip">
+                                    <div class="col-md-3 form-group">
+                                        <label for="tgl_jadi" class="form-label">Tanggal Kejadian</label>
+                                        <input type="text" class="form-control" id="tgl_jadi" value="" disabled>
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <label for="pesan" class="form-label">Pesan</label>
+                                        {{-- <input type="text" class="form-control" id="pesan" value=""> --}}
+                                        <textarea name="pesan" class="form-control" id="pesan" cols="30" rows="10"></textarea>
                                     </div>
                                     <div class="col-12 mt-3">
-                                        <button type="submit" class="btn btn-info"><span class="fas fa-times-circle"></span> BATAL</button>
-                                        <button type="submit" class="btn btn-success"><span class="fas fa-location-arrow"></span> KIRIM</button>
+                                        <button type="button" class="btn btn-info"><a href="/operator/pengaduan" class="text-white"><span class="fas fa-times-circle"></span> KEMBALI</a></button>
+                                        <button type="submit" class="btn btn-success"><span class="fas fa-location-arrow"></span> SIMPAN</button>
                                     </div>
                                 </form>
                             </div>

@@ -6,44 +6,46 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">DETAIL PENGADUAN</h1>
+                        <h1 class="mt-4">DETAIL DATA PENGADUAN</h1>
                         <div class="card mb-4">
                             <div class="card-body">
-                                <form class="row g-3" action="/operator/pengaduan">
+                                <form class="row g-3">
                                     <div class="col-md-6 form-group">
-                                        <label for="inputEmail4" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="inputEmail4">
-                                    </div>
-                                    <div class="col-md-6 form-group">
-                                        <label for="inputPassword4" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword4">
-                                    </div>
-                                    <div class="col-12 form-group">
-                                        <label for="inputAddress" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                                    </div>
-                                    <div class="col-12 form-group">
-                                        <label for="inputAddress2" class="form-label">Address 2</label>
-                                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                        <label for="nama" class="form-label">Nama Pengadu</label>
+                                        <input type="text" class="form-control" id="nama" disabled value="">
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <label for="inputCity" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="inputCity">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="text" class="form-control" id="email" disabled value="">
                                     </div>
-                                    <div class="col-md-4 form-group">
-                                        <label for="inputState" class="form-label">State</label>
-                                        <select id="inputState" class="form-control">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
+                                    <div class="col-md-9 form-group">
+                                        <label for="judul" class="form-label">Judul</label>
+                                        <input type="text" class="form-control" id="judul" disabled value="">
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <label for="tgl_jadi" class="form-label">Tanggal Kejadian</label>
+                                        <input type="text" class="form-control" id="tgl_jadi" disabled value="">
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <label for="pesan" class="form-label">Pesan</label>
+                                        {{-- <input type="text" class="form-control" id="pesan" disabled value=""> --}}
+                                        <textarea name="pesan" class="form-control" id="pesan" cols="30" rows="10" disabled></textarea>
+                                    </div>
+                                    <div class="col-md-10 form-group">
+                                        <label for="lokasi" class="form-label">Lokasi</label>
+                                        <input type="text" class="form-control" id="lokasi" disabled value="">
                                     </div>
                                     <div class="col-md-2 form-group">
-                                        <label for="inputZip" class="form-label">Zip</label>
-                                        <input type="text" class="form-control" id="inputZip">
+                                        <label for="kategori" class="form-label">Kategori</label>
+                                        <input type="text" class="form-control" id="kategori" disabled value="">
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <label for="instansi" class="form-label">Instansi</label>
+                                        <input type="text" class="form-control" id="instansi" disabled value="">
                                     </div>
                                     <div class="col-12 mt-3">
-                                        <button type="submit" class="btn btn-info"><span class="fas fa-times-circle"></span> BATAL</button>
-                                        <button type="submit" class="btn btn-success"><span class="fas fa-location-arrow"></span> BALAS</button>
+                                        <button type="button" class="btn btn-info"><a href="/operator/pengaduan" class="text-white"><span class="fas fa-times-circle"></span> KEMBALI</a></button>
+                                        <button type="button" class="btn btn-success"><a href="/operator/pengaduan/create" class="text-white"><span class="fas fa-location-arrow"></span> BALAS</a></button>
                                     </div>
                                 </form>
                             </div>

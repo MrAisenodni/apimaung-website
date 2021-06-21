@@ -5,7 +5,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\LoginsController;
 use App\Http\Controllers\PenduduksController;
 use App\Http\Controllers\PengaduanController;
-use App\Http\Controllers\PesansController;
+use App\Http\Controllers\PesanController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\AnggotaBPDController;
 use App\Http\Controllers\KritikSaranController;
@@ -109,11 +109,7 @@ Route::delete('/angbpd/{id}', [AnggotaBPDController::class, 'destroy']);
 
 // Routes Admin mengelola Kritik dan Saran
 Route::get('/kritiksaran', [KritikSaranController::class, 'index']);
-Route::get('/kritiksaran/create', [KritikSaranController::class, 'create']);
-Route::get('/kritiksaran/edit/{id}', [KritikSaranController::class, 'edit']);
 Route::get('/kritiksaran/{id}', [KritikSaranController::class, 'show']);
-Route::post('/kritiksaran', [KritikSaranController::class, 'store']);
-Route::put('/kritiksaran/{id}', [KritikSaranController::class, 'update']);
 Route::delete('/kritiksaran/{id}', [KritikSaranController::class, 'destroy']);
 
 /*
@@ -126,13 +122,13 @@ Route::delete('/kritiksaran/{id}', [KritikSaranController::class, 'destroy']);
 Route::get('/operator/dashboard', [PagesController::class, 'operator']);
 
 // Routes Admin mengelola Pengaduan
-Route::get('/operator/pengaduan', [PesansController::class, 'index']);
-Route::get('/operator/pengaduan/create', [PesansController::class, 'create']);
-Route::get('/operator/pengaduan/edit/{id}', [PesansController::class, 'edit']);
-Route::get('/operator/pengaduan/{id}', [PesansController::class, 'show']);
-Route::post('/operator/pengaduan', [PesansController::class, 'store']);
-Route::put('/operator/pengaduan/{id}', [PesansController::class, 'update']);
-Route::delete('/operator/pengaduan/{id}', [PesansController::class, 'destroy']);
+Route::get('/operator/pengaduan', [PesanController::class, 'index']);
+Route::get('/operator/pengaduan/create', [PesanController::class, 'create']);
+Route::get('/operator/pengaduan/{id}/edit', [PesanController::class, 'edit']);
+Route::get('/operator/pengaduan/{id}', [PesanController::class, 'show']);
+Route::post('/operator/pengaduan', [PesanController::class, 'store']);
+Route::put('/operator/pengaduan/{id}', [PesanController::class, 'update']);
+Route::delete('/operator/pengaduan/{id}', [PesanController::class, 'destroy']);
 
 // Routes Admin mengelola Kritik dan Saran
 Route::get('/operator/kritiksaran', [KritikSaranController::class, 'index']);
