@@ -36,7 +36,7 @@
                                         <tbody>
                                             @foreach ($penduduk as $data)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
+                                                <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $data->nik }}</td>
                                                 <td>{{ $data->nama }}</td>
                                                 @if ($data->jenkel == 'l')
@@ -46,7 +46,7 @@
                                                 @endif
                                                 <td>{{ $data->pendidikan }}</td>
                                                 <td>{{ $data->pekerjaan }}</td>
-                                                <td width="16%">
+                                                <td width="16%" class="text-center">
                                                     <a href="penduduk/edit/{{ $data->id_penduduk }}" class="btn btn-warning">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
