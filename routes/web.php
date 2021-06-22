@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PagesController;
-use App\Http\Controllers\LoginsController;
-use App\Http\Controllers\PenduduksController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\DesaController;
@@ -28,27 +27,27 @@ use App\Http\Controllers\KritikSaranController;
 */
 
 // Routes Profil Desa
-Route::get('/', [PagesController::class, 'home']);
-Route::get('/sejarah', [PagesController::class, 'sejarah']);
-Route::get('/wilayah', [PagesController::class, 'wilayah']);
-Route::get('/peta', [PagesController::class, 'peta']);
+Route::get('/', [PageController::class, 'home']);
+Route::get('/sejarah', [PageController::class, 'sejarah']);
+Route::get('/wilayah', [PageController::class, 'wilayah']);
+Route::get('/peta', [PageController::class, 'peta']);
 
 // Routes Pemerintah Desa
-Route::get('/pemda', [PagesController::class, 'pemda']);
-Route::get('/visimisi', [PagesController::class, 'visimisi']);
-Route::get('/bpd', [PagesController::class, 'bpd']);
+Route::get('/pemda', [PageController::class, 'pemda']);
+Route::get('/visimisi', [PageController::class, 'visimisi']);
+Route::get('/bpd', [PageController::class, 'bpd']);
 
 // Routes Lembaga Masyarakat
-Route::get('/lem', [PagesController::class, 'lem']);
-Route::get('/lpm', [PagesController::class, 'lpm']);
-Route::get('/karangtaruna', [PagesController::class, 'karangtaruna']);
-Route::get('/pkk', [PagesController::class, 'pkk']);
+Route::get('/lem', [PageController::class, 'lem']);
+Route::get('/lpm', [PageController::class, 'lpm']);
+Route::get('/karangtaruna', [PageController::class, 'karangtaruna']);
+Route::get('/pkk', [PageController::class, 'pkk']);
 
 // Routes Data Desa
-Route::get('/dapen', [PagesController::class, 'pendidikan']);
-Route::get('/dapek', [PagesController::class, 'pekerjaan']);
-Route::get('/dajen', [PagesController::class, 'jenkel']);
-Route::get('/daper', [PagesController::class, 'perkawinan']);
+Route::get('/dapen', [PageController::class, 'pendidikan']);
+Route::get('/dapek', [PageController::class, 'pekerjaan']);
+Route::get('/dajen', [PageController::class, 'jenkel']);
+Route::get('/daper', [PageController::class, 'perkawinan']);
 
 // Routes Pengaduan
 Route::get('/pengaduan/create', [PengaduanController::class, 'create']);
@@ -71,16 +70,16 @@ Route::get('/login', [LoginsController::class, 'index']);
 */
 
 // Routes Admin
-Route::get('/dashboard', [PagesController::class, 'admin']);
+Route::get('/dashboard', [PageController::class, 'admin']);
 
 // Routes Admin mengelola Penduduk
-Route::get('/penduduk', [PenduduksController::class, 'index']);
-Route::get('/penduduk/create', [PenduduksController::class, 'create']);
-Route::get('/penduduk/edit/{id}', [PenduduksController::class, 'edit']);
-Route::get('/penduduk/{id}', [PenduduksController::class, 'show']);
-Route::post('/penduduk', [PenduduksController::class, 'store']);
-Route::put('/penduduk/{id}', [PenduduksController::class, 'update']);
-Route::delete('/penduduk/{id}', [PenduduksController::class, 'destroy']);
+Route::get('/penduduk', [PendudukController::class, 'index']);
+Route::get('/penduduk/create', [PendudukController::class, 'create']);
+Route::get('/penduduk/edit/{id}', [PendudukController::class, 'edit']);
+Route::get('/penduduk/{id}', [PendudukController::class, 'show']);
+Route::post('/penduduk', [PendudukController::class, 'store']);
+Route::put('/penduduk/{id}', [PendudukController::class, 'update']);
+Route::delete('/penduduk/{id}', [PendudukController::class, 'destroy']);
 
 // Routes Admin mengelola Pengaduan
 Route::get('/pengaduan', [PengaduanController::class, 'index']);
@@ -119,7 +118,7 @@ Route::delete('/kritiksaran/{id}', [KritikSaranController::class, 'destroy']);
 */
 
 // Routes Operator
-Route::get('/operator/dashboard', [PagesController::class, 'operator']);
+Route::get('/operator/dashboard', [PageController::class, 'operator']);
 
 // Routes Admin mengelola Pengaduan
 Route::get('/operator/pengaduan', [PesanController::class, 'index']);
@@ -133,3 +132,6 @@ Route::delete('/operator/pengaduan/{id}', [PesanController::class, 'destroy']);
 // Routes Admin mengelola Kritik dan Saran
 Route::get('/operator/kritiksaran', [KritikSaranController::class, 'index']);
 Route::get('/operator/kritiksaran/{id}', [KritikSaranController::class, 'show']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

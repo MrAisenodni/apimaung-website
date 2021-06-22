@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Penduduk;
 
-class PenduduksController extends Controller
+class PendudukController extends Controller
 {
     public function __construct() {
         $this->penduduk = new Penduduk();
