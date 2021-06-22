@@ -8,6 +8,7 @@ use App\Http\Controllers\PesanController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\AnggotaBPDController;
 use App\Http\Controllers\KritikSaranController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,10 +59,9 @@ Route::get('/pengaduan/create', [PengaduanController::class, 'create']);
     ==============================
 */
 
-Auth::routes();
-
 // Routes Login Admin/Operator Desa
-Route::get('/login', [LoginsController::class, 'index']);
+Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 /*
     ==============================
