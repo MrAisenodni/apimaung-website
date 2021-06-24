@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="author" content="Muhammad Fiqri Alfayed" />
+<meta name="author" content="Afiani Maulidiyah" />
 <!-- Document Title -->
 <title>@yield('title') | E-Government Tengkurak</title>
 
@@ -69,8 +69,8 @@
           <!-- Social Icon -->
           <div class="col-md-9">
             <ul class="some-info font-montserrat">
-              <li><i class="fa fa-phone"></i> +62 895-3924-08109</li>
-              <li><i class="fa fa-envelope"></i> afimaulidiyah30@gmail.com</li>
+              <li><i class="fa fa-phone"></i> (021)</li>
+              <li><i class="fa fa-envelope"></i> desatengkurak@gmail.com</li>
             </ul>
           </div>
         </div>
@@ -151,9 +151,9 @@
           <div class="col-md-4"> <a class="margin-bottom-30" href="{{ URL('/') }}"><img src="{{ url('images/logo-footer.png') }}" alt="logo" width="85%" height="85%"></a>
             <p>Bismillah bisa menyelesaikan Skripsi tepat waktu dan dosen pengujinya tidak memberikan revisi yang memberatkan saya Aamiin.</p>
             <ul class="personal-info">
-              <li><i class="fa fa-map-marker"></i> Jl Sawangan, Depok.</li>
-              <li><i class="fa fa-envelope"></i> afimaulidiyah30@gmail.com</li>
-              <li><i class="fa fa-phone"></i> +62 895-3924-08109</li>
+              <li><i class="fa fa-map-marker"></i> Desa Tengkurak, Tirtayasa, Benten.</li>
+              <li><i class="fa fa-envelope"></i> desatengkurak@gmail.com</li>
+              <li><i class="fa fa-phone"></i> (021)</li>
             </ul>
           </div>
           
