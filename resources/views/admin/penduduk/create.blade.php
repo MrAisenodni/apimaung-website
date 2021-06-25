@@ -11,35 +11,58 @@
                             <div class="card-body">
                                 <form class="row g-3" action="/penduduk">
                                     <div class="col-md-6 form-group">
-                                        <label for="inputEmail4" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="inputEmail4">
+                                        <label for="input Id_penduduk" class="form-label">Id Penduduk</label>
+                                        <input type="Id_penduduk" class="form-control" id="inputId_penduduk">
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <label for="inputPassword4" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword4">
+                                        <label for="inputnik" class="form-label">NIK</label>
+                                        <input type="nik" class="form-control" id="inputnik">
                                     </div>
                                     <div class="col-12 form-group">
-                                        <label for="inputAddress" class="form-label">Address</label>
-                                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                        <label for="inputnokk" class="form-label">No. KK</label>
+                                        <input type="text" class="form-control" id="inputnokk" placeholder="1234">
                                     </div>
                                     <div class="col-12 form-group">
-                                        <label for="inputAddress2" class="form-label">Address 2</label>
-                                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                        <label for="inputnama" class="form-label">Nama</label>
+                                        <input type="text" class="form-control" id="inputnama" placeholder="">
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <label for="inputCity" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="inputCity">
+                                        <label for="inputtmpt_lahir" class="form-label">Tempat Lahir</label>
+                                        <input type="text" class="form-control" id="inputtmpt_lahir">
                                     </div>
                                     <div class="col-md-4 form-group">
-                                        <label for="inputState" class="form-label">State</label>
-                                        <select id="inputState" class="form-control">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
+                                        <label for="inputtgl_lahir" class="form-label">Tanggal Lahir</label>
+                                        <input type="text" class="form-control" id="inputtgl_lahir">
                                     </div>
-                                    <div class="col-md-2 form-group">
-                                        <label for="inputZip" class="form-label">Zip</label>
-                                        <input type="text" class="form-control" id="inputZip">
+                                    <div class="col-md-4 form-group">
+                                        <label for="inputjenkel" class="form-label">Jenis Kelamin</label><br>
+                                        <input type="radio" name="jenkel" value="Laki-laki">Laki-laki
+                                        <input type="radio" name="jenkel" value="Perempuan">Perempuan
+                                    </div>
+
+                                    <div class="col-md-4 form-group">
+                                        <label for="inputagama" class="form-label">Agama</label><br>
+                                        <input type="radio" name="Agama" value="Islam">Islam<br>
+                                        <input type="radio" name="Agama" value="Kristen">Kristen<br>
+                                        <input type="radio" name="Agama" value="Hindu">Hindu<br>
+                                        <input type="radio" name="Agama" value="Buddha">Buddha<br>
+                                        <input type="radio" name="Agama" value="Konghucu">Konghucu<br>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="inputrt" class="form-label">RT</label>
+                                        <input type="text" class="form-control" id="inputrt">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="inputrw" class="form-label">RW</label>
+                                        <input type="text" class="form-control" id="inputrw">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="inputpendidikan" class="form-label">Pendidikan</label>
+                                        <input type="text" class="form-control" id="inputpendidikan">
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="inputpekerjaan" class="form-label">Pekerjaan</label>
+                                        <input type="text" class="form-control" id="inputpekerjaan">
                                     </div>
                                     <div class="col-12 mt-3">
                                         <button type="button" class="btn btn-info"><a href="/penduduk" class="text-white"><span class="fas fa-times-circle"></span> KEMBALI</a></button>

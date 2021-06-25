@@ -6,15 +6,6 @@
   <!--======= SUB BANNER =========-->
   <section class="sub-banner">
     <img src="{{ url('images/bg/peta-subbg.jpg') }}" alt="foto" width="100%" height="100%">
-    <div class="container">
-      <div class="position-center-center">
-        <h2>Pemerintah Desa</h2>
-        <ul class="breadcrumb">
-          <li><a href="{{ url('/') }}">home</a></li>
-          <li>pemerintah desa</li>
-        </ul>
-      </div>
-    </div>
   </section>
   
   <!-- Content -->
@@ -27,90 +18,55 @@
         <!-- Blog Side -->
         <div class="row">
           <div class="col-md-9"> 
+            <div class="container">
+              <div class="position-left-left">
+                <h2>Pemerintah Desa Tengkurak</h2>
+                <ul class="breadcrumb">
+                  <li><a href="{{ url('/') }}">home</a></li>
+                  <li>pemerintah desa</li>
+                </ul>
+              </div>
+            </div>
             
             <!-- News 1 -->
-            <article class="margin-bottom-50"> <a href="#."> <img class="img-responsive" src="images/blog-img-1.jpg" alt=""> </a>
-              <div class="news-detail">
-                <div class="row">
-                  <div class="col-md-3 text-center">
-                    <div class="avatar"> <img class="img-circle" src="images/avatar-1.png" alt=""> </div>
-                    <p>28 Sep 2017 </p>
-                    <p><i class="fa fa-comment"></i>03 </p>
-                  </div>
-                  <div class="col-md-9"> <a href="#.">Data Traffic Conversion</a>
-                    <p>The weather started getting rough - the tiny ship was tossed. If not for the courages of the fearless for crew the Minnow would be lost. the Minnow woulds be lost. Just two good ol' boys Wouldn't change if they could. Fightin' the system like a true modern day Robin Hood. They call him Flipper Flipper faster flying there-under under the sea. Now the world don't move to the beat of just one drum. <br>
-                      <br>
-                      The movie star the professor and Mary Ann here on Gilligans Isle. Come and dance on our floor. Take a step that is new. We've a loveable space that needs your face threes company too! That this group would somehow form a family that's the way we all became the Brady Bunch. </p>
-                    <div class="row margin-top-30 margin-bottom-30">
-                      <div class="col-md-6"> <img src="images/blog-img-1.jpg" class="img-responsive" alt=" "> </div>
-                      <div class="col-md-6">
-                        <p class="font-italic">That this group would somehow form a family that's the way we all became the Brady Bunch. Make your way in the world today takes you've got. Takin' a break from all your worries sure would help a lot. </p>
-                      </div>
-                    </div>
-                    <p>The movie star the professor and Mary Ann here on Gilligans Isle. Come and dance on our floor. Take a step that is new. We've a loveable space that needs your face threes company too! That this group would somehow form a family that's the way we all became the Brady Bunch.</p>
-                  </div>
-                </div>
-              </div>
-            </article>
-            
-            <!--=======  COMMENTS =========-->
-            <div class="comments">
-              <h4 class="text-uppercase">3 comments </h4>
-              <ul class="media-list">
-                
-                <!--=======  COMMENTS =========-->
-                <li class="media">
-                  <div class="media-left"> <a href="#"> <img class="media-object" src="images/com-avatar-1.jpg" alt=""> </a> </div>
-                  <div class="media-body light-gray-bg">
-                    <h6 class="media-heading">Steave Hans<span> Sep 23, 2017</span></h6>
-                    <p>Taque ipsa quae abe illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemosala enim ipsam volupitatem quia voluptas sit aspernatur aut odit aut fugite.</p>
-                    <a href="#." class="reply">Reply</a> </div>
-                </li>
-                
-                <!--=======  COMMENTS =========-->
-                <li class="media margin-left-80">
-                  <div class="media-left"> <a href="#"> <img class="media-object" src="images/com-avatar-2.jpg" alt=""> </a> </div>
-                  <div class="media-body light-gray-bg">
-                    <h6 class="media-heading">Jhon Kennadi <span> Sep 23, 2017</span></h6>
-                    <p>Taque ipsa quae abe illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemosala enim ipsam volupitatem quia voluptas sit aspernatur aut odit aut fugite.</p>
-                    <a href="#." class="reply">Reply</a> </div>
-                </li>
-                
-                <!--=======  COMMENTS =========-->
-                <li class="media">
-                  <div class="media-left"> <a href="#"> <img class="media-object" src="images/com-avatar-3.jpg" alt=""> </a> </div>
-                  <div class="media-body light-gray-bg">
-                    <h6 class="media-heading">Rock Lancer <span>Sep 23, 2017</span></h6>
-                    <p>Taque ipsa quae abe illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemosala enim ipsam volupitatem quia voluptas sit aspernatur aut odit aut fugite.</p>
-                    <a href="#." class="reply">Reply</a> </div>
-                </li>
-              </ul>
-              
-              <!--=======  LEAVE COMMENTS =========-->
-              <h4 class="font-alegreya">leave a comment</h4>
-              <form>
-                    <ul class="row">
-                      <li class="col-sm-6">
-                        <label> Name
-                          <input type="text" class="form-control" name="name" placeholder="" >
-                        </label>
-                      </li>
-                      <li class="col-sm-6">
-                        <label> Email
-                          <input type="text" class="form-control" name="name" placeholder="" >
-                        </label>
-                      </li>
-                      
-                      <li class="col-sm-12">
-                        <label> COMMENTS
-                          <textarea class="form-control" ></textarea>
-                        </label>
-                      </li>
-                      <li class="col-sm-12">
-                        <button type="submit" class="btn">post comment </button>
-                      </li>
-                    </ul>
-              </form>
+            <div class="artikel-konten clearfix"><p style="text-align: center;"><strong>SUSUNAN ORGANISASI DAN TATA KERJA PEMERINTAH DESA</strong></p>
+              <p style="text-align: center;"><strong>DESA TENGKURAK KECAMATAN TIRTAYASA KABUPATEN SERANG </strong></p>
+              <p>&nbsp;&nbsp;</p>
+              <p style="text-align: justify;"><strong>Kepala Desa bertugas menyelenggarakan Pemerintahan Desa, melaksanakan pembangunan, pembinaan kemasyarakatan, dan pemberdayaan masyarakat. Untuk melaksanakan tugas Kepala Desa memiliki fungsi-fungsi sebagai berikut:</strong></p>
+              <ol style="text-align: justify;">
+              <li>Menyelenggarakan Pemerintahan Desa, seperti tata praja Pemerintahan, penetapan peraturan di desa, pembinaan masalah pertanahan, pembinaan ketentraman dan ketertiban, melakukan upaya perlindungan masyarakat, administrasi kependudukan, dan penataan dan pengelolaan wilayah.</li>
+              <li>Melaksanakan pembangunan, seperti pembangunan sarana prasarana perdesaan, dan pembangunan bidang pendidikan, kesehatan.</li>
+              <li>Pembinaan kemasyarakatan, seperti pelaksanaan hak dan kewajiban masyarakat, partisipasi masyarakat, sosial budaya masyarakat, keagamaan, dan ketenagakerjaan.</li>
+              <li>Pemberdayaan masyarakat, seperti tugas sosialisasi dan motivasi masyarakat di bidang budaya, ekonomi, politik, lingkungan hidup, pemberdayaan keluarga, pemuda, olahraga, dan karang taruna.</li>
+              <li>Menjaga hubungan kemitraan dengan lembaga masyarakat dan lembaga lainnya.</li>
+              </ol>
+              <p style="text-align: usti;">&nbsp;<strong>Sekretaris Desa berkedudukan sebagai unsur pimpinan Sekretariat Desa. Sekretaris Desa bertugas membantu Kepala Desa dalam bidang administrasi pemerintahan. Untuk melaksanakan tugas, Sekretaris Desa mempunyai fungsi:</strong></p>
+              <ol style="text-align: justify;">
+              <li>Melaksanakan urusan ketatausahaan seperti tata naskah, administrasi surat menyurat, arsip, dan ekspedisi.</li>
+              <li>Melaksanakan urusan umum seperti penataan administrasi perangkat desa, penyediaan prasarana perangkat desa dan kantor, penyiapan rapat, pengadministrasian aset, inventarisasi, perjalanan dinas, dan pelayanan umum.</li>
+              <li>Melaksanakan urusan keuangan seperti pengurusan administrasi keuangan, administrasi sumber-sumber pendapatan dan pengeluaran, verifikasi administrasi keuangan, dan admnistrasi penghasilan Kepala Desa, Perangkat Desa, BPD, dan lembaga pemerintahan desa lainnya.</li>
+              <li>Melaksanakan urusan perencanaan seperti menyusun rencana anggaran pendapatan dan belanja desa, menginventarisir data-data dalam rangka pembangunan, melakukan monitoring dan evaluasi program, serta penyusunan laporan.</li>
+              </ol>
+              <p style="text-align: justify;"><strong>Kepala urusan berkedudukan sebagai unsur staf sekretariat. Kepala urusan bertugas membantu Sekretaris Desa dalam urusan pelayanan administrasi pendukung pelaksanaan tugas-tugas pemerintahan. Untuk melaksanakan tugas kepala urusan mempunyai fungsi:</strong></p>
+              <ol style="text-align: justify;">
+              <li>Kepala urusan tata usaha dan umum memiliki fungsi seperti melaksanakan urusan ketatausahaan seperti tata naskah, administrasi surat menyurat, arsip, dan ekspedisi, dan penataan administrasi perangkat desa, penyediaan prasarana perangkat desa dan kantor, penyiapan rapat, pengadministrasian aset, inventarisasi, perjalanan dinas, dan pelayanan umum.</li>
+              <li>Kepala urusan keuangan memiliki fungsi seperti melaksanakan urusan keuangan seperti pengurusan administrasi keuangan, administrasi sumber-sumber pendapatan dan pengeluaran, verifikasi administrasi keuangan, dan admnistrasi penghasilan Kepala Desa, Perangkat Desa, BPD, dan lembaga pemerintahan desa lainnya.</li>
+              <li>Kepala urusan perencanaan memiliki fungsi mengoordinasikan urusan perencanaan seperti menyusun rencana anggaran pendapatan dan belanja desa, menginventarisir data-data dalam rangka pembangunan, melakukan monitoring dan evaluasi program, serta penyusunan laporan.</li>
+              </ol>
+              <p style="text-align: justify;"><strong>Kepala Kewilayahan atau sebutan lainnya berkedudukan sebagai unsur satuan tugas kewilayahan yang bertugas membantu Kepala Desa dalam pelaksanaan tugasnya di wilayahnya. Untuk melaksanakan tugas Kepala Kewilayahan/Kepala Dusun memiliki fungsi:</strong></p>
+              <ol style="text-align: justify;">
+              <li>Pembinaan ketentraman dan ketertiban, pelaksanaan upaya perlindungan masyarakat, mobilitas kependudukan, dan penataan dan pengelolaan wilayah.</li>
+              <li>Mengawasi pelaksanaan pembangunan di wilayahnya.</li>
+              <li>Melaksanakan pembinaan kemasyarakatan dalam meningkatkan kemampuan dan kesadaran masyarakat dalam menjaga lingkungannya.</li>
+              <li>Melakukan upaya-upaya pemberdayaan masyarakat dalam menunjang kelancaran penyelenggaraan pemerintahan dan pembangunan.</li>
+              </ol>
+              <p style="text-align: justify;"><strong>Kepala seksi berkedudukan sebagai unsur pelaksana teknis. Kepala seksi bertugas membantu Kepala Desa sebagai pelaksana tugas operasional. Untuk melaksanakan tugas Kepala Seksi mempunyai fungsi:</strong></p>
+              <ol>
+              <li style="text-align: justify;">Kepala seksi pemerintahan mempunyai fungsi melaksanakan manajemen tata praja Pemerintahan, menyusun rancangan regulasi desa, pembinaan masalah pertanahan, pembinaan ketentraman dan ketertiban, pelaksanaan upaya perlindungan masyarakat, kependudukan, penataan dan pengelolaan wilayah, serta pendataan dan pengelolaan Profil Desa.</li>
+              <li style="text-align: justify;">Kepala seksi kesejahteraan mempunyai fungsi melaksanakan pembangunan sarana prasarana perdesaan, pembangunan bidang pendidikan, kesehatan, dan tugas sosialisasi serta motivasi masyarakat di bidang budaya, ekonomi, politik, lingkungan hidup, pemberdayaan keluarga, pemuda, olahraga, dan karang taruna.</li>
+              <li style="text-align: justify;">Kepala seksi pelayanan memiliki fungsi melaksanakan penyuluhan dan motivasi terhadap pelaksanaan hak dan kewajiban masyarakat, meningkatkan upaya partisipasi masyarakat, pelestarian nilai sosial budaya masyarakat, keagamaan, dan ketenagakerjaan.</li>
+              </ol>
+              <p><strong>Sumber : PERMENDAGRI NOMOR 84 TAHUN 2015 TENTANG SUSUNAN ORGANISASI DAN TATA KERJA PEMERINTAH DESA</strong></p>
             </div>
           </div>
           
@@ -119,52 +75,12 @@
             <div class="side-bar"> 
               
               <!-- Categories -->
-              <h5 class="font-alegreya ">Categories</h5>
+              <h5 class="font-alegreya ">Arsip</h5>
               <ul class="cate bg-defult">
-                <li><a href="#.">SEO Services <span>(10)</span></a></li>
-                <li><a href="#.">PayPerClick<span>(20)</span></a></li>
-                <li><a href="#.">Social Media<span>(28)</span></a></li>
-                <li><a href="#.">KeyWord Analytic<span>(18)</span></a></li>
-                <li><a href="#.">Webdesigning<span>(09)</span></a></li>
-                <li><a href="#.">Developing<span>(32)</span></a></li>
-                <li><a href="#."><span>View All <i class="fa fa-long-arrow-right"></i></span></a></li>
-              </ul>
-              
-              <!-- Categories -->
-              <h5 class="font-alegreya">Latest Tweets</h5>
-              <ul class="tweets bg-defult">
-                <li>@Murphy zim To a deluxe apartment
-                  in the sky <a href="#.">http://Comr.designer.com </a><span>1 hours ago</span></li>
-                <li>@Murphy zim To a deluxe apartment
-                  in the sky <a href="#.">http://Comr.designer.com </a><span>1 hours ago</span></li>
-              </ul>
-              
-              <!-- Popular Post -->
-              <h5 class="font-alegreya">Popular Post</h5>
-              <div class="papu-post margin-t-40">
-                <ul class="bg-defult">
-                  <li class="media">
-                    <div class="media-left"> <a href="#"> <img class="media-object" src="images/case-img-1.jpg" alt=""></a> </div>
-                    <div class="media-body"> <a class="media-heading" href="#.">Were gonna pay a call a boldly go where no </a> <span>Sep 21, 2017</span> </div>
-                  </li>
-                  <li class="media">
-                    <div class="media-left"> <a href="#"> <img class="media-object" src="images/case-img-2.jpg" alt=""></a> </div>
-                    <div class="media-body"> <a class="media-heading" href="#.">So lets make the most is  beautiful day </a> <span>Sep 21, 2017</span> </div>
-                  </li>
-                  <li class="media">
-                    <div class="media-left"> <a href="#"> <img class="media-object" src="images/case-img-3.jpg" alt=""></a> </div>
-                    <div class="media-body"> <a class="media-heading" href="#.">We're gona make dreams comes true </a> <span>Sep 21, 2017</span> </div>
-                  </li>
-                </ul>
-              </div>
-              
-              <!-- Categories -->
-              <h5 class="font-alegreya ">Archives</h5>
-              <ul class="cate bg-defult">
-                <li><a href="#.">May 2017 <span>(10)</span></a></li>
-                <li><a href="#.">June 2017<span>(20)</span></a></li>
-                <li><a href="#.">July 2017<span>(28)</span></a></li>
-                <li><a href="#.">Augest 2017<span>(18)</span></a></li>
+                <li><a href="#.">Januari 2020 <span>(10)</span></a></li>
+                <li><a href="#.">Februari 2020<span>(20)</span></a></li>
+                <li><a href="#.">Maret 2020<span>(28)</span></a></li>
+                <li><a href="#.">April 2020<span>(18)</span></a></li>
                 <li><a href="#."><span>View All <i class="fa fa-long-arrow-right"></i></span></a></li>
               </ul>
             </div>

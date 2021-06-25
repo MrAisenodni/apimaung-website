@@ -38,12 +38,6 @@ Route::get('/pemda', [PageController::class, 'pemda']);
 Route::get('/visimisi', [PageController::class, 'visimisi']);
 Route::get('/bpd', [PageController::class, 'bpd']);
 
-// Routes Lembaga Masyarakat
-Route::get('/lem', [PageController::class, 'lem']);
-Route::get('/lpm', [PageController::class, 'lpm']);
-Route::get('/karangtaruna', [PageController::class, 'karangtaruna']);
-Route::get('/pkk', [PageController::class, 'pkk']);
-
 // Routes Data Desa
 Route::get('/dapen', [PageController::class, 'pendidikan']);
 Route::get('/dapek', [PageController::class, 'pekerjaan']);
