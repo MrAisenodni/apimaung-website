@@ -19,6 +19,11 @@
                             <div class="mt-3 col-lg-9">
                                 <a href="penduduk/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Penduduk</a>
                             </div>
+                            @if (session('status'))
+                                <div class="m-3 alert alert-success">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -47,15 +52,15 @@
                                                 <td>{{ $data->pendidikan }}</td>
                                                 <td>{{ $data->pekerjaan }}</td>
                                                 <td width="16%" class="text-center">
-                                                    <a href="penduduk/edit/{{ $data->id_penduduk }}" class="btn btn-warning">
+                                                    <a href="/penduduk/{{ $data->id_penduduk }}/edit" class="btn btn-warning">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <form action="" method="POST" class="d-inline">
+                                                    <form action="/penduduk/{{ $data->id_penduduk }}" method="POST" class="d-inline">
                                                         @method('delete')
                                                         @csrf
-                                                        <a href="#" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
+                                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
                                                             <i class="fas fa-trash"></i>
-                                                        </a>
+                                                        </button>
                                                     </form>
                                                     <a href="/penduduk/{{ $data->id_penduduk }}" class="btn btn-info">
                                                         <i class="fas fa-list"></i>

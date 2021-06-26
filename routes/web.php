@@ -69,7 +69,7 @@ Route::get('/dashboard', [PageController::class, 'admin']);
 // Routes Admin mengelola Penduduk
 Route::get('/penduduk', [PendudukController::class, 'index']);
 Route::get('/penduduk/create', [PendudukController::class, 'create']);
-Route::get('/penduduk/edit/{id}', [PendudukController::class, 'edit']);
+Route::get('/penduduk/{id}/edit', [PendudukController::class, 'edit']);
 Route::get('/penduduk/{id}', [PendudukController::class, 'show']);
 Route::post('/penduduk', [PendudukController::class, 'store']);
 Route::put('/penduduk/{id}', [PendudukController::class, 'update']);

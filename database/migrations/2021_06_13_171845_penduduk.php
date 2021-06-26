@@ -28,6 +28,7 @@ class Penduduk extends Migration
             $table->string('rw',3);
             $table->string('pendidikan',100);
             $table->string('pekerjaan',100);
+            $table->enum('status', ['lajang', 'nikah', 'duda', 'janda']);
             $table->datetime('created_at')->nullable();
             $table->datetime('updated_at')->nullable(); 
             $table->datetime('deleted_at')->nullable();

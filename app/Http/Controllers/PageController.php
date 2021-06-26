@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AnggotaBPD;
+use App\Models\Penduduk;
 
 class PageController extends Controller
 {
+    public function __construct() {
+        $this->angbpd = new AnggotaBPD();
+        $this->penduduk = new Penduduk();
+    }
     /*  
         =======================================
         =            PROFIL DESA              =
@@ -50,7 +56,10 @@ class PageController extends Controller
     
     // Halaman Profil Wilayah Desa
     public function bpd() {
-        return view('user.bpd');
+        $data = [
+            'angbpd'        => $this->angbpd->getAllData(),
+        ];
+        return view('user.bpd', $data);
     }
     
     /*  

@@ -3,12 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Penduduk extends Model
 {
+    use SoftDeletes;
+
     public function getAllData() {
-        return DB::table('penduduk')->get(); // get() => SELECT * FROM penduduk
+        return DB::table('penduduk')
+                    ->where('deleted_at', NULL)
+                    ->get(); // get() => SELECT * FROM penduduk
     }
 
     public function getData($id) {
@@ -23,10 +28,14 @@ class Penduduk extends Model
     }
 
     public function ubahData($data,$id) {
-
+        return DB::table('penduduk')
+                    ->where('id_penduduk', $id)
+                    ->update($data);
     }
 
-    public function hapusData($id) {
-
+    public function hapusData($data,$id) {
+        return DB::table('penduduk')
+                    ->where('id_penduduk', $id)
+                    ->update($data);
     }
 }

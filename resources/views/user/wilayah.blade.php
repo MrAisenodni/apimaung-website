@@ -30,23 +30,21 @@
 
             <!-- News 1 -->
             <article class="margin-bottom-50"> <a href="#.">  </a>
-              <div class="news-detail">
-                <div class="row">
-                  <div class="col-md-11"> <a href="#.">Administrator</a>
-                    <table class="infobox geography vcard" style="width:22em;width:23em">
-                      <tbody>
+              <div class="news-detail text-center">
+                <div class="row margin-left-100 margin-right-100 margin-top-30">
+                  <div class="col-md-10 col-xs-12">
+                    <table class="table table-bordered">
+                      <tbody class="text-center">
                         <tr>
-                          <th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;font-size:1.25em; white-space:nowrap">
-                          <div style="display:inline" class="fn org">Tengkurak</div>
+                          <th colspan="2" class="text-center text-bold font-18px">
+                            TENGKURAK
                           </th>
                         </tr>
-                        
                         <tr>
-                          <td colspan="2" style="text-align:center;background-color:#abc2f0; font-weight:bold;">
-                            <div class="category"> <a href="#.">Desa</a></div>
+                          <td colspan="2" class="text-center text-bold bg-info">
+                            DESA
                           </td>
                         </tr>
-                            
                         <tr class="mergedtoprow"> 
                           <th scope="row"><a href="#." title="negara">Negara</a></th> 
                           <td>

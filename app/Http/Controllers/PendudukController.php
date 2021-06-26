@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\Penduduk;
 
 class PendudukController extends Controller
@@ -44,6 +45,64 @@ class PendudukController extends Controller
     public function store(Request $request)
     {
         // Mengirimkan data penduduk baru ke database
+        $current_time = Carbon::now()->toDateTimeString();
+
+        $validated = $request->validate([
+            'nik'           => 'required|unique:penduduk,nik|max:16|min:16',
+            'nokk'          => 'required|unique:penduduk,nokk|max:16|min:16',
+            'nama'          => 'required',
+            'tmpt_lahir'    => 'required',
+            'tgl_lahir'     => 'required',
+            'jenkel'        => 'required',
+            'agama'         => 'required',
+            'alamat'        => 'required',
+            'rt'            => 'required',
+            'rw'            => 'required',
+            'pendidikan'    => 'required',
+            'pekerjaan'     => 'required',
+            'status'        => 'required',
+        ],[
+            'nik.required'          => 'NIK harus diisi.',
+            'nik.unique'            => 'NIK sudah terdaftar.',
+            'nik.max'               => 'NIK maksimal 16 huruf.',
+            'nik.min'               => 'NIK minimal 16 huruf.',
+            'nokk.required'         => 'Nomor KK harus diisi.',
+            'nokk.unique'           => 'Nomor KK sudah terdaftar.',
+            'nokk.max'              => 'Nomor KK maksimal 16 huruf.',
+            'nokk.min'              => 'Nomor KK minimal 16 huruf.',
+            'nama.required'         => 'Nama harus diisi.',
+            'tmpt_lahir.required'   => 'Tempat lahir harus diisi.',
+            'tgl_lahir.required'    => 'Tanggal lahir harus diisi.',
+            'jenkel.required'       => 'Jenis kelamin harus diisi.',
+            'agama.required'        => 'Agama harus diisi.',
+            'alamat.required'       => 'Alamat harus diisi.',
+            'rt.required'           => 'RT harus diisi.',
+            'rw.required'           => 'RW harus diisi.',
+            'pendidikan.required'   => 'Pendidikan harus diisi.',
+            'pekerjaan.required'    => 'Pekerjaan harus diisi.',
+            'status.required'       => 'Status harus diisi.',
+        ]);
+
+        $data = [
+            'nik'           => $request->nik,
+            'nokk'          => $request->nokk,
+            'nama'          => $request->nama,
+            'tmpt_lahir'    => $request->tmpt_lahir,
+            'tgl_lahir'     => $request->tgl_lahir,
+            'jenkel'        => $request->jenkel,
+            'agama'         => $request->agama,
+            'alamat'        => $request->alamat,
+            'rt'            => $request->rt,
+            'rw'            => $request->rw,
+            'pendidikan'    => $request->pendidikan,
+            'pekerjaan'     => $request->pekerjaan,
+            'status'        => $request->status,
+            'created_at'    => $current_time,
+        ];
+        
+        $this->penduduk->tambahData($data);
+        
+        return redirect('/penduduk')->with('status', 'Data berhasil ditambahkan.');
     }
     
     /**
@@ -86,6 +145,64 @@ class PendudukController extends Controller
     public function update(Request $request, $id)
     {
         // Mengirimkan perubahan penduduk ke database
+        $current_time = Carbon::now()->toDateTimeString();
+
+        $validated = $request->validate([
+            // 'nik'           => 'required|unique:penduduk,nik|max:16|min:16',
+            // 'nokk'          => 'required|unique:penduduk,nokk|max:16|min:16',
+            'nama'          => 'required',
+            'tmpt_lahir'    => 'required',
+            'tgl_lahir'     => 'required',
+            'jenkel'        => 'required',
+            'agama'         => 'required',
+            'alamat'        => 'required',
+            'rt'            => 'required',
+            'rw'            => 'required',
+            'pendidikan'    => 'required',
+            'pekerjaan'     => 'required',
+            'status'        => 'required',
+        ],[
+            'nik.required'          => 'NIK harus diisi.',
+            'nik.unique'            => 'NIK sudah terdaftar.',
+            'nik.max'               => 'NIK maksimal 16 huruf.',
+            'nik.min'               => 'NIK minimal 16 huruf.',
+            'nokk.required'         => 'Nomor KK harus diisi.',
+            'nokk.unique'           => 'Nomor KK sudah terdaftar.',
+            'nokk.max'              => 'Nomor KK maksimal 16 huruf.',
+            'nokk.min'              => 'Nomor KK minimal 16 huruf.',
+            'nama.required'         => 'Nama harus diisi.',
+            'tmpt_lahir.required'   => 'Tempat lahir harus diisi.',
+            'tgl_lahir.required'    => 'Tanggal lahir harus diisi.',
+            'jenkel.required'       => 'Jenis kelamin harus diisi.',
+            'agama.required'        => 'Agama harus diisi.',
+            'alamat.required'       => 'Alamat harus diisi.',
+            'rt.required'           => 'RT harus diisi.',
+            'rw.required'           => 'RW harus diisi.',
+            'pendidikan.required'   => 'Pendidikan harus diisi.',
+            'pekerjaan.required'    => 'Pekerjaan harus diisi.',
+            'status.required'       => 'Status harus diisi.',
+        ]);
+
+        $data = [
+            'nik'           => $request->nik,
+            'nokk'          => $request->nokk,
+            'nama'          => $request->nama,
+            'tmpt_lahir'    => $request->tmpt_lahir,
+            'tgl_lahir'     => $request->tgl_lahir,
+            'jenkel'        => $request->jenkel,
+            'agama'         => $request->agama,
+            'alamat'        => $request->alamat,
+            'rt'            => $request->rt,
+            'rw'            => $request->rw,
+            'pendidikan'    => $request->pendidikan,
+            'pekerjaan'     => $request->pekerjaan,
+            'status'        => $request->status,
+            'updated_at'    => $current_time,
+        ];
+        
+        $this->penduduk->ubahData($data,$id);
+        
+        return redirect('/penduduk')->with('status', 'Data berhasil diubah.');
     }
 
     /**
@@ -97,5 +214,14 @@ class PendudukController extends Controller
     public function destroy($id)
     {
         // Menghapus penduduk dari database
+        $current_time = Carbon::now()->toDateTimeString();
+
+        $data = [
+            'deleted_at'        => $current_time,
+        ];
+
+        $this->penduduk->hapusData($data, $id);
+
+        return redirect('/penduduk')->with('status', 'Data berhasil dihapus.');
     }
 }
