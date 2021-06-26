@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\Desa;
 
 class DesaController extends Controller
@@ -44,17 +45,43 @@ class DesaController extends Controller
     public function store(Request $request)
     {
         //
-        $data=[
-            'nama' => $request->nama,
-            'tahun_bentuk' => $request->tahun_bentuk,
-            'dasar_hukum' => $request->dasar_hukum,
-            'no_kode_wilayah' => $request->no_kode_wilayah,
-            'kecamatan' => $request->kecamatan,
-            'kota' => $request->kabupaten,
-            'provinsi' => $request->provinsi,
-            'kode_pos' => $request->kode_pos,
+        $current_time = Carbon::now()->toDateTimeString();
+
+        $validated = $request->validate([
+            'nama'          => 'required',
+            'tahun_bentuk'  => 'required|max:4|min:4',
+            'dasar_hukum'   => 'required',
+            'kecamatan'     => 'required',
+            'kota'          => 'required',
+            'provinsi'      => 'required',
+            'kode_pos'      => 'required|max:5|min:5',
+        ],[
+            'nama.required'             => 'Nama harus diisi.',
+            'tahun_bentuk.required'     => 'Tahun bentuk harus diisi.',
+            'tahun_bentuk.max'          => 'Tahun bentuk maksimal 4 huruf.',
+            'tahun_bentuk.min'          => 'Tahun bentuk minimal 4 huruf.',
+            'dasar_hukum.required'      => 'Dasar hukum harus diisi.',
+            'kecamatan.required'        => 'Kecamatan harus diisi.',
+            'kota.required'             => 'Kota harus diisi.',
+            'provinsi.required'         => 'Provinsi kelamin harus diisi.',
+            'kode_pos.required'         => 'Kode pos harus diisi.',
+            'kode_pos.max'              => 'Kode pos maksimal 5 huruf.',
+            'kode_pos.min'              => 'Kode pos minimal 5 huruf.',
+        ]);
+
+        $data = [
+            'nama'              => $request->nama,
+            'tahun_bentuk'      => $request->tahun_bentuk,
+            'dasar_hukum'       => $request->dasar_hukum,
+            'kecamatan'         => $request->kecamatan,
+            'kota'              => $request->kota,
+            'provinsi'          => $request->provinsi,
+            'kode_pos'          => $request->kode_pos,
+            'created_at'        => $current_time
         ];
+
         $this->desa->tambahData($data);
+
         return redirect('/profildesa')->with('status', 'Data berhasil ditambahkan.');
     }
 
@@ -98,17 +125,43 @@ class DesaController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $data=[
-            'nama' => $request->nama,
-            'tahun_bentuk' => $request->tahun_bentuk,
-            'dasar_hukum' => $request->dasar_hukum,
-            'no_kode_wilayah' => $request->no_kode_wilayah,
-            'kecamatan' => $request->kecamatan,
-            'kota' => $request->kota,
-            'provinsi' => $request->provinsi,
-            'kode_pos' => $request->kode_pos,
+        $current_time = Carbon::now()->toDateTimeString();
+
+        $validated = $request->validate([
+            'nama'          => 'required',
+            'tahun_bentuk'  => 'required|max:4|min:4',
+            'dasar_hukum'   => 'required',
+            'kecamatan'     => 'required',
+            'kota'          => 'required',
+            'provinsi'      => 'required',
+            'kode_pos'      => 'required|max:5|min:5',
+        ],[
+            'nama.required'             => 'Nama harus diisi.',
+            'tahun_bentuk.required'     => 'Tahun bentuk harus diisi.',
+            'tahun_bentuk.max'          => 'Tahun bentuk maksimal 4 huruf.',
+            'tahun_bentuk.min'          => 'Tahun bentuk minimal 4 huruf.',
+            'dasar_hukum.required'      => 'Dasar hukum harus diisi.',
+            'kecamatan.required'        => 'Kecamatan harus diisi.',
+            'kota.required'             => 'Kota harus diisi.',
+            'provinsi.required'         => 'Provinsi kelamin harus diisi.',
+            'kode_pos.required'         => 'Kode pos harus diisi.',
+            'kode_pos.max'              => 'Kode pos maksimal 5 huruf.',
+            'kode_pos.min'              => 'Kode pos minimal 5 huruf.',
+        ]);
+
+        $data = [
+            'nama'              => $request->nama,
+            'tahun_bentuk'      => $request->tahun_bentuk,
+            'dasar_hukum'       => $request->dasar_hukum,
+            'kecamatan'         => $request->kecamatan,
+            'kota'              => $request->kota,
+            'provinsi'          => $request->provinsi,
+            'kode_pos'          => $request->kode_pos,
+            'created_at'        => $current_time
         ];
+
         $this->desa->ubahData($data, $id);
+        
         return redirect('/profildesa')->with('status', 'Data berhasil diubah.');
     }
 

@@ -19,7 +19,6 @@ class Desa extends Migration
             $table->string('nama',100);
             $table->year('tahun_bentuk');
             $table->string('dasar_hukum',100);
-            $table->string('no_kode_wilayah');
             $table->string('kecamatan',50);
             $table->string('kota',50);
             $table->string('provinsi',50);

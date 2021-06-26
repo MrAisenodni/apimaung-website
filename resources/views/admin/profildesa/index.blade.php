@@ -16,14 +16,14 @@
                                 <i class="fas fa-table mr-1"></i>
                                 Data Profil Desa
                             </div>
+                            <div class="mt-3 col-lg-9">
+                                <a href="profildesa/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Profil Desa</a>
+                            </div>
                             @if (session('status'))
                                 <div class="m-3 alert alert-success">
                                     {{ session('status') }}
                                 </div>
                             @endif
-                            <div class="mt-3 col-lg-9">
-                                <a href="profildesa/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Profil Desa</a>
-                            </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -32,7 +32,7 @@
                                                 <th>No</th>
                                                 <th>Dasar Hukum Pembentukan</th>
                                                 <th>Nama</th>
-                                                <th>Nomor Kode Wilayah</th>
+                                                <th>Kode Pos</th>
                                                 <th>Kecamatan</th>
                                                 <th>Aksi</th>
                                             </tr>
@@ -43,7 +43,7 @@
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td>{{ $data->dasar_hukum }}</td>
                                                 <td>{{ $data->nama }}</td>
-                                                <td>{{ $data->no_kode_wilayah }}</td>
+                                                <td>{{ $data->kode_pos }}</td>
                                                 <td>{{ $data->kecamatan }}</td>
                                                 <td width="16%" class="text-center">
                                                     <a href="profildesa/edit/{{ $data->id_desa }}" class="btn btn-warning">
@@ -52,9 +52,9 @@
                                                     <form action="/profildesa/{{ $data->id_desa }}" method="POST" class="d-inline">
                                                         @method('delete')
                                                         @csrf
-                                                        <a href="" onclick="return confirm('Apakah Anda Yakin?');">
-                                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                        </a>
+                                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
                                                     </form>
                                                     <a href="/profildesa/{{ $data->id_desa }}" class="btn btn-info">
                                                         <i class="fas fa-list"></i>

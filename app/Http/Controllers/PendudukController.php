@@ -220,7 +220,7 @@ class PendudukController extends Controller
             'deleted_at'        => $current_time,
         ];
 
-        $this->penduduk->hapusData($data, $id);
+        $this->penduduk->hapusData($id);
 
         return redirect('/penduduk')->with('status', 'Data berhasil dihapus.');
     }

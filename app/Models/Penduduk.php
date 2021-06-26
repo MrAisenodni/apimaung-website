@@ -33,9 +33,16 @@ class Penduduk extends Model
                     ->update($data);
     }
 
-    public function hapusData($data,$id) {
+    // Function SoftDeletes
+    // public function hapusData($data,$id) {
+    //     return DB::table('penduduk')
+    //                 ->where('id_penduduk', $id)
+    //                 ->update($data);
+    // }
+
+    public function hapusData($id) {
         return DB::table('penduduk')
                     ->where('id_penduduk', $id)
-                    ->update($data);
+                    ->delete();
     }
 }
