@@ -103,6 +103,7 @@ Route::delete('/angbpd/{id}', [AnggotaBPDController::class, 'destroy']);
 // Routes Admin mengelola Kritik dan Saran
 Route::get('/kritiksaran', [KritikSaranController::class, 'index']);
 Route::get('/kritiksaran/{id}', [KritikSaranController::class, 'show']);
+Route::post('/kritiksaran', [KritikSaranController::class, 'store']);
 Route::delete('/kritiksaran/{id}', [KritikSaranController::class, 'destroy']);
 
 /*

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\KritikSaran;
 
 class KritikSaranController extends Controller
@@ -26,6 +27,40 @@ class KritikSaranController extends Controller
         } elseif (request()->is('/operator')) {
             return view('operator.kritiksaran.index', $data);
         }
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+        $current_time = Carbon::now()->toDateTimeString();
+
+        $validated = $request->validate([
+            'nama'          => 'required',
+            'no_hp'         => 'required|max:13',
+            'pesan'         => 'required',
+        ],[
+            'nama.required'     => 'Nama harus diisi.',
+            'no_hp.required'    => 'No HP harus diisi.',
+            'no_hp.max'         => 'No HP maksimal 6 huruf.',
+            'pesan.required'    => 'Pesan harus diisi.',
+        ]);
+
+        $data = [
+            'nama'          => $request->nama,
+            'no_hp'         => $request->no_hp,
+            'pesan'         => $request->pesan,
+            'created_at'    => $current_time
+        ];
+
+        $this->kritiksaran->tambahData($data);
+
+        return redirect('/')->with('status', 'Kritik dan saran Anda berhasil dikirim.');
     }
 
     /**

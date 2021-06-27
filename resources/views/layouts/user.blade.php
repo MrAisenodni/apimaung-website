@@ -171,11 +171,26 @@
           <!-- Quote -->
           <div class="col-md-4">
             <h6>Kritik dan Saran</h6>
+            @if (session('status'))
+              <div class="m-3 alert alert-success">
+                {{ session('status') }}
+              </div>
+            @endif
             <div class="quote">
-              <form>
-                <input class="form-control" type="text" placeholder="Nama Lengkap">
-                <input class="form-control" type="text" placeholder="No HP">
-                <textarea class="form-control" placeholder="Pesan"></textarea>
+              <form method="POST" action="/kritiksaran">
+                @csrf
+                @error('nama')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <input class="form-control @error('nama') is-invalid @enderror" type="text" placeholder="Nama Lengkap" name="nama">
+                @error('no_hp')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <input class="form-control @error('no_hp') is-invalid @enderror" type="text" placeholder="No HP" name="no_hp">
+                @error('pesan')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <textarea class="form-control @error('pesan') is-invalid @enderror" placeholder="Pesan" name="pesan"></textarea>
                 <button type="submit" class="btn btn-orange">KIRIM</button>
               </form>
             </div>

@@ -17,6 +17,10 @@ class KritikSaran extends Model
                     ->first();
     }
 
+    public function tambahData($data) {
+        return DB::table('kritiksaran')->insert($data);
+    }
+
     public function hapusData($id) {
         return DB::table('kritiksaran')
                     ->where('id_kritiksaran', $id)
