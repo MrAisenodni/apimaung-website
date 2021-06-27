@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\AnggotaBPDController;
@@ -74,6 +75,15 @@ Route::get('/penduduk/{id}', [PendudukController::class, 'show']);
 Route::post('/penduduk', [PendudukController::class, 'store']);
 Route::put('/penduduk/{id}', [PendudukController::class, 'update']);
 Route::delete('/penduduk/{id}', [PendudukController::class, 'destroy']);
+
+// Routes Admin mengelola Pengguna
+Route::get('/pengguna', [PenggunaController::class, 'index']);
+Route::get('/pengguna/create', [PenggunaController::class, 'create']);
+Route::get('/pengguna/{id}/edit', [PenggunaController::class, 'edit']);
+Route::get('/pengguna/{id}', [PenggunaController::class, 'show']);
+Route::post('/pengguna', [PenggunaController::class, 'store']);
+Route::put('/pengguna/{id}', [PenggunaController::class, 'update']);
+Route::delete('/pengguna/{id}', [PenggunaController::class, 'destroy']);
 
 // Routes Admin mengelola Pengaduan
 Route::get('/pengaduan', [PengaduanController::class, 'index']);

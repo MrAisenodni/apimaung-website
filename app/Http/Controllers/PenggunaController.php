@@ -3,9 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
+use App\Models\Pengguna;
+use App\Models\Penduduk;
+use App\Models\AnggotaBPD;
 
-class PengaduanController extends Controller
+class PenggunaController extends Controller
 {
+    public function __construct() {
+        $this->pengguna = new Pengguna();
+        $this->penduduk = new Penduduk();
+        $this->angbpd = new AnggotaBPD();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,8 +23,12 @@ class PengaduanController extends Controller
      */
     public function index()
     {
-        // Menampilkan halaman pengaduan untuk Admin
-        return view('admin.pengaduan.index');
+        //
+        $data = [
+            'pengguna'      => $this->pengguna->getAllData(),
+        ];
+
+        return view('admin.pengguna.index', $data);
     }
 
     /**
@@ -25,7 +39,11 @@ class PengaduanController extends Controller
     public function create()
     {
         //
-        return view('user.pengaduan');
+        $data = [
+            'penduduk'      => $this->penduduk->getAllData(),
+            'angbpd'        => $this->angbpd->getAllData(),
+        ];
+        return view('admin.pengguna.create', $data);
     }
 
     /**
@@ -68,7 +86,7 @@ class PengaduanController extends Controller
 
         return redirect('/pengguna')->with('status', 'Data berhasil ditambahkan.');
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -77,8 +95,12 @@ class PengaduanController extends Controller
      */
     public function show($id)
     {
-        // Menampilkan form detail pengaduan untuk Admin
-        return view('admin.pengaduan.show');
+        //
+        $data = [
+            'pengguna'      => $this->pengguna->getData($id),
+        ];
+
+        return view('admin.pengguna.show', $data);
     }
 
     /**
@@ -89,8 +111,14 @@ class PengaduanController extends Controller
      */
     public function edit($id)
     {
-        // Menampilkan form ubah pengaduan untuk Admin
-        return view('admin.pengaduan.edit');
+        //
+        $data = [
+            'pengguna'      => $this->pengguna->getData($id),
+            'penduduk'      => $this->penduduk->getAllData(),
+            'angbpd'        => $this->angbpd->getAllData(),
+        ];
+
+        return view('admin.pengguna.edit', $data);
     }
 
     /**
@@ -102,7 +130,37 @@ class PengaduanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Mengirimkan perubahan pengaduan ke database oleh Admin
+        //
+        $current_time = Carbon::now()->toDateTimeString();
+
+        $validated = $request->validate([
+            // 'nik'           => 'required',
+            // 'nip'           => 'required',
+            'email'         => 'required',
+            'password'      => 'required|min:8|max:12',
+            'akses'         => 'required',
+        ],[
+            'nik.required'              => 'NIK harus diisi.',
+            'nip.required'              => 'NIP harus diisi.',
+            'password.required'         => 'Password harus diisi.',
+            'password.required'         => 'Password harus diisi.',
+            'password.max'              => 'Password maksimal 12 huruf.',
+            'password.min'              => 'Password minimal 8 huruf.',
+            'akses.required'            => 'Akses harus diisi.',
+        ]);
+
+        $data = [
+            'id_penduduk'           => $request->nik,
+            'id_angbpd'             => $request->nip,
+            'email'                 => $request->email,
+            'password'              => Hash::make($request->password),
+            'akses'                 => $request->akses,
+            'updated_at'            => $current_time
+        ];
+        // var_dump($data);die;
+        $this->pengguna->ubahData($data, $id);
+
+        return redirect('/pengguna')->with('status', 'Data berhasil diubah.');
     }
 
     /**
@@ -113,6 +171,9 @@ class PengaduanController extends Controller
      */
     public function destroy($id)
     {
-        // Menghapus pengaduan dari database oleh Admin
+        //
+        $this->pengguna->hapusData($id);
+
+        return redirect('/pengguna')->with('status', 'Data berhasil dihapus.');
     }
 }

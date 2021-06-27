@@ -9,7 +9,6 @@ class Penduduk extends Model
 {
     public function getAllData() {
         return DB::table('penduduk')
-                    ->where('deleted_at', NULL)
                     ->get(); // get() => SELECT * FROM penduduk
     }
 

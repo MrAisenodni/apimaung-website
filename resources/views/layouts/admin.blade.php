@@ -67,9 +67,13 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                                 Pengaduan
                             </a>
-                            <a class="nav-link" href="{{ url('/operator/kritiksaran') }}">
+                            <a class="nav-link" href="{{ url('/kritiksaran') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                                 Kritik dan Saran
+                            </a>
+                            <a class="nav-link" href="{{ url('/pengguna') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-male"></i></div>
+                                Pengguna
                             </a>
                         </div>
                     </div>
