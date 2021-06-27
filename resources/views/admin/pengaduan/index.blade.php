@@ -16,6 +16,11 @@
                                 <i class="fas fa-table mr-1"></i>
                                 Data Pengaduan
                             </div>
+                            @if (session('status'))
+                                <div class="m-3 alert alert-success">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -47,9 +52,6 @@
                                                         <td class="text-center"><p class="btn btn-success">COMPLETED</p></td>
                                                     @endif
                                                     <td width="16%" class="text-center">
-                                                        <a href="/pengaduan/{{ $data->id_pengaduan }}/edit" class="btn btn-warning">
-                                                            <i class="fas fa-edit"></i>
-                                                        </a>
                                                         <form action="/pengaduan/{{ $data->id_pengaduan }}" method="POST" class="d-inline">
                                                             @method('delete')
                                                             @csrf
@@ -58,7 +60,7 @@
                                                             </button>
                                                         </form>
                                                         <a href="/pengaduan/{{ $data->id_pengaduan }}" class="btn btn-info">
-                                                            <i class="fas fa-list"></i>
+                                                            <i class="fas fa-eye"></i>
                                                         </a>
                                                     </td>
                                                 </tr>

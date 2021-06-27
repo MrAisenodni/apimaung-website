@@ -11,7 +11,6 @@
                             <div class="card-body">
                                 <form class="row g-3">
                                     @csrf
-                                    @csrf
                                     <div class="col-md-2 form-group">
                                         <label for="akses" class="form-label">Akses</label>
                                         @if ($pengguna->akses == 'usr')

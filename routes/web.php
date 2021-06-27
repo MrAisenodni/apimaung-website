@@ -128,12 +128,9 @@ Route::get('/operator/dashboard', [PageController::class, 'operator']);
 
 // Routes Admin mengelola Pengaduan
 Route::get('/operator/pengaduan', [PengaduanController::class, 'indexOpr']);
-Route::get('/operator/pengaduan/create', [PengaduanController::class, 'create']);
 Route::get('/operator/pengaduan/{id}/edit', [PengaduanController::class, 'edit']);
-Route::get('/operator/pengaduan/{id}', [PengaduanController::class, 'show']);
-Route::post('/operator/pengaduan', [PengaduanController::class, 'store']);
+Route::get('/operator/pengaduan/{id}', [PengaduanController::class, 'showOpr']);
 Route::put('/operator/pengaduan/{id}', [PengaduanController::class, 'update']);
-Route::delete('/operator/pengaduan/{id}', [PengaduanController::class, 'destroy']);
 
 // Routes Admin mengelola Kritik dan Saran
 Route::get('/operator/kritiksaran', [KritikSaranController::class, 'index']);

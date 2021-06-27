@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Penduduk;
+use App\Models\AnggotaBPD;
 use App\Models\Pengaduan;
 
 class PengaduanController extends Controller
 {
     public function __construct() {
         $this->penduduk = new Penduduk();
+        $this->angbpd = new AnggotaBPD();
         $this->pengaduan = new Pengaduan();
     }
     /**
@@ -114,9 +116,24 @@ class PengaduanController extends Controller
     {
         // Menampilkan form detail pengaduan untuk Admin
         $data = [
-            'pengaduan'     =>$this->pengaduan->getData($id),
+            'pengaduan'     => $this->pengaduan->getData($id),
         ];
         return view('admin.pengaduan.show', $data);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showOpr($id)
+    {
+        // Menampilkan form detail pengaduan untuk Admin
+        $data = [
+            'pengaduan'     => $this->pengaduan->getData($id),
+        ];
+        return view('operator.pengaduan.show', $data);
     }
 
     /**
@@ -128,7 +145,12 @@ class PengaduanController extends Controller
     public function edit($id)
     {
         // Menampilkan form ubah pengaduan untuk Admin
-        return view('admin.pengaduan.edit');
+        $data = [
+            'pengaduan'     => $this->pengaduan->getData($id),
+            'penduduk'      => $this->penduduk->getAllData(),
+            'angbpd'        => $this->angbpd->getAllData(),
+        ];
+        return view('operator.pengaduan.edit', $data);
     }
 
     /**
@@ -140,7 +162,30 @@ class PengaduanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Mengirimkan perubahan pengaduan ke database oleh Admin
+        // Mengirimkan perubahan pengaduan ke database oleh Operator
+        $current_time = Carbon::now()->toDateTimeString();
+        $status = 'complete';
+
+        $validated = $request->validate([
+            'nip'           => 'required',
+            'pesan'         => 'required',
+        ],[
+            'nip.required'          => 'NIP dan nama harus diisi.',
+            'pesan.required'        => 'Pesan harus diisi.',
+            // 'password.max'              => 'Password maksimal 12 huruf.',
+            // 'password.min'              => 'Password minimal 8 huruf.',
+        ]);
+
+        $data = [
+            'id_angbpd'     => $request->nip,
+            'balas_pesan'   => $request->pesan,
+            'status'        => $status,
+            'updated_at'    => $current_time
+        ];
+
+        $this->pengaduan->ubahData($data, $id);
+
+        return redirect('/operator/pengaduan')->with('status', 'Pengaduan berhasil ditanggapi.');
     }
 
     /**
@@ -152,5 +197,8 @@ class PengaduanController extends Controller
     public function destroy($id)
     {
         // Menghapus pengaduan dari database oleh Admin
+        $this->pengaduan->hapusData($id);
+
+        return redirect('/pengaduan')->with('status', 'Pengaduan berhasil dihapus.');
     }
 }
