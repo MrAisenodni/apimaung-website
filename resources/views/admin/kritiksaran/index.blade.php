@@ -28,8 +28,8 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama</th>
-                                                <th>Email</th>
-                                                <th>Judul</th>
+                                                <th>No HP</th>
+                                                <th>Pesan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -44,9 +44,9 @@
                                                     <form action="/kritiksaran/{{ $data->id_kritiksaran }}" method="POST" class="d-inline">
                                                         @method('delete')
                                                         @csrf
-                                                        <a href="#" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
+                                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
                                                             <i class="fas fa-trash"></i>
-                                                        </a>
+                                                        </button>
                                                     </form>
                                                     <a href="/kritiksaran/{{ $data->id_kritiksaran }}" class="btn btn-info">
                                                         <i class="fas fa-list"></i>
