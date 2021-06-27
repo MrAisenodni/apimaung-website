@@ -47,6 +47,7 @@ Route::get('/daper', [PageController::class, 'perkawinan']);
 
 // Routes Pengaduan
 Route::get('/pengaduan/create', [PengaduanController::class, 'create']);
+Route::post('/pengaduan', [PengaduanController::class, 'store']);
 
 /*
     ==============================
@@ -126,13 +127,13 @@ Route::delete('/kritiksaran/{id}', [KritikSaranController::class, 'destroy']);
 Route::get('/operator/dashboard', [PageController::class, 'operator']);
 
 // Routes Admin mengelola Pengaduan
-Route::get('/operator/pengaduan', [PesanController::class, 'index']);
-Route::get('/operator/pengaduan/create', [PesanController::class, 'create']);
-Route::get('/operator/pengaduan/{id}/edit', [PesanController::class, 'edit']);
-Route::get('/operator/pengaduan/{id}', [PesanController::class, 'show']);
-Route::post('/operator/pengaduan', [PesanController::class, 'store']);
-Route::put('/operator/pengaduan/{id}', [PesanController::class, 'update']);
-Route::delete('/operator/pengaduan/{id}', [PesanController::class, 'destroy']);
+Route::get('/operator/pengaduan', [PengaduanController::class, 'indexOpr']);
+Route::get('/operator/pengaduan/create', [PengaduanController::class, 'create']);
+Route::get('/operator/pengaduan/{id}/edit', [PengaduanController::class, 'edit']);
+Route::get('/operator/pengaduan/{id}', [PengaduanController::class, 'show']);
+Route::post('/operator/pengaduan', [PengaduanController::class, 'store']);
+Route::put('/operator/pengaduan/{id}', [PengaduanController::class, 'update']);
+Route::delete('/operator/pengaduan/{id}', [PengaduanController::class, 'destroy']);
 
 // Routes Admin mengelola Kritik dan Saran
 Route::get('/operator/kritiksaran', [KritikSaranController::class, 'index']);

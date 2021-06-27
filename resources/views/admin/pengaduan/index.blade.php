@@ -22,34 +22,47 @@
                                         <thead class="text-center">
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama</th>
-                                                <th>Email</th>
+                                                <th>Pengadu</th>
+                                                <th>Penanggap</th>
+                                                <th>Kategori</th>
                                                 <th>Status</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="text-center">1</td>
-                                                <td>Muhammad Fiqri Alfayed</td>
-                                                <td>fiqrialfayed@gmail.com</td>
-                                                <td class="text-center"><p class="btn btn-warning">PENDING</p></td>
-                                                <td width="18%" class="text-center">
-                                                    <a href="pengaduan/1/edit" class="btn btn-warning">
-                                                        <i class="fas fa-edit"></i>
-                                                    </a>
-                                                    <form action="" method="POST" class="d-inline">
-                                                        @method('delete')
-                                                        @csrf
-                                                        <a href="#" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
-                                                            <i class="fas fa-trash"></i>
+                                            @foreach ($pengaduan as $data)
+                                                
+                                                <tr>
+                                                    <td class="text-center">{{ $loop->iteration }}</td>
+                                                    <td>{{ $data->penduduk }}</td>
+                                                    <td>{{ $data->angbpd }}</td>
+                                                    @if ($data->kategori == 'penting')
+                                                        <td class="text-center text-danger">PENTING</td>
+                                                    @else
+                                                        <td class="text-center text-warning">UMUM</td>
+                                                    @endif
+                                                    @if ($data->status == 'pending')
+                                                        <td class="text-center"><p class="btn btn-warning">PENDING</p></td>
+                                                    @else
+                                                        <td class="text-center"><p class="btn btn-success">COMPLETED</p></td>
+                                                    @endif
+                                                    <td width="16%" class="text-center">
+                                                        <a href="/pengaduan/{{ $data->id_pengaduan }}/edit" class="btn btn-warning">
+                                                            <i class="fas fa-edit"></i>
                                                         </a>
-                                                    </form>
-                                                    <a href="/pengaduan/1" class="btn btn-info">
-                                                        <i class="fas fa-list"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                                        <form action="/pengaduan/{{ $data->id_pengaduan }}" method="POST" class="d-inline">
+                                                            @method('delete')
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                        <a href="/pengaduan/{{ $data->id_pengaduan }}" class="btn btn-info">
+                                                            <i class="fas fa-list"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

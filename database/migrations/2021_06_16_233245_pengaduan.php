@@ -16,12 +16,15 @@ class Pengaduan extends Migration
         //  Struktur tabel anggota bpd
         Schema::create('pengaduan', function (Blueprint $table) {
             $table->id('id_pengaduan');
-            $table->foreignId('id_penduduk');
+            $table->bigInteger('id_penduduk');
+            $table->bigInteger('id_angbpd')->nullable();
             $table->string('judul',100);
             $table->longText('pesan');
+            $table->longText('balas_pesan')->nullable();
             $table->date('tgl_kejadian');
             $table->string('lokasi',100);
             $table->string('instansi',100);
+            $table->enum('status', ['pending', 'complete']);
             $table->enum('kategori', ['penting', 'umum']);
             $table->datetime('created_at')->nullable();
             $table->datetime('updated_at')->nullable(); 

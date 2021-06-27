@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\Penduduk;
+use App\Models\Pengaduan;
 
 class PengaduanController extends Controller
 {
+    public function __construct() {
+        $this->penduduk = new Penduduk();
+        $this->pengaduan = new Pengaduan();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,24 @@ class PengaduanController extends Controller
     public function index()
     {
         // Menampilkan halaman pengaduan untuk Admin
-        return view('admin.pengaduan.index');
+        $data = [
+            'pengaduan'     => $this->pengaduan->getAllData(),
+        ];
+        return view('admin.pengaduan.index', $data);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexOpr()
+    {
+        // Menampilkan halaman pengaduan untuk Admin
+        $data = [
+            'pengaduan'     => $this->pengaduan->getAllData(),
+        ];
+        return view('operator.pengaduan.index', $data);
     }
 
     /**
@@ -25,7 +49,10 @@ class PengaduanController extends Controller
     public function create()
     {
         //
-        return view('user.pengaduan');
+        $data= [
+            'penduduk'      => $this->penduduk->getAllData(),
+        ];
+        return view('user.pengaduan', $data);
     }
 
     /**
@@ -38,35 +65,43 @@ class PengaduanController extends Controller
     {
         //
         $current_time = Carbon::now()->toDateTimeString();
+        $status = 'pending';
 
         $validated = $request->validate([
-            // 'nik'           => 'required',
-            // 'nip'           => 'required',
-            'email'         => 'required',
-            'password'      => 'required|min:8|max:12',
-            'akses'         => 'required',
+            'nik'           => 'required',
+            'judul'         => 'required',
+            'tgl_jadi'      => 'required',
+            'lokasi'        => 'required',
+            'instansi'      => 'required',
+            'kategori'      => 'required',
+            'pesan'         => 'required',
         ],[
-            'nik.required'              => 'NIK harus diisi.',
-            'nip.required'              => 'NIP harus diisi.',
-            'password.required'         => 'Password harus diisi.',
-            'password.required'         => 'Password harus diisi.',
-            'password.max'              => 'Password maksimal 12 huruf.',
-            'password.min'              => 'Password minimal 8 huruf.',
-            'akses.required'            => 'Akses harus diisi.',
+            'nik.required'          => 'NIK harus diisi.',
+            'judul.required'        => 'Judul Pengaduan harus diisi.',
+            'tgl_jadi.required'     => 'Tanggal kejadian harus diisi.',
+            'lokasi.required'       => 'Lokasi kejadian harus diisi.',
+            'instansi.required'     => 'Instansi tujuan harus diisi.',
+            'kategori.required'     => 'Kategori harus diisi.',
+            'pesan.required'        => 'Pesan harus diisi.',
+            // 'password.max'              => 'Password maksimal 12 huruf.',
+            // 'password.min'              => 'Password minimal 8 huruf.',
         ]);
 
         $data = [
-            'id_penduduk'           => $request->nik,
-            'id_angbpd'             => $request->nip,
-            'email'                 => $request->email,
-            'password'              => Hash::make($request->password),
-            'akses'                 => $request->akses,
-            'created_at'            => $current_time
+            'id_penduduk'   => $request->nik,
+            'judul'         => $request->judul,
+            'tgl_kejadian'  => $request->tgl_jadi,
+            'lokasi'        => $request->lokasi,
+            'instansi'      => $request->instansi,
+            'kategori'      => $request->kategori,
+            'pesan'         => $request->pesan,
+            'status'        => $status,
+            'created_at'    => $current_time
         ];
 
-        $this->pengguna->tambahData($data);
+        $this->pengaduan->tambahData($data);
 
-        return redirect('/pengguna')->with('status', 'Data berhasil ditambahkan.');
+        return redirect('/pengaduan/create')->with('status', 'Data berhasil ditambahkan.');
     }
     
     /**
@@ -78,7 +113,10 @@ class PengaduanController extends Controller
     public function show($id)
     {
         // Menampilkan form detail pengaduan untuk Admin
-        return view('admin.pengaduan.show');
+        $data = [
+            'pengaduan'     =>$this->pengaduan->getData($id),
+        ];
+        return view('admin.pengaduan.show', $data);
     }
 
     /**
