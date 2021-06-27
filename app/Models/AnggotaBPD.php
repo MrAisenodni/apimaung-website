@@ -16,4 +16,21 @@ class AnggotaBPD extends Model
                     ->where('id_angbpd', $id)
                     ->first();
     }
+
+    public function tambahData($data) {
+        return DB::table('angbpd')
+                    ->insert($data);
+    }
+
+    public function ubahData($data,$id) {
+        return DB::table('angbpd')
+                    ->where('id_angbpd', $id)
+                    ->update($data);
+    }
+
+    public function hapusData($id) {
+        return DB::table('angbpd')
+                    ->where('id_angbpd', $id)
+                    ->delete();
+    }
 }

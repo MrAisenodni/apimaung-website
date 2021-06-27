@@ -3,13 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Penduduk extends Model
 {
-    use SoftDeletes;
-
     public function getAllData() {
         return DB::table('penduduk')
                     ->where('deleted_at', NULL)

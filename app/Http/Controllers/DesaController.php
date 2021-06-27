@@ -157,7 +157,7 @@ class DesaController extends Controller
             'kota'              => $request->kota,
             'provinsi'          => $request->provinsi,
             'kode_pos'          => $request->kode_pos,
-            'created_at'        => $current_time
+            'updated_at'        => $current_time
         ];
 
         $this->desa->ubahData($data, $id);
