@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PengaduanController;
@@ -9,7 +10,7 @@ use App\Http\Controllers\PesanController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\AnggotaBPDController;
 use App\Http\Controllers\KritikSaranController;
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,10 +55,11 @@ Route::post('/pengaduan', [PengaduanController::class, 'store']);
     =       ROUTES LOGIN         =
     ==============================
 */
+Auth::routes();
 
 // Routes Login Admin/Operator Desa
-Route::get('/login', [LoginController::class, 'showLoginForm']);
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'autentifikasi']);
 
 /*
     ==============================
@@ -135,6 +137,3 @@ Route::put('/operator/pengaduan/{id}', [PengaduanController::class, 'update']);
 // Routes Admin mengelola Kritik dan Saran
 Route::get('/operator/kritiksaran', [KritikSaranController::class, 'index']);
 Route::get('/operator/kritiksaran/{id}', [KritikSaranController::class, 'show']);
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

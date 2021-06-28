@@ -23,19 +23,25 @@
                                         <form method="POST" action="/login">
                                             @csrf
                                             <div class="form-floating mb-3">
-                                                <label for="username">Username</label>
-                                                <input class="form-control" id="username" type="email" name="username" placeholder="Masukkan username Anda" />
+                                                <label for="email">Email</label>
+                                                <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="Masukkan email Anda" value="{{ old('email') }}" />
+                                                @error('email')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <label for="password">Password</label>
-                                                <input class="form-control" id="password" type="password" name="passowrd" placeholder="Masukkan password Anda" />
+                                                <label for="password">Kata Sandi</label>
+                                                <input class="form-control @error('password') is-invalid @enderror" id="password" type="password" name="password" placeholder="Masukkan kata sandi Anda" />
+                                                @error('password')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
+                                                <input class="form-check-input" id="remember" name="remember" type="checkbox" value="" />
+                                                <label class="form-check-label" for="remember">Ingat kata sandi</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="#">Forgot Password?</a>
+                                                <a class="small" href="#">Lupa Kata Sandi?</a>
                                                 <button type="submit" class="btn btn-success"> MASUK</button>
                                             </div>
                                         </form>

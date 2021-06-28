@@ -120,12 +120,22 @@
             {{-- <li><a href="{{ url('transparan') }}">TRANSPARANSI KEUANGAN</a></li> --}}
             
             <!--======= SEARCH ICON =========-->
-            <li class="search-nav right"><a href="#."><i class="fa fa-search"></i></a>
+            <li class="search-nav right"><a href="#."><i class="fa fa-user"></i></a>
               <ul class="dropdown">
                 <li>
-                  <form>
-                    <input type="search" class="form-control" placeholder="Enter Your Keywords..." required>
-                    <button type="submit"> SEARCH </button>
+                  <form method="POST" action="/login">
+                    @csrf
+                    <label for="email" class="form-label">Email</label>
+                    <input class="form-control @error('email') is-invalid @enderror" type="text" placeholder="Masukkan Email Anda" name="email">
+                    @error('email')
+                      <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                    <label for="password" class="form-label">Password</label>
+                    <input class="form-control @error('password') is-invalid @enderror" type="password" placeholder="password" name="password">
+                    @error('password')
+                      <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                    <button type="submit" class="btn btn-orange text-white margin-top-20">MASUK</button>
                   </form>
                 </li>
               </ul>
