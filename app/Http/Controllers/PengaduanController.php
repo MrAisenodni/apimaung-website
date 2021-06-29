@@ -103,7 +103,7 @@ class PengaduanController extends Controller
 
         $this->pengaduan->tambahData($data);
 
-        return redirect('/pengaduan/create')->with('status', 'Data berhasil ditambahkan.');
+        return redirect('/pengaduan/create')->with('status', 'Pengaduan Anda berhasil dikirim.');
     }
     
     /**

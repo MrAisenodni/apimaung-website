@@ -9,7 +9,6 @@ use App\Models\Desa;
 class DesaController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth');
         $this->desa = new Desa();
     }
     /**

@@ -25,38 +25,49 @@ class LoginController extends Controller
         return view('login');
     }
 
-    /**
-     * Handle an authentication attempt.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function autentifikasi(Request $request)
+    public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email'                 => ['required', 'email'],
-            'password'              => ['required'],
+        $validate = $request->validate([
+            'email'                 => 'required|email',
+            'password'              => 'required',
         ],[
             'email.required'        => 'Email harus diisi.',
             'email.email'           => 'Email tidak valid.',
             'password.required'     => 'Password harus diisi.',
         ]);
 
-        if (Auth::attempt($credentials, $this->login->getAllData())) {
-            $request->session()->regenerate();
-            $request->session()->passwordConfirmed();
+        $data = [
+            'email'     => $request->email,
+            'password'  => $request->password,
+        ];
 
-            return redirect()->intended('/dashboard');
-        } else if (!Hash::check($request->password, $this->login->getAllData())) {
+        $info_pengguna = $this->login->getData($data);
+
+        if(!$info_pengguna) {
             return back()->withErrors([
-                'password'  => 'Kata sandi yang Anda masukkan salah.',
+                'email'  => 'Email yang Anda masukkan salah.',
             ]);
-        }
+        } else {
+            // Mengecek password
+            if(Hash::check($request->password, $info_pengguna->password)) {
+                $request->session()->put('sid_login', $info_pengguna->id_login);
+                $request->session()->put('sid_penduduk', $info_pengguna->id_penduduk);
+                $request->session()->put('sid_angbpd', $info_pengguna->id_angbpd);
+                $request->session()->put('sakses', $info_pengguna->akses);
 
-        return back()->withErrors([
-            'email'     => 'Email yang Anda masukkan salah.',
-            'password'  => 'Kata sandi yang Anda masukkan salah.',
-        ]);
+                if($info_pengguna->akses == 'adm') {
+                    return redirect()->intended('/dashboard');
+                } elseif($info_pengguna->akses == 'opr') {
+                    return redirect()->intended('/operator/dashboard');
+                } else {
+                    return redirect()->intended('/pengaduan/create');
+                }
+            } else {
+                return back()->withErrors([
+                    'password'  => 'Kata sandi yang Anda masukkan salah.',
+                ]);
+            }
+        }
     }
 
     public function logout(Request $request)
@@ -66,6 +77,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/login')->with('status', 'Anda berhasil keluar.');
     }
 }

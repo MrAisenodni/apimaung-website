@@ -19,12 +19,22 @@
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    @if (session('error'))
+                                        <div class="m-3 alert alert-danger">
+                                            {{ session('error') }}
+                                        </div>
+                                    @endif
+                                    @if (session('status'))
+                                        <div class="m-3 alert alert-success">
+                                            {{ session('status') }}
+                                        </div>
+                                    @endif
                                     <div class="card-body">
-                                        <form method="POST" action="/login">
+                                        <form method="POST" action="{{ route('auth.check') }}">
                                             @csrf
                                             <div class="form-floating mb-3">
                                                 <label for="email">Email</label>
-                                                <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="Masukkan email Anda" value="{{ old('email') }}" />
+                                                <input class="form-control @error('email') is-invalid @enderror" id="email" type="text" name="email" placeholder="Masukkan email Anda" value="{{ old('email') }}" />
                                                 @error('email')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror

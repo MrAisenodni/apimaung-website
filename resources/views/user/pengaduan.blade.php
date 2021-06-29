@@ -27,7 +27,7 @@
                                     <select class="form-control @error('nik') is-invalid @enderror" name="nik" id="nik">
                                         <option value="">--- PILIH NIK ---</option>
                                         @foreach ($penduduk as $data)
-                                            <option value="{{ $data->id_penduduk }}">{{ $data->nik }}</option>
+                                            <option value="{{ $data->id_penduduk }}">{{ $data->nik }} | {{ $data->nama }}</option>
                                         @endforeach
                                     </select>
                                     @error('nik')
