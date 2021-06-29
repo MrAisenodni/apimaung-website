@@ -22,12 +22,13 @@ class KritikSaranController extends Controller
         $data = [
             'kritiksaran'       => $this->kritiksaran->getAllData(),
         ];
-        // if(request()->is('/admin')) {
-        //     return view('admin.kritiksaran.index', $data);
-        // } elseif (request()->is('/operator')) {
-        //     return view('operator.kritiksaran.index', $data);
-        // }
-        return view('admin.kritiksaran.index', $data);
+        // var_dump($data);die;
+
+        if(session()->get('sakses') == 'adm') {
+            return view('admin.kritiksaran.index', $data);
+        } else {
+            return view('operator.kritiksaran.index', $data);
+        }
     }
 
     /**
@@ -76,7 +77,7 @@ class KritikSaranController extends Controller
         $data = [
             'kritiksaran'       =>$this->kritiksaran->getData($id),
         ];
-        return view('admin.kritiksaran.show', $data);
+        return view('operator.kritiksaran.show', $data);
     }
 
     /**

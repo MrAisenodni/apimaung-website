@@ -8,11 +8,15 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
 use App\Models\Login;
+use App\Models\Penduduk;
+use App\Models\AnggotaBPD;
 
 class LoginController extends Controller
 {
     public function __construct() {
         $this->login = new Login();
+        $this->penduduk = new Penduduk();
+        $this->angbpd = new AnggotaBPD();
     }
     /**
      * Display a listing of the resource.
@@ -53,6 +57,8 @@ class LoginController extends Controller
                 $request->session()->put('sid_login', $info_pengguna->id_login);
                 $request->session()->put('sid_penduduk', $info_pengguna->id_penduduk);
                 $request->session()->put('sid_angbpd', $info_pengguna->id_angbpd);
+                $request->session()->put('spenduduk', $info_pengguna->penduduk);
+                $request->session()->put('sangbpd', $info_pengguna->angbpd);
                 $request->session()->put('sakses', $info_pengguna->akses);
 
                 if($info_pengguna->akses == 'adm') {

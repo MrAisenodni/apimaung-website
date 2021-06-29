@@ -80,7 +80,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Masuk sebagai:</div>
-                        Administrator
+                        {{ session()->get('sangbpd') }}
                     </div>
                 </nav>
             </div>

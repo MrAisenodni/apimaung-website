@@ -29,12 +29,12 @@ class AuthCheck
         } 
         
         if(session()->has('sid_login')) {
-            if(session()->has('akses') == 'adm') {
+            if(session()->has('sakses') == 'adm') {
                 if($request->path() == '/login' || $request->path() == '/pengaduan/create') {
                     return redirect('/dashboard')->with('error', 'Anda sudah login.');
                     // return back()->with('error', 'Anda sudah login.');
                 }
-            } elseif (session()->has('akses') == 'opr') {
+            } elseif (session()->has('sakses') == 'opr') {
                 if($request->path() == '/login' || $request->path() == '/pengaduan/create') {
                     return redirect('/operator/dashboard')->with('error', 'Anda sudah login.');
                     // return back()->with('error', 'Anda sudah login.');
