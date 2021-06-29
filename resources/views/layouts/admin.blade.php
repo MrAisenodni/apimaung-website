@@ -14,6 +14,7 @@
 
         <!-- Stylesheet -->
         <link href="{{ url('admin/css/styles.css') }}" rel="stylesheet" />
+        {{-- <link href="{{ url('admin/css/mdb.min.css') }}" rel="stylesheet" /> --}}
         <link href="{{ url('https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" crossorigin="anonymous" />
         <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js') }}" crossorigin="anonymous"></script>
     </head>
@@ -101,6 +102,7 @@
         <script src="{{ url('https://code.jquery.com/jquery-3.5.1.slim.min.js') }}" crossorigin="anonymous"></script>
         <script src="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js') }}" crossorigin="anonymous"></script>
         <script src="{{ url('admin/js/scripts.js') }}"></script>
+        {{-- <script src="{{ url('admin/js/mdb.min.js') }}"></script> --}}
         <script src="{{ url('admin/js/bootstrap.min.js') }}"></script>
         <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js') }}" crossorigin="anonymous"></script>
         <script src="{{ url('admin/assets/demo/chart-area-demo.js') }}"></script>

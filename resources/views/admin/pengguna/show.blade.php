@@ -21,14 +21,28 @@
                                             <input type="text" class="form-control" id="email" value="Operator" disabled>
                                         @endif
                                     </div>
-                                    <div class="col-md-5 form-group">
-                                        <label for="nik" class="form-label">NIK</label>
-                                        <input type="text" class="form-control" id="email" value="{{ $pengguna->nik }}" disabled>
-                                    </div>
-                                    <div class="col-md-5 form-group">
-                                        <label for="nip" class="form-label">NIP</label>
-                                        <input type="text" class="form-control" id="nip" value="{{ $pengguna->nip }}" disabled>
-                                    </div>
+                                    @if ($pengguna->id_penduduk == null)
+                                        <div class="col-md-5 form-group">
+                                            <label for="nik" class="form-label">NIK</label>
+                                            <input type="text" class="form-control" id="email" value="" disabled>
+                                        </div>
+                                    @else
+                                        <div class="col-md-5 form-group">
+                                            <label for="nik" class="form-label">NIK</label>
+                                            <input type="text" class="form-control" id="email" value="{{ $pengguna->nik }} | {{ $pengguna->penduduk }}" disabled>
+                                        </div>
+                                    @endif
+                                    @if ($pengguna->id_angbpd == null)
+                                        <div class="col-md-5 form-group">
+                                            <label for="nip" class="form-label">NIP</label>
+                                            <input type="text" class="form-control" id="nip" value="" disabled>
+                                        </div>
+                                    @else
+                                        <div class="col-md-5 form-group">
+                                            <label for="nip" class="form-label">NIP</label>
+                                            <input type="text" class="form-control" id="nip" value="{{ $pengguna->nip }} | {{ $pengguna->angbpd }}" disabled>
+                                        </div>
+                                    @endif
                                     <div class="col-6 form-group">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="text" class="form-control" id="email" value="{{ $pengguna->email }}" disabled>

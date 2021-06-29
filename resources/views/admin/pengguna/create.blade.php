@@ -25,11 +25,11 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-5 form-group">
-                                        <label for="nik" class="form-label">NIK</label>
+                                        <label for="nik" class="form-label">Penduduk</label>
                                         <select class="form-control @error('nik') is-invalid @enderror" name="nik" id="nik">
-                                            <option value="">--- PILIH NIK ---</option>
+                                            <option value="">--- PILIH PENDUDUK ---</option>
                                             @foreach ($penduduk as $data)
-                                                <option value="{{ $data->id_penduduk }}">{{ $data->nik }}</option>
+                                                <option value="{{ $data->id_penduduk }}">{{ $data->nik }} | {{ $data->nama }}</option>
                                             @endforeach
                                         </select>
                                         @error('nik')
@@ -37,11 +37,11 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-5 form-group">
-                                        <label for="nip" class="form-label">NIP</label>
-                                        <select class="form-control @error('nip') is-invalid @enderror" name="nip" id="nip">
-                                            <option value="">--- PILIH NIP ---</option>
+                                        <label for="nip" class="form-label">Pilih Anggota BPD</label>
+                                        <select class="form-control mdb-select md-form @error('nip') is-invalid @enderror" name="nip" id="nip">
+                                            <option value="">--- PILIH ANGGOTA BPD ---</option>
                                             @foreach ($angbpd as $row)
-                                                <option value="{{ $row->id_angbpd }}">{{ $row->nip }}</option>
+                                                <option value="{{ $row->id_angbpd }}">{{ $row->nip }} | {{ $row->nama }}</option>
                                             @endforeach
                                         </select>
                                         @error('nip')

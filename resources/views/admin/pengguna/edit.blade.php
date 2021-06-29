@@ -38,10 +38,10 @@
                                         <div class="col-md-5 form-group">
                                             <label for="nik" class="form-label">NIK</label>
                                             <select class="form-control @error('nik') is-invalid @enderror" name="nik" id="nik">
-                                                <option value="{{ $pengguna->id_penduduk }}">{{ $pengguna->nik }}</option>
+                                                <option value="{{ $pengguna->id_penduduk }}">{{ $pengguna->nik }} | {{ $pengguna->penduduk }}</option>
                                                 <option value="">--- PILIH NIK ---</option>
                                                 @foreach ($penduduk as $data)
-                                                    <option value="{{ $data->id_penduduk }}">{{ $data->nik }}</option>
+                                                    <option value="{{ $data->id_penduduk }}">{{ $data->nik }} | {{ $data->nama }}</option>
                                                 @endforeach
                                             </select>
                                             @error('nik')
@@ -54,7 +54,7 @@
                                                 {{-- <option value="{{ $pengguna->id_angbpd }}">{{ $pengguna->nip }}</option> --}}
                                                 <option value="">--- PILIH NIP ---</option>
                                                 @foreach ($angbpd as $row)
-                                                    <option value="{{ $row->id_angbpd }}">{{ $row->nip }}</option>
+                                                    <option value="{{ $row->id_angbpd }}">{{ $row->nip }} | {{ $row->nama }}</option>
                                                 @endforeach
                                             </select>
                                             @error('nip')
@@ -68,7 +68,7 @@
                                                 {{-- <option value="{{ $pengguna->id_penduduk }}">{{ $pengguna->nik }}</option> --}}
                                                 <option value="">--- PILIH NIK ---</option>
                                                 @foreach ($penduduk as $data)
-                                                    <option value="{{ $data->id_penduduk }}">{{ $data->nik }}</option>
+                                                    <option value="{{ $data->id_penduduk }}">{{ $data->nik }} | {{ $data->nama }}</option>
                                                 @endforeach
                                             </select>
                                             @error('nik')
@@ -78,10 +78,10 @@
                                         <div class="col-md-5 form-group">
                                             <label for="nip" class="form-label">NIP</label>
                                             <select class="form-control @error('nip') is-invalid @enderror" name="nip" id="nip">
-                                                <option value="{{ $pengguna->id_angbpd }}">{{ $pengguna->nip }}</option>
+                                                <option value="{{ $pengguna->id_angbpd }}">{{ $pengguna->nip }} | {{ $pengguna->angbpd }}</option>
                                                 <option value="">--- PILIH NIP ---</option>
                                                 @foreach ($angbpd as $row)
-                                                    <option value="{{ $row->id_angbpd }}">{{ $row->nip }}</option>
+                                                    <option value="{{ $row->id_angbpd }}">{{ $row->nip }} | {{ $row->nama }}</option>
                                                 @endforeach
                                             </select>
                                             @error('nip')
