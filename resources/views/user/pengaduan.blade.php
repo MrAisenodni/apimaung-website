@@ -8,99 +8,60 @@
     
     <!-- Infinity Solution -->
     <section class="white-bg solution padding-top-75 padding-bottom-75">
-      <div class="container dark-bg padding-25"> 
-        <h4 class="text-white text-center">FORMULIR PENGADUAN</h4>
-        <form method="POST" action="/pengaduan">
-            @csrf
-            <div class="row">
-                <div class="col-lg-12 col-xs-12">
-                    @if (session('status'))
-                        <div class="m-3 alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <!-- /.box-title -->
-                        <div class="row">
-                            <div class="col-lg-12 col-xs-10">
-                                <div class="form-group">
-                                    <label for="nik">NIK</label>
-                                    <select class="form-control @error('nik') is-invalid @enderror" name="nik" id="nik">
-                                        <option value="">--- PILIH NIK ---</option>
-                                        @foreach ($penduduk as $data)
-                                            <option value="{{ $data->id_penduduk }}">{{ $data->nik }} | {{ $data->nama }}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('nik')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-xs-12">
-                                <div class="form-group">
-                                    <label for="judul">Judul Pengaduan</label>
-                                    <input type="text" class="form-control @error('judul') is-invalid @enderror" id="judul" placeholder="Masukkan Judul Pengaduan" name="judul" value="{{ old('judul') }}">
-                                    @error('judul')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-xs-12">
-                                <div class="form-group">
-                                    <label for="tgl_jadi">Tanggal Kejadian</label>
-                                    <input type="date" class="form-control @error('tgl_jadi') is-invalid @enderror" id="tgl_jadi" placeholder="Masukkan Tanggal Kejadian" name="tgl_jadi" value="{{ old('tgl_jadi') }}">
-                                    @error('tgl_jadi')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-xs-12">
-                                <div class="form-group">
-                                    <label for="pesan">Pesan Pengaduan</label>
-                                    <textarea class="form-control @error('pesan') is-invalid @enderror" name="pesan" id="pesan" cols="60" rows="8" placeholder="Masukkan Pesan Pengaduan">{{ old('pesan') }}</textarea>
-                                    @error('pesan')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-xs-12">
-                                <div class="form-group">
-                                    <label for="lokasi">Lokasi Kejadian</label>
-                                    <input type="text" class="form-control @error('lokasi') is-invalid @enderror" id="lokasi" placeholder="Masukkan Lokasi Kejadian" name="lokasi" value="{{ old('lokasi') }}">
-                                    @error('lokasi')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-xs-12">
-                                <div class="form-group">
-                                    <label for="instansi">Instansi Tujuan</label>
-                                    <input type="text" class="form-control @error('instansi') is-invalid @enderror" id="instansi" placeholder="Masukkan Instansi Tujuan" name="instansi" value="{{ old('instansi') }}">
-                                    @error('instansi')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-xs-12">
-                                <div class="form-group">
-                                    <label for="kategori">Kategori Pengaduan Anda</label>
-                                    <select class="form-control @error('instansi') is-invalid @enderror" name="kategori" id="kategori">
-                                        <option value="">-- Pilih Kategori Pengaduan --</option>
-                                        <option value="penting">Penting</option>
-                                        <option value="umum">Umum</option>
-                                    </select>
-                                    @error('kategori')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-orange">KIRIM</button>
-                    </div>
-                </div>
+        <div class="margin-left-45 padding-30 col-lg-11 table-bordered">
+            <div class="margin-bottom-20 row">
+                <i class="fas fa-table mr-1"></i>
+                Data Pengaduan
             </div>
-    </form>
+            <div class="margin-bottom-20 row">
+                <a href="/pengaduan/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Pengaduan</a>
+            </div>
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+            <div class="row">
+                {{-- <div class="table-responsive"> --}}
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead class="text-center">
+                            <tr>
+                                <th>No</th>
+                                <th>judul</th>
+                                <th>Nama Penanggap</th>
+                                <th>Kategori</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($penduduk as $data)
+                            <tr>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td>{{ $data->judul }}</td>
+                                <td>{{ $data->angbpd }}</td>
+                                @if ($data->kategori == 'penting')
+                                    <td class="text-center text-danger">PENTING</td>
+                                @else
+                                    <td class="text-center text-secondary">UMUM</td>
+                                @endif
+                                @if ($data->status == 'pending')
+                                    <td class="text-center"><p class="btn btn-warning">PENDING</p></td>
+                                @else
+                                    <td class="text-center"><p class="btn btn-success">COMPLETED</p></td>
+                                @endif
+                                <td width="16%" class="text-center">
+                                    <a href="/pengaduan/{{ $data->id_pengaduan }}" class="btn btn-info">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                {{-- </div> --}}
+            </div>
+        </div>
     </section>
     
   </div>

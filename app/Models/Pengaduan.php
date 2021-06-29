@@ -32,6 +32,23 @@ class Pengaduan extends Model
                     ->first();
     }
 
+    public function getAllDataUser() {
+        return DB::table('pengaduan')
+                    ->leftJoin('penduduk', 'penduduk.id_penduduk', '=', 'pengaduan.id_penduduk')
+                    ->leftJoin('angbpd', 'angbpd.id_angbpd', '=', 'pengaduan.id_angbpd')
+                    ->leftJoin('login', 'login.id_penduduk', '=', 'penduduk.id_penduduk')
+                    ->select(
+                        'penduduk.nama AS penduduk', 
+                        'penduduk.nik AS nik', 
+                        'angbpd.nama AS angbpd', 
+                        'angbpd.nip AS nip', 
+                        'login.email AS email', 
+                        'pengaduan.*'
+                    )
+                    ->where('pengaduan.id_penduduk', session()->get('sid_penduduk'))
+                    ->get();
+    }
+
     public function tambahData($data) {
         return DB::table('pengaduan')
                     ->insert($data);

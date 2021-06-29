@@ -11,7 +11,7 @@ class Login extends Model
         return DB::table('login')
                     ->leftJoin('penduduk', 'penduduk.id_penduduk', '=', 'login.id_penduduk')
                     ->leftJoin('angbpd', 'angbpd.id_angbpd', '=', 'login.id_angbpd')
-                    ->select('penduduk.nama AS penduduk', 'angbpd.nama AS angbpd', 'login.*')
+                    ->select('penduduk.nama AS penduduk', 'angbpd.nama AS angbpd', 'penduduk.nik AS nik', 'angbpd.nip AS nip', 'login.*')
                     ->where('login.email', $data['email'])
                     ->first();
     }

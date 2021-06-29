@@ -25,22 +25,16 @@ class PengaduanController extends Controller
         // Menampilkan halaman pengaduan untuk Admin
         $data = [
             'pengaduan'     => $this->pengaduan->getAllData(),
+            'penduduk'      => $this->pengaduan->getAllDataUser(),
         ];
-        return view('admin.pengaduan.index', $data);
-    }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function indexOpr()
-    {
-        // Menampilkan halaman pengaduan untuk Admin
-        $data = [
-            'pengaduan'     => $this->pengaduan->getAllData(),
-        ];
-        return view('operator.pengaduan.index', $data);
+        if(session()->get('sakses') == 'adm') {
+            return view('admin.pengaduan.index', $data);
+        } elseif(session()->get('sakses') == 'opr') {
+            return view('operator.pengaduan.index', $data);
+        } else {
+            return view('user.pengaduan', $data);
+        }
     }
 
     /**
@@ -52,9 +46,9 @@ class PengaduanController extends Controller
     {
         //
         $data= [
-            'penduduk'      => $this->penduduk->getAllData(),
+            'pengaduan'      => $this->pengaduan->getAllDataUser(),
         ];
-        return view('user.pengaduan', $data);
+        return view('user.createpengaduan', $data);
     }
 
     /**
@@ -70,7 +64,7 @@ class PengaduanController extends Controller
         $status = 'pending';
 
         $validated = $request->validate([
-            'nik'           => 'required',
+            // 'nik'           => 'required',
             'judul'         => 'required',
             'tgl_jadi'      => 'required',
             'lokasi'        => 'required',
@@ -90,7 +84,7 @@ class PengaduanController extends Controller
         ]);
 
         $data = [
-            'id_penduduk'   => $request->nik,
+            'id_penduduk'   => session()->get('sid_penduduk'),
             'judul'         => $request->judul,
             'tgl_kejadian'  => $request->tgl_jadi,
             'lokasi'        => $request->lokasi,
@@ -103,7 +97,7 @@ class PengaduanController extends Controller
 
         $this->pengaduan->tambahData($data);
 
-        return redirect('/pengaduan/create')->with('status', 'Pengaduan Anda berhasil dikirim.');
+        return redirect('/pengaduan')->with('status', 'Pengaduan Anda berhasil dikirim.');
     }
     
     /**
@@ -117,23 +111,16 @@ class PengaduanController extends Controller
         // Menampilkan form detail pengaduan untuk Admin
         $data = [
             'pengaduan'     => $this->pengaduan->getData($id),
+            'penduduk'      => $this->penduduk->getAllData(),
         ];
-        return view('admin.pengaduan.show', $data);
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function showOpr($id)
-    {
-        // Menampilkan form detail pengaduan untuk Admin
-        $data = [
-            'pengaduan'     => $this->pengaduan->getData($id),
-        ];
-        return view('operator.pengaduan.show', $data);
+        if(session()->get('sakses') == 'adm') {
+            return view('admin.pengaduan.show', $data);
+        } elseif(session()->get('sakses') == 'opr') {
+            return view('operator.pengaduan.show', $data);
+        } else {
+            return view('user.showpengaduan ', $data);
+        }
     }
 
     /**
@@ -167,7 +154,7 @@ class PengaduanController extends Controller
         $status = 'complete';
 
         $validated = $request->validate([
-            'nip'           => 'required',
+            // 'nip'           => 'required',
             'pesan'         => 'required',
         ],[
             'nip.required'          => 'NIP dan nama harus diisi.',
@@ -177,7 +164,7 @@ class PengaduanController extends Controller
         ]);
 
         $data = [
-            'id_angbpd'     => $request->nip,
+            'id_angbpd'     => session()->get('sid_angbpd'),
             'balas_pesan'   => $request->pesan,
             'status'        => $status,
             'updated_at'    => $current_time

@@ -16,31 +16,31 @@ class AuthCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        // if(!session()->has('ssid_login') && $request->path() != '/login') {
+        // if(!session()->has('sid_login') && $request->path() == '/pengaduan/create') {
+        //     return redirect('/');
+        // } elseif (!session()->has('sid_login') && $request->path() != '/login' && $request->path() == '/pengaduan/create') {
         //     return redirect('/login')->with('error', 'Anda belum login.');
-        // }
-
-        // if(session()->has('ssid_login') && $request->path() == '/login') {
-        //     return back();
-        // }
-
-        if(!session()->has('sid_login') && $request->path() != '/login') {
-            return redirect('/login')->with('error', 'Anda belum login.');
-        } 
+        // } 
         
-        if(session()->has('sid_login')) {
-            if(session()->has('sakses') == 'adm') {
+        if (!session()->get('sid_angbpd') && $request->path() == '/pengaduan/create') {
+            return redirect('/');
+        } elseif(!session()->has('sid_login') && $request->path() != '/login') {
+            return redirect('/login')->with('error', 'Anda belum login.');
+        }
+
+        if (session()->has('sid_login')) {
+            if(session()->get('sakses') == 'adm') {
                 if($request->path() == '/login' || $request->path() == '/pengaduan/create') {
                     return redirect('/dashboard')->with('error', 'Anda sudah login.');
                     // return back()->with('error', 'Anda sudah login.');
                 }
-            } elseif (session()->has('sakses') == 'opr') {
+            } elseif (session()->get('sakses') == 'opr') {
                 if($request->path() == '/login' || $request->path() == '/pengaduan/create') {
                     return redirect('/operator/dashboard')->with('error', 'Anda sudah login.');
                     // return back()->with('error', 'Anda sudah login.');
                 }
             } else {
-                if($request->path() == '/login' || $request->path() == '/pengaduan/create') {
+                if($request->path() == '/login') {
                     return redirect('/');
                     // return back()->with('error', 'Anda sudah login.');
                 }

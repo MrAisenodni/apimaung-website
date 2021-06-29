@@ -26,6 +26,8 @@
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="{{ url('css/custom.css') }}">
+<link href="{{ url('https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" crossorigin="anonymous" />
+        <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js') }}" crossorigin="anonymous"></script>
 
 <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 <link rel="stylesheet" type="text/css" href="{{ url('rs-plugin/css/settings.css') }}" media="screen" />
@@ -116,15 +118,15 @@
                 <li><a href="{{ url('daper') }}">Data Perkawinan</a></li>
               </ul>
             </li>
-            <li><a href="{{ url('pengaduan/create') }}">PENGADUAN</a></li>
+            <li><a href="{{ url('/pengaduan') }}">PENGADUAN</a></li>
             {{-- <li><a href="{{ url('transparan') }}">TRANSPARANSI KEUANGAN</a></li> --}}
             
             <!--======= LOGIN ICON =========-->
-            @if (session()->get('sid_login'))
+            @if (session()->has('sid_login'))
               <li class="search-nav right"><a href="#."><i class="fa fa-user"></i></a>
                 <ul class="dropdown">
                   <li>
-                    <p>{{ session()->get('id_login') }}</p>
+                    <a class="dropdown-item">{{ session()->get('spenduduk') }}</a>
                     <a class="dropdown-item" href="{{ route('auth.logout') }}">Logout</a>
                   </li>
                 </ul>
@@ -133,7 +135,7 @@
               <li class="search-nav right"><a href="#."><i class="fa fa-user"></i></a>
                 <ul class="dropdown">
                   <li>
-                    <form method="POST" action="/login">
+                    <form method="POST" action="{{ route('auth.check') }}">
                       @csrf
                       <label for="email" class="form-label">Email</label>
                       <input class="form-control @error('email') is-invalid @enderror" type="text" placeholder="Masukkan Email Anda" name="email">
@@ -241,6 +243,9 @@
 <script src="{{ url('js/vendors/jquery.bxslider.min.js') }}"></script> 
 <script src="{{ url('js/vendors/owl.carousel.min.js') }}"></script> 
 <script src="{{ url('js/vendors/jquery.sticky.js') }}"></script> 
+<script src="{{ url('https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url('https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url('admin/assets/demo/datatables-demo.js') }}"></script>
 
 <!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
 <script type="text/javascript" src="{{ url('rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script> 

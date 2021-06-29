@@ -279,6 +279,34 @@ section {
 .btn-orange:hover{
 	background:#222935;
 }
+.btn-danger{
+	background:#ff0000;
+	border-bottom:3px solid rgba(0,0,0,0.4);
+}
+.btn-danger:hover{
+	background:#222935;
+}
+.btn-success{
+	background:#0a7500;
+	border-bottom:3px solid rgba(0,0,0,0.4);
+}
+.btn-success:hover{
+	background:#222935;
+}
+.btn-info{
+	background:#00529e;
+	border-bottom:3px solid rgba(0,0,0,0.4);
+}
+.btn-info:hover{
+	background:#222935;
+}
+.btn-warning{
+	background:#c2bf00;
+	border-bottom:3px solid rgba(0,0,0,0.4);
+}
+.btn-warning:hover{
+	background:#222935;
+}
 .btn-white{
 	background:#fff;
 	color:#232c3b;

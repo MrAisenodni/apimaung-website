@@ -58,7 +58,9 @@ class LoginController extends Controller
                 $request->session()->put('sid_penduduk', $info_pengguna->id_penduduk);
                 $request->session()->put('sid_angbpd', $info_pengguna->id_angbpd);
                 $request->session()->put('spenduduk', $info_pengguna->penduduk);
+                $request->session()->put('snik', $info_pengguna->nik);
                 $request->session()->put('sangbpd', $info_pengguna->angbpd);
+                $request->session()->put('snip', $info_pengguna->nip);
                 $request->session()->put('sakses', $info_pengguna->akses);
 
                 if($info_pengguna->akses == 'adm') {
@@ -66,7 +68,7 @@ class LoginController extends Controller
                 } elseif($info_pengguna->akses == 'opr') {
                     return redirect()->intended('/operator/dashboard');
                 } else {
-                    return redirect()->intended('/pengaduan/create');
+                    return redirect()->intended('/');
                 }
             } else {
                 return back()->withErrors([

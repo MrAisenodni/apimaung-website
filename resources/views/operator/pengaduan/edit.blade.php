@@ -62,16 +62,7 @@
                                     <div class="row g-3">
                                         <div class="col-md-12 form-group">
                                             <label for="nip" class="form-label">NIP</label>
-                                            {{-- <input type="text" class="form-control" id="nip" value="{{ $pengaduan->nip }}"> --}}
-                                            <select class="form-control @error('nip') is-invalid @enderror" name="nip" id="nip">
-                                                <option value="">--- PILIH NIP ---</option>
-                                                @foreach ($angbpd as $data)
-                                                    <option value="{{ $data->id_angbpd }}">{{ $data->nip }} | {{ $data->nama }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('nip')
-                                                <div class="text-danger">{{ $message }}</div>
-                                            @enderror
+                                            <input type="text" class="form-control" id="nip" value="{{ session()->get('snip') }} | {{ session()->get('sangbpd') }}" disabled>
                                         </div>
                                         <div class="col-md-12 form-group">
                                             <label for="pesan" class="form-label">Pesan</label>

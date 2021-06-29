@@ -46,22 +46,22 @@ Route::get('/dapek', [PageController::class, 'pekerjaan']);
 Route::get('/dajen', [PageController::class, 'jenkel']);
 Route::get('/daper', [PageController::class, 'perkawinan']);
 
-// Routes Check Login
-Route::post('/login', [LoginController::class, 'login'])->name('auth.check');
-Route::get('/logout', [LoginController::class, 'logout'])->name('auth.logout');
-
 // Route::group(['middleware' => ['auth', 'web']], function() {
     /*
-        ==============================
-        =       ROUTES LOGIN         =
-        ==============================
+    ==============================
+    =       ROUTES LOGIN         =
+    ==============================
     */
-
+    
     // Routes Login Admin/Operator Desa
     Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('auth.logout');
+    Route::post('/login', [LoginController::class, 'login'])->name('auth.check');
 
     // Routes Pengaduan
-    Route::get('/pengaduan/create', [PengaduanController::class, 'create'])->middleware('authcheck');;
+    Route::get('/pengaduan', [PengaduanController::class, 'index'])->middleware('authcheck');
+    Route::get('/pengaduan/create', [PengaduanController::class, 'create'])->middleware('authcheck');
+    Route::get('/pengaduan/{id}', [PengaduanController::class, 'show'])->middleware('authcheck');
     Route::post('/pengaduan', [PengaduanController::class, 'store']);
     
     /*
@@ -132,9 +132,9 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('auth.logout');
     Route::get('/operator/dashboard', [PageController::class, 'operator'])->middleware('authcheck');
     
     // Routes Admin mengelola Pengaduan
-    Route::get('/operator/pengaduan', [PengaduanController::class, 'indexOpr'])->middleware('authcheck');
+    Route::get('/operator/pengaduan', [PengaduanController::class, 'index'])->middleware('authcheck');
     Route::get('/operator/pengaduan/{id}/edit', [PengaduanController::class, 'edit'])->middleware('authcheck');
-    Route::get('/operator/pengaduan/{id}', [PengaduanController::class, 'showOpr'])->middleware('authcheck');
+    Route::get('/operator/pengaduan/{id}', [PengaduanController::class, 'show'])->middleware('authcheck');
     Route::put('/operator/pengaduan/{id}', [PengaduanController::class, 'update']);
     
     // Routes Admin mengelola Kritik dan Saran
