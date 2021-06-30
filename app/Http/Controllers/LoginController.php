@@ -80,11 +80,20 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect('/login')->with('status', 'Anda berhasil keluar.');
+        if(session()->has('sid_login') && session()->get('sakses') == 'usr') {
+            Auth::logout();
+    
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+    
+            return redirect('/');
+        } else {
+            Auth::logout();
+    
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+    
+            return redirect('/login')->with('status', 'Anda berhasil keluar.');
+        }
     }
 }

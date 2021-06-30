@@ -77,7 +77,11 @@ class KritikSaranController extends Controller
         $data = [
             'kritiksaran'       =>$this->kritiksaran->getData($id),
         ];
-        return view('operator.kritiksaran.show', $data);
+        if(session()->get('sakses') == 'adm') {
+            return view('admin.kritiksaran.show', $data);
+        } else {
+            return view('operator.kritiksaran.show', $data);
+        }
     }
 
     /**

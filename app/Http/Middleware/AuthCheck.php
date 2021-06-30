@@ -30,15 +30,40 @@ class AuthCheck
 
         if (session()->has('sid_login')) {
             if(session()->get('sakses') == 'adm') {
-                if($request->path() == '/login' || $request->path() == '/pengaduan/create') {
+                if(
+                    $request->path() == '/login' || 
+                    $request->path() == '/pengaduan/create'
+                ) {
                     return redirect('/dashboard')->with('error', 'Anda sudah login.');
                     // return back()->with('error', 'Anda sudah login.');
-                }
+                } 
+                // elseif (
+                //     $request->path() == '/operator/dashboard' ||
+                //     $request->path() == '/operator/pengaduan' ||
+                //     $request->path() == '/operator/pengaduan/create' ||
+                //     $request->path() == '/operator/pengaduan/{id}/edit' ||
+                //     $request->path() == '/operator/pengaduan/{id}' ||
+                //     $request->path() == '/operator/kritiksaran' ||
+                //     $request->path() == '/operator/kritiksaran/{id}'
+                // ) {
+                //     return redirect('/dashboard')->with('error', 'Anda merupakan admin.');
+                // }
             } elseif (session()->get('sakses') == 'opr') {
                 if($request->path() == '/login' || $request->path() == '/pengaduan/create') {
                     return redirect('/operator/dashboard')->with('error', 'Anda sudah login.');
                     // return back()->with('error', 'Anda sudah login.');
-                }
+                } 
+                // elseif (
+                //     $request->path() != '/operator/dashboard' ||
+                //     $request->path() != '/operator/pengaduan' ||
+                //     $request->path() != '/operator/pengaduan/create' ||
+                //     $request->path() != '/operator/pengaduan/{id}/edit' ||
+                //     $request->path() != '/operator/pengaduan/{id}' ||
+                //     $request->path() != '/operator/kritiksaran' ||
+                //     $request->path() != '/operator/kritiksaran/{id}'
+                // ) {
+                //     return redirect('/operator/dashboard')->with('error', 'Anda merupakan admin.');
+                // }
             } else {
                 if($request->path() == '/login') {
                     return redirect('/');

@@ -48,27 +48,27 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-4 form-group">
-                                        <label for="status" class="form-label">Jenis Kelamin</label>
+                                        <label for="status" class="form-label">Status</label>
                                         <select name="status" id="status" class="form-control">
                                             @if ($penduduk->status == 'lajang')
                                                 <option type="text" class="form-control" id="status" value="lajang">Lajang</option>
-                                                <option type="text" class="form-control" id="status" value="menikah">Menikah</option>
+                                                <option type="text" class="form-control" id="status" value="nikah">Menikah</option>
                                                 <option type="text" class="form-control" id="status" value="duda">Duda</option>
                                                 <option type="text" class="form-control" id="status" value="janda">Janda</option>
-                                            @elseif ($penduduk->status == 'menikah')
-                                                <option type="text" class="form-control" id="status" value="menikah">Menikah</option>
+                                            @elseif ($penduduk->status == 'nikah')
+                                                <option type="text" class="form-control" id="status" value="nikah">Menikah</option>
                                                 <option type="text" class="form-control" id="status" value="lajang">Lajang</option>
                                                 <option type="text" class="form-control" id="status" value="duda">Duda</option>
                                                 <option type="text" class="form-control" id="status" value="janda">Janda</option>
                                             @elseif($penduduk->status == 'duda')
                                                 <option type="text" class="form-control" id="status" value="duda">Duda</option>
                                                 <option type="text" class="form-control" id="status" value="lajang">Lajang</option>
-                                                <option type="text" class="form-control" id="status" value="menikah">Menikah</option>
+                                                <option type="text" class="form-control" id="status" value="nikah">Menikah</option>
                                                 <option type="text" class="form-control" id="status" value="janda">Janda</option>
                                             @else
                                                 <option type="text" class="form-control" id="status" value="janda">Janda</option>
                                                 <option type="text" class="form-control" id="status" value="lajang">Lajang</option>
-                                                <option type="text" class="form-control" id="status" value="menikah">Menikah</option>
+                                                <option type="text" class="form-control" id="status" value="nikah">Menikah</option>
                                                 <option type="text" class="form-control" id="status" value="duda">Duda</option>
                                             @endif
                                         </select>

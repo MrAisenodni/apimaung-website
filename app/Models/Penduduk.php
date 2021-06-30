@@ -18,6 +18,22 @@ class Penduduk extends Model
                     ->first();
     }
 
+    public function getCount() {
+        return DB::table('penduduk')->count();
+    }
+
+    public function getCountLaki() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'l')
+                    ->count();
+    }
+
+    public function getCountPerempuan() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'p')
+                    ->count();
+    }
+
     public function tambahData($data) {
         return DB::table('penduduk')
                     ->insert($data);

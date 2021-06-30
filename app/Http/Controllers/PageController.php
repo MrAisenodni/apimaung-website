@@ -122,7 +122,14 @@ class PageController extends Controller
     
     // Dashboard Admin
     public function admin() {
-        return view('admin.index');
+        $data = [
+            'cpenduduk'     => $this->penduduk->getCount(),
+            'claki'         => $this->penduduk->getCountLaki(),
+            'cperempuan'    => $this->penduduk->getCountPerempuan(),
+            'cangbpd'       => $this->angbpd->getCount(),
+        ];
+
+        return view('admin.index', $data);
     }
 
     /*  
@@ -133,6 +140,13 @@ class PageController extends Controller
     
     // Dashboard Operator
     public function operator() {
-        return view('operator.index');
+        $data = [
+            'cpenduduk'     => $this->penduduk->getCount(),
+            'claki'         => $this->penduduk->getCountLaki(),
+            'cperempuan'    => $this->penduduk->getCountPerempuan(),
+            'cangbpd'       => $this->angbpd->getCount(),
+        ];
+
+        return view('operator.index', $data);
     }
 }

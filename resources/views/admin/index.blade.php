@@ -12,8 +12,15 @@
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-info text-white mb-4">
-                                    <div class="card-body">Primary Card</div>
+                                <div class="card bg-info text-white mb-4 row">
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td class="">Penduduk Laki-laki</td>
+                                                <th width="5%"><h1>{{ $claki }}</h1></th>
+                                            </tr>
+                                        </table>
+                                    </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -22,7 +29,14 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Warning Card</div>
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td class="">Penduduk Perempuan</td>
+                                                <th width="5%"><h1>{{ $cperempuan }}</h1></th>
+                                            </tr>
+                                        </table>
+                                    </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -31,7 +45,14 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td class="">Total Penduduk</td>
+                                                <th width="5%"><h1>{{ $cpenduduk }}</h1></th>
+                                            </tr>
+                                        </table>
+                                    </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -40,7 +61,14 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td class="">Total Anggota BPD</td>
+                                                <th width="5%"><h1>{{ $cangbpd }}</h1></th>
+                                            </tr>
+                                        </table>
+                                    </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -48,7 +76,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
@@ -67,7 +95,7 @@
                                     <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </main>
 @endsection

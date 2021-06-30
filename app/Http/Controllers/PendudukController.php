@@ -188,8 +188,8 @@ class PendudukController extends Controller
         ]);
 
         $data = [
-            'nik'           => $request->nik,
-            'nokk'          => $request->nokk,
+            // 'nik'           => $request->nik,
+            // 'nokk'          => $request->nokk,
             'nama'          => $request->nama,
             'tmpt_lahir'    => $request->tmpt_lahir,
             'tgl_lahir'     => $request->tgl_lahir,

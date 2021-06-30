@@ -21,7 +21,8 @@
                                     </div>
                                     <div class="col-md-12 form-group">
                                         <label for="pesan" class="form-label">Pesan</label>
-                                        <input type="text" class="form-control" id="pesan" value="{{ $kritiksaran->pesan }}" disabled>
+                                        {{-- <input type="text" class="form-control" id="pesan" value="{{ $kritiksaran->pesan }}" disabled> --}}
+                                        <textarea class="form-control" name="pesan" id="pesan" cols="30" rows="5" disabled>{{ $kritiksaran->pesan }}</textarea>
                                     </div>
                                     <div class="col-12 mt-3">
                                         <button type="button" class="btn btn-info"><a href="/operator/kritiksaran" class="text-white"><span class="fas fa-times-circle"></span> KEMBALI</a></button>

@@ -17,6 +17,10 @@ class AnggotaBPD extends Model
                     ->first();
     }
 
+    public function getCount() {
+        return DB::table('angbpd')->count();
+    }
+
     public function tambahData($data) {
         return DB::table('angbpd')
                     ->insert($data);

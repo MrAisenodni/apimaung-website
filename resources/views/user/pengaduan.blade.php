@@ -10,7 +10,7 @@
     <section class="white-bg solution padding-top-75 padding-bottom-75">
         <div class="margin-left-45 padding-30 col-lg-11 table-bordered">
             <div class="margin-bottom-20 row">
-                <i class="fas fa-table mr-1"></i>
+                <i class="fa fa-table mr-1"></i>
                 Data Pengaduan
             </div>
             <div class="margin-bottom-20 row">
@@ -52,7 +52,7 @@
                                 @endif
                                 <td width="16%" class="text-center">
                                     <a href="/pengaduan/{{ $data->id_pengaduan }}" class="btn btn-info">
-                                        <i class="fas fa-eye"></i>
+                                        <i class="fa fa-eye"></i>
                                     </a>
                                 </td>
                             </tr>
