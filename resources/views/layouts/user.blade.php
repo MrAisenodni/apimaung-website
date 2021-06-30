@@ -27,7 +27,7 @@
 <!-- Custom CSS -->
 <link rel="stylesheet" href="{{ url('css/custom.css') }}">
 <link href="{{ url('https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" crossorigin="anonymous" />
-        <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js') }}" crossorigin="anonymous"></script>
+{{-- <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js') }}" crossorigin="anonymous"></script> --}}
 
 <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 <link rel="stylesheet" type="text/css" href="{{ url('rs-plugin/css/settings.css') }}" media="screen" />
@@ -118,7 +118,9 @@
                 <li><a href="{{ url('daper') }}">Data Perkawinan</a></li>
               </ul>
             </li>
-            <li><a href="{{ url('/pengaduan') }}">PENGADUAN</a></li>
+            @if (session()->get('sakses') == 'usr')
+              <li><a href="{{ url('/pengaduan') }}">PENGADUAN</a></li>
+            @endif
             {{-- <li><a href="{{ url('transparan') }}">TRANSPARANSI KEUANGAN</a></li> --}}
             
             <!--======= LOGIN ICON =========-->
