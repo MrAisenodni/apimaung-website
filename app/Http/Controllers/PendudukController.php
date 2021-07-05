@@ -49,7 +49,7 @@ class PendudukController extends Controller
 
         $validated = $request->validate([
             'nik'           => 'required|unique:penduduk,nik|max:16|min:16',
-            'nokk'          => 'required|unique:penduduk,nokk|max:16|min:16',
+            'nokk'          => 'required|max:16|min:16',
             'nama'          => 'required',
             'tmpt_lahir'    => 'required',
             'tgl_lahir'     => 'required',
@@ -67,7 +67,7 @@ class PendudukController extends Controller
             'nik.max'               => 'NIK maksimal 16 huruf.',
             'nik.min'               => 'NIK minimal 16 huruf.',
             'nokk.required'         => 'Nomor KK harus diisi.',
-            'nokk.unique'           => 'Nomor KK sudah terdaftar.',
+            // 'nokk.unique'           => 'Nomor KK sudah terdaftar.',
             'nokk.max'              => 'Nomor KK maksimal 16 huruf.',
             'nokk.min'              => 'Nomor KK minimal 16 huruf.',
             'nama.required'         => 'Nama harus diisi.',
