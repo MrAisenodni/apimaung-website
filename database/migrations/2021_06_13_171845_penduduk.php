@@ -17,7 +17,7 @@ class Penduduk extends Migration
         Schema::create('penduduk', function (Blueprint $table) {
             $table->id('id_penduduk');
             $table->string('nik',16)->unique();
-            $table->string('nokk',16)->unique();
+            $table->string('nokk',16);
             $table->string('nama',100);
             $table->string('tmpt_lahir',50);
             $table->date('tgl_lahir');
