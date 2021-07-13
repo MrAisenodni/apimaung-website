@@ -35,7 +35,7 @@
                                 <table class="table table-bordered" width="100%" cellspacing="0">
                                     <thead class="center">
                                         <tr>
-                                            <th width="10%">No</th>
+                                            <th>No</th>
                                             <th>Jenis Kelamin</th>
                                             <th>Total</th>
                                             <th>Persentase</th>

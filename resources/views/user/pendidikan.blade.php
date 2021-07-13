@@ -54,7 +54,7 @@
                                     <tbody>
                                       <tr>
                                         <td>1</td>
-                                        <td>Tidak Sekolah</td>
+                                        <td>Tidak/Belum Sekolah</td>
                                         <td>{{ $cpendn }}</td>
                                         <td>{{ number_format($cpendn/$ctotal*100, 2) }}%</td>
                                         <td>{{ $cpendnlaki }}</td>
@@ -94,6 +94,26 @@
                                       </tr>
                                       <tr>
                                         <td>5</td>
+                                        <td>Diploma I (D1)</td>
+                                        <td>{{ $cpendd1 }}</td>
+                                        <td>{{ number_format($cpendd1/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendd1laki }}</td>
+                                        <td>{{ number_format($cpendd1laki/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendd1perempuan }}</td>
+                                        <td>{{ number_format($cpendd1perempuan/$ctotal*100, 2) }}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>6</td>
+                                        <td>Diploma II (D2)</td>
+                                        <td>{{ $cpendd2 }}</td>
+                                        <td>{{ number_format($cpendd2/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendd2laki }}</td>
+                                        <td>{{ number_format($cpendd2laki/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendd2perempuan }}</td>
+                                        <td>{{ number_format($cpendd2perempuan/$ctotal*100, 2) }}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>7</td>
                                         <td>Diploma III (D3)</td>
                                         <td>{{ $cpendd3 }}</td>
                                         <td>{{ number_format($cpendd3/$ctotal*100, 2) }}%</td>
@@ -103,18 +123,8 @@
                                         <td>{{ number_format($cpendd3perempuan/$ctotal*100, 2) }}%</td>
                                       </tr>
                                       <tr>
-                                        <td>6</td>
-                                        <td>Diploma IV (D4)</td>
-                                        <td>{{ $cpendd4 }}</td>
-                                        <td>{{ number_format($cpendd4/$ctotal*100, 2) }}%</td>
-                                        <td>{{ $cpendd4laki }}</td>
-                                        <td>{{ number_format($cpendd4laki/$ctotal*100, 2) }}%</td>
-                                        <td>{{ $cpendd4perempuan }}</td>
-                                        <td>{{ number_format($cpendd4perempuan/$ctotal*100, 2) }}%</td>
-                                      </tr>
-                                      <tr>
-                                        <td>7</td>
-                                        <td>Sarjana (S1)</td>
+                                        <td>8</td>
+                                        <td>Diploma IV/Strata I (D4/S1)</td>
                                         <td>{{ $cpends1 }}</td>
                                         <td>{{ number_format($cpends1/$ctotal*100, 2) }}%</td>
                                         <td>{{ $cpends1laki }}</td>
@@ -123,8 +133,8 @@
                                         <td>{{ number_format($cpends1perempuan/$ctotal*100, 2) }}%</td>
                                       </tr>
                                       <tr>
-                                        <td>8</td>
-                                        <td>Master (S2)</td>
+                                        <td>9</td>
+                                        <td>Strata II (S2)</td>
                                         <td>{{ $cpends2 }}</td>
                                         <td>{{ number_format($cpends2/$ctotal*100, 2) }}%</td>
                                         <td>{{ $cpends2laki }}</td>
@@ -133,8 +143,8 @@
                                         <td>{{ number_format($cpends2perempuan/$ctotal*100, 2) }}%</td>
                                       </tr>
                                       <tr>
-                                        <td>9</td>
-                                        <td>Doktor (S3)</td>
+                                        <td>10</td>
+                                        <td>Strata III (S3)</td>
                                         <td>{{ $cpends3 }}</td>
                                         <td>{{ number_format($cpends3/$ctotal*100, 2) }}%</td>
                                         <td>{{ $cpends3laki }}</td>
@@ -162,8 +172,9 @@
     var cpendsd      = <?php echo (number_format($cpendsd/$ctotal*100, 2)) ?>;
     var cpendsmp     = <?php echo (number_format($cpendsmp/$ctotal*100, 2)) ?>;
     var cpendsma     = <?php echo (number_format($cpendsma/$ctotal*100, 2)) ?>;
+    var cpendd1      = <?php echo (number_format($cpendd1/$ctotal*100, 2)) ?>;
+    var cpendd2      = <?php echo (number_format($cpendd2/$ctotal*100, 2)) ?>;
     var cpendd3      = <?php echo (number_format($cpendd3/$ctotal*100, 2)) ?>;
-    var cpendd4      = <?php echo (number_format($cpendd4/$ctotal*100, 2)) ?>;
     var cpends1      = <?php echo (number_format($cpends1/$ctotal*100, 2)) ?>;
     var cpends2      = <?php echo (number_format($cpends2/$ctotal*100, 2)) ?>;
     var cpends3      = <?php echo (number_format($cpends3/$ctotal*100, 2)) ?>;
@@ -212,11 +223,14 @@
           name: 'SMA',
           y: cpendsma
         }, {
+          name: 'D1',
+          y: cpendd1
+        }, {
+          name: 'D2',
+          y: cpendd2
+        }, {
           name: 'D3',
           y: cpendd3
-        }, {
-          name: 'D4',
-          y: cpendd4
         }, {
           name: 'S1',
           y: cpends1

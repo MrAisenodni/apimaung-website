@@ -31,7 +31,7 @@ class PendudukSeeder extends Seeder
                     'rt'            => '003',
                     'rw'            => '009',
                     'pendidikan'    => 's1',
-                    'pekerjaan'     => 'Direktur Utama',
+                    'pekerjaan'     => 'lain',
                     'status'        => 'lajang',
                     'created_at'    => $current_time,
                 ],[
@@ -46,7 +46,7 @@ class PendudukSeeder extends Seeder
                     'rt'            => '010',
                     'rw'            => '002',
                     'pendidikan'    => 's1',
-                    'pekerjaan'     => 'CEO',
+                    'pekerjaan'     => 'pns',
                     'status'        => 'nikah',
                     'created_at'    => $current_time,
                 ],[
@@ -61,7 +61,7 @@ class PendudukSeeder extends Seeder
                     'rt'            => '002',
                     'rw'            => '011',
                     'pendidikan'    => 'sma',
-                    'pekerjaan'     => 'Chef',
+                    'pekerjaan'     => 'petani',
                     'status'        => 'lajang',
                     'created_at'    => $current_time,
                 ],

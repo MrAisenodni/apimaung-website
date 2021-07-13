@@ -121,6 +121,42 @@ class Penduduk extends Model
                     ->count();
     }
 
+    public function getCountPendD1() {
+        return DB::table('penduduk')
+                    ->where('pendidikan', 'd1')
+                    ->count();
+    }
+    public function getCountPendD1Laki() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'l')
+                    ->where('pendidikan', 'd1')
+                    ->count();
+    }
+    public function getCountPendD1Perempuan() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'p')
+                    ->where('pendidikan', 'd1')
+                    ->count();
+    }
+
+    public function getCountPendD2() {
+        return DB::table('penduduk')
+                    ->where('pendidikan', 'd2')
+                    ->count();
+    }
+    public function getCountPendD2Laki() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'l')
+                    ->where('pendidikan', 'd2')
+                    ->count();
+    }
+    public function getCountPendD2Perempuan() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'p')
+                    ->where('pendidikan', 'd2')
+                    ->count();
+    }
+
     public function getCountPendD3() {
         return DB::table('penduduk')
                     ->where('pendidikan', 'd3')
@@ -136,24 +172,6 @@ class Penduduk extends Model
         return DB::table('penduduk')
                     ->where('jenkel', 'p')
                     ->where('pendidikan', 'd3')
-                    ->count();
-    }
-
-    public function getCountPendD4() {
-        return DB::table('penduduk')
-                    ->where('pendidikan', 'd4')
-                    ->count();
-    }
-    public function getCountPendD4Laki() {
-        return DB::table('penduduk')
-                    ->where('jenkel', 'l')
-                    ->where('pendidikan', 'd4')
-                    ->count();
-    }
-    public function getCountPendD4Perempuan() {
-        return DB::table('penduduk')
-                    ->where('jenkel', 'p')
-                    ->where('pendidikan', 'd4')
                     ->count();
     }
 
@@ -286,6 +304,156 @@ class Penduduk extends Model
         return DB::table('penduduk')
                     ->where('jenkel', 'p')
                     ->where('status', 'janda')
+                    ->count();
+    }
+
+    /*
+    ========================
+    =   Count Pekerjaan    =
+    ========================
+    */
+
+    public function getCountPekN() {
+        return DB::table('penduduk')
+                    ->where('pekerjaan', 'n')
+                    ->count();
+    }
+    public function getCountPekNLaki() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'l')
+                    ->where('pekerjaan', 'n')
+                    ->count();
+    }
+    public function getCountPekNPerempuan() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'p')
+                    ->where('pekerjaan', 'n')
+                    ->count();
+    }
+
+    public function getCountPekPNS() {
+        return DB::table('penduduk')
+                    ->where('pekerjaan', 'pns')
+                    ->count();
+    }
+    public function getCountPekPNSLaki() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'l')
+                    ->where('pekerjaan', 'pns')
+                    ->count();
+    }
+    public function getCountPekPNSPerempuan() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'p')
+                    ->where('pekerjaan', 'pns')
+                    ->count();
+    }
+
+    public function getCountPekTani() {
+        return DB::table('penduduk')
+                    ->where('pekerjaan', 'petani')
+                    ->count();
+    }
+    public function getCountPekTaniLaki() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'l')
+                    ->where('pekerjaan', 'petani')
+                    ->count();
+    }
+    public function getCountPekTaniPerempuan() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'p')
+                    ->where('pekerjaan', 'petani')
+                    ->count();
+    }
+
+    public function getCountPekNel() {
+        return DB::table('penduduk')
+                    ->where('pekerjaan', 'nelayan')
+                    ->count();
+    }
+    public function getCountPekNelLaki() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'l')
+                    ->where('pekerjaan', 'nelayan')
+                    ->count();
+    }
+    public function getCountPekNelPerempuan() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'p')
+                    ->where('pekerjaan', 'nelayan')
+                    ->count();
+    }
+
+    public function getCountPekRT() {
+        return DB::table('penduduk')
+                    ->where('pekerjaan', 'rumahtangga')
+                    ->count();
+    }
+    public function getCountPekRTLaki() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'l')
+                    ->where('pekerjaan', 'rumahtangga')
+                    ->count();
+    }
+    public function getCountPekRTPerempuan() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'p')
+                    ->where('pekerjaan', 'rumahtangga')
+                    ->count();
+    }
+
+    public function getCountPekSiswa() {
+        return DB::table('penduduk')
+                    ->where('pekerjaan', 'siswa')
+                    ->count();
+    }
+    public function getCountPekSiswaLaki() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'l')
+                    ->where('pekerjaan', 'siswa')
+                    ->count();
+    }
+    public function getCountPekSiswaPerempuan() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'p')
+                    ->where('pekerjaan', 'siswa')
+                    ->count();
+    }
+
+    public function getCountPekTambak() {
+        return DB::table('penduduk')
+                    ->where('pekerjaan', 'tambak')
+                    ->count();
+    }
+    public function getCountPekTambakLaki() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'l')
+                    ->where('pekerjaan', 'tambak')
+                    ->count();
+    }
+    public function getCountPekTambakPerempuan() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'p')
+                    ->where('pekerjaan', 'tambak')
+                    ->count();
+    }
+
+    public function getCountPekLain() {
+        return DB::table('penduduk')
+                    ->where('pekerjaan', 'lain')
+                    ->count();
+    }
+    public function getCountPekLainLaki() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'l')
+                    ->where('pekerjaan', 'lain')
+                    ->count();
+    }
+    public function getCountPekLainPerempuan() {
+        return DB::table('penduduk')
+                    ->where('jenkel', 'p')
+                    ->where('pekerjaan', 'lain')
                     ->count();
     }
 

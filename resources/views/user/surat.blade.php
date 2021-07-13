@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Pengaduan')
+@section('title', 'Surat Online')
 
 @section('content') 
   <!-- Content -->
@@ -11,10 +11,10 @@
         <div class="margin-left-45 padding-30 col-lg-11 table-bordered">
             <div class="margin-bottom-20 row">
                 <i class="fa fa-table mr-1"></i>
-                Data Pengaduan
+                Data Surat Online
             </div>
             <div class="margin-bottom-20 row">
-                <a href="/pengaduan/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Pengaduan</a>
+                <a href="/surat/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Tambah Surat Online</a>
             </div>
             @if (session('status'))
                 <div class="alert alert-success">
@@ -27,7 +27,7 @@
                         <thead class="text-center">
                             <tr>
                                 <th>No</th>
-                                <th>Judul</th>
+                                <th>judul</th>
                                 <th>Nama Penanggap</th>
                                 <th>Kategori</th>
                                 <th>Status</th>

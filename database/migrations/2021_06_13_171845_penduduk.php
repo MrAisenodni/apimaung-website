@@ -26,8 +26,8 @@ class Penduduk extends Migration
             $table->string('alamat');
             $table->string('rt',3);
             $table->string('rw',3);
-            $table->enum('pendidikan', ['n', 'sd', 'smp', 'sma', 'd3', 'd4', 's1', 's2', 's3']);
-            $table->string('pekerjaan',100);
+            $table->enum('pendidikan', ['n', 'sd', 'smp', 'sma', 'd1', 'd2', 'd3', 's1', 's2', 's3']);
+            $table->enum('pekerjaan', ['n', 'rumahtangga', 'siswa', 'pns', 'nelayan', 'petani', 'tambak', 'lain']);
             $table->enum('status', ['lajang', 'nikah', 'duda', 'janda']);
             $table->datetime('created_at')->nullable();
             $table->datetime('updated_at')->nullable(); 

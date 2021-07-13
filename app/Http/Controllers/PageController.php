@@ -112,12 +112,15 @@ class PageController extends Controller
             'cpendsma'          => $this->penduduk->getCountPendSMA(),
             'cpendsmalaki'      => $this->penduduk->getCountPendSMALaki(),
             'cpendsmaperempuan' => $this->penduduk->getCountPendSMAPerempuan(),
+            'cpendd1'           => $this->penduduk->getCountPendD1(),
+            'cpendd1laki'       => $this->penduduk->getCountPendD1Laki(),
+            'cpendd1perempuan'  => $this->penduduk->getCountPendD1Perempuan(),
+            'cpendd2'           => $this->penduduk->getCountPendD2(),
+            'cpendd2laki'       => $this->penduduk->getCountPendD2Laki(),
+            'cpendd2perempuan'  => $this->penduduk->getCountPendD2Perempuan(),
             'cpendd3'           => $this->penduduk->getCountPendD3(),
             'cpendd3laki'       => $this->penduduk->getCountPendD3Laki(),
             'cpendd3perempuan'  => $this->penduduk->getCountPendD3Perempuan(),
-            'cpendd4'           => $this->penduduk->getCountPendD4(),
-            'cpendd4laki'       => $this->penduduk->getCountPendD4Laki(),
-            'cpendd4perempuan'  => $this->penduduk->getCountPendD4Perempuan(),
             'cpends1'           => $this->penduduk->getCountPendS1(),
             'cpends1laki'       => $this->penduduk->getCountPendS1Laki(),
             'cpends1perempuan'  => $this->penduduk->getCountPendS1Perempuan(),
@@ -133,7 +136,36 @@ class PageController extends Controller
 
     // Halaman Data Pekerjaan
     public function pekerjaan() {
-        return view('user.pekerjaan');
+        $data = [
+            'ctotal'            => $this->penduduk->getCount(),
+            'claki'             => $this->penduduk->getCountLaki(),
+            'cperempuan'        => $this->penduduk->getCountPerempuan(),
+            'cpendn'            => $this->penduduk->getCountPekN(),
+            'cpendnlaki'        => $this->penduduk->getCountPekNLaki(),
+            'cpendnperempuan'   => $this->penduduk->getCountPekNPerempuan(),
+            'cpendsd'           => $this->penduduk->getCountPekRT(),
+            'cpendsdlaki'       => $this->penduduk->getCountPekRTLaki(),
+            'cpendsdperempuan'  => $this->penduduk->getCountPekRTPerempuan(),
+            'cpendsmp'          => $this->penduduk->getCountPekSiswa(),
+            'cpendsmplaki'      => $this->penduduk->getCountPekSiswaLaki(),
+            'cpendsmpperempuan' => $this->penduduk->getCountPekSiswaPerempuan(),
+            'cpendsma'          => $this->penduduk->getCountPekPNS(),
+            'cpendsmalaki'      => $this->penduduk->getCountPekPNSLaki(),
+            'cpendsmaperempuan' => $this->penduduk->getCountPekPNSPerempuan(),
+            'cpendd1'           => $this->penduduk->getCountPekNel(),
+            'cpendd1laki'       => $this->penduduk->getCountPekNelLaki(),
+            'cpendd1perempuan'  => $this->penduduk->getCountPekNelPerempuan(),
+            'cpendd2'           => $this->penduduk->getCountPekTani(),
+            'cpendd2laki'       => $this->penduduk->getCountPekTaniLaki(),
+            'cpendd2perempuan'  => $this->penduduk->getCountPekTaniPerempuan(),
+            'cpendd3'           => $this->penduduk->getCountPekTambak(),
+            'cpendd3laki'       => $this->penduduk->getCountPekTambakLaki(),
+            'cpendd3perempuan'  => $this->penduduk->getCountPekTambakPerempuan(),
+            'cpends1'           => $this->penduduk->getCountPekLain(),
+            'cpends1laki'       => $this->penduduk->getCountPekLainLaki(),
+            'cpends1perempuan'  => $this->penduduk->getCountPekLainPerempuan(),
+        ];
+        return view('user.pekerjaan', $data);
     }
     
     // Halaman Data Jenis Kelamin

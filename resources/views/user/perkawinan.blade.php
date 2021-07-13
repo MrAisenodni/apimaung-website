@@ -74,7 +74,7 @@
                                     </tr>
                                     <tr>
                                       <td>3</td>
-                                      <td>Duda</td>
+                                      <td>Cerai Hidup</td>
                                       <td>{{ $cstatusduda }}</td>
                                       <td>{{ number_format($cstatusduda/$ctotal*100, 2) }}%</td>
                                       <td>{{ $cstatusdudalaki }}</td>
@@ -84,7 +84,7 @@
                                     </tr>
                                     <tr>
                                       <td>4</td>
-                                      <td>Janda</td>
+                                      <td>Cerai Mati</td>
                                       <td>{{ $cstatusjanda }}</td>
                                       <td>{{ number_format($cstatusjanda/$ctotal*100, 2) }}%</td>
                                       <td>{{ $cstatusjandalaki }}</td>
@@ -151,10 +151,10 @@
           name: 'Lajang',
           y: cstatuslajang
         }, {
-          name: 'Duda',
+          name: 'Cerai Hidup',
           y: cstatusduda
         }, {
-          name: 'Janda',
+          name: 'Cerai Mati',
           y: cstatusjanda
         }]
       }]
