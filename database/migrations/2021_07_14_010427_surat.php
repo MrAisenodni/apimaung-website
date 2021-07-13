@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Pengaduan extends Migration
+class Surat extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class Pengaduan extends Migration
      */
     public function up()
     {
-        //  Struktur tabel pengaduan
-        Schema::create('pengaduan', function (Blueprint $table) {
-            $table->id('id_pengaduan');
+        //  Struktur tabel surat online
+        Schema::create('surat', function (Blueprint $table) {
+            $table->id('id_surat');
             $table->bigInteger('id_penduduk');
             $table->bigInteger('id_angbpd')->nullable();
             $table->string('judul',100);
@@ -39,7 +39,7 @@ class Pengaduan extends Migration
      */
     public function down()
     {
-        // Fungsi untuk menghapus tabel pengaduan
-        Schema::dropIfExists('pengaduan');
+        // Fungsi untuk menghapus tabel surat
+        Schema::dropIfExists('surat');
     }
 }

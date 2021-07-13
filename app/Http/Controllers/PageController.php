@@ -96,7 +96,39 @@ class PageController extends Controller
 
     // Halaman Data Pendidikan
     public function pendidikan() {
-        return view('user.pendidikan');
+        $data = [
+            'ctotal'            => $this->penduduk->getCount(),
+            'claki'             => $this->penduduk->getCountLaki(),
+            'cperempuan'        => $this->penduduk->getCountPerempuan(),
+            'cpendn'            => $this->penduduk->getCountPendN(),
+            'cpendnlaki'        => $this->penduduk->getCountPendNLaki(),
+            'cpendnperempuan'   => $this->penduduk->getCountPendNPerempuan(),
+            'cpendsd'           => $this->penduduk->getCountPendSD(),
+            'cpendsdlaki'       => $this->penduduk->getCountPendSDLaki(),
+            'cpendsdperempuan'  => $this->penduduk->getCountPendSDPerempuan(),
+            'cpendsmp'          => $this->penduduk->getCountPendSMP(),
+            'cpendsmplaki'      => $this->penduduk->getCountPendSMPLaki(),
+            'cpendsmpperempuan' => $this->penduduk->getCountPendSMPPerempuan(),
+            'cpendsma'          => $this->penduduk->getCountPendSMA(),
+            'cpendsmalaki'      => $this->penduduk->getCountPendSMALaki(),
+            'cpendsmaperempuan' => $this->penduduk->getCountPendSMAPerempuan(),
+            'cpendd3'           => $this->penduduk->getCountPendD3(),
+            'cpendd3laki'       => $this->penduduk->getCountPendD3Laki(),
+            'cpendd3perempuan'  => $this->penduduk->getCountPendD3Perempuan(),
+            'cpendd4'           => $this->penduduk->getCountPendD4(),
+            'cpendd4laki'       => $this->penduduk->getCountPendD4Laki(),
+            'cpendd4perempuan'  => $this->penduduk->getCountPendD4Perempuan(),
+            'cpends1'           => $this->penduduk->getCountPendS1(),
+            'cpends1laki'       => $this->penduduk->getCountPendS1Laki(),
+            'cpends1perempuan'  => $this->penduduk->getCountPendS1Perempuan(),
+            'cpends2'           => $this->penduduk->getCountPendS2(),
+            'cpends2laki'       => $this->penduduk->getCountPendS2Laki(),
+            'cpends2perempuan'  => $this->penduduk->getCountPendS2Perempuan(),
+            'cpends3'           => $this->penduduk->getCountPendS3(),
+            'cpends3laki'       => $this->penduduk->getCountPendS3Laki(),
+            'cpends3perempuan'  => $this->penduduk->getCountPendS3Perempuan(),
+        ];
+        return view('user.pendidikan', $data);
     }
 
     // Halaman Data Pekerjaan
@@ -106,12 +138,34 @@ class PageController extends Controller
     
     // Halaman Data Jenis Kelamin
     public function jenkel() {
-        return view('user.jenkel');
+        $data = [
+            'claki'      => $this->penduduk->getCountLaki(),
+            'cperempuan' => $this->penduduk->getCountPerempuan(),
+            'ctotal'     => $this->penduduk->getCount(),
+        ];
+        return view('user.jenkel', $data);
     }
 
     // Halaman Data Perkawinan
     public function perkawinan() {
-        return view('user.perkawinan');
+        $data = [
+            'ctotal'                => $this->penduduk->getCount(),
+            'claki'                 => $this->penduduk->getCountLaki(),
+            'cperempuan'            => $this->penduduk->getCountPerempuan(),
+            'cstatusnikah'          => $this->penduduk->getCountStatusNikah(),
+            'cstatusnikahlaki'      => $this->penduduk->getCountStatusNikahLaki(),
+            'cstatusnikahperempuan' => $this->penduduk->getCountStatusNikahPerempuan(),
+            'cstatuslajang'         => $this->penduduk->getCountStatusLajang(),
+            'cstatuslajanglaki'     => $this->penduduk->getCountStatusLajangLaki(),
+            'cstatuslajangperempuan'=> $this->penduduk->getCountStatusLajangPerempuan(),
+            'cstatusduda'           => $this->penduduk->getCountStatusDuda(),
+            'cstatusdudalaki'       => $this->penduduk->getCountStatusDudaLaki(),
+            'cstatusdudaperempuan'  => $this->penduduk->getCountStatusDudaPerempuan(),
+            'cstatusjanda'          => $this->penduduk->getCountStatusJanda(),
+            'cstatusjandalaki'      => $this->penduduk->getCountStatusJandaLaki(),
+            'cstatusjandaperempuan' => $this->penduduk->getCountStatusJandaPerempuan(),
+        ];
+        return view('user.perkawinan', $data);
     }
 
     /*  

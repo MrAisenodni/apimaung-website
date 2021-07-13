@@ -10,6 +10,7 @@ use App\Http\Controllers\PesanController;
 use App\Http\Controllers\DesaController;
 use App\Http\Controllers\AnggotaBPDController;
 use App\Http\Controllers\KritikSaranController;
+use App\Http\Controllers\SuratController;
 use App\Http\Controllers\LoginController;
 
 /*
@@ -40,6 +41,11 @@ Route::get('/pemda', [PageController::class, 'pemda']);
 Route::get('/visimisi', [PageController::class, 'visimisi']);
 Route::get('/bpd', [PageController::class, 'bpd']);
 
+// Routes Lembaga Masyarakat
+Route::get('/lpm', [PageController::class, 'lpm']);
+Route::get('/karangtaruna', [PageController::class, 'karangtaruna']);
+Route::get('/pkk', [PageController::class, 'pkk']);
+
 // Routes Data Desa
 Route::get('/dapen', [PageController::class, 'pendidikan']);
 Route::get('/dapek', [PageController::class, 'pekerjaan']);
@@ -63,6 +69,12 @@ Route::get('/daper', [PageController::class, 'perkawinan']);
     Route::get('/pengaduan/create', [PengaduanController::class, 'create'])->middleware('authcheck');
     Route::get('/pengaduan/{id}', [PengaduanController::class, 'show'])->middleware('authcheck');
     Route::post('/pengaduan', [PengaduanController::class, 'store']);
+    
+    // Routes Surat
+    Route::get('/surat', [SuratController::class, 'index'])->middleware('authcheck');
+    Route::get('/surat/create', [SuratController::class, 'create'])->middleware('authcheck');
+    Route::get('/surat/{id}', [SuratController::class, 'show'])->middleware('authcheck');
+    Route::post('/surat', [SuratController::class, 'store']);
     
     /*
         ==============================

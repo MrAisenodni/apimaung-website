@@ -28,42 +28,120 @@
           <div class="col-md-12"> 
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Data Pendidikan</h1>
+                    <h1 class="mt-4 text-center">Data Pendidikan</h1>
+                    <div id="pie-chart"></div>
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
-                                            <th>No KK</th>
-                                            <th>NIK</th>
-                                            <th>Nama</th>
-                                            <th>Pendidikan</th>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2">Pendidikan</th>
+                                            <th colspan="2">Jumlah</th>
+                                            <th colspan="2">Laki-laki</th>
+                                            <th colspan="2">Perempuan</th>
+                                        </tr>
+                                        <tr>
+                                            <th>n</th>
+                                            <th>%</th>
+                                            <th>n</th>
+                                            <th>%</th>
+                                            <th>n</th>
+                                            <th>%</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>327505091199010</td>
-                                            <td>327505100102110</td>
-                                            <td>Robert Downey Junior</td>
-                                            <td>Sarjana</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>327505091199010</td>
-                                            <td>327505107052110</td>
-                                            <td>Ikhsan Cangcuter</td>
-                                            <td>SMA/SLTA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>327505091199010</td>
-                                            <td>327505220599110</td>
-                                            <td>Afi Maung</td>
-                                            <td>Doctor</td>
-                                        </tr>
+                                      <tr>
+                                        <td>1</td>
+                                        <td>Tidak Sekolah</td>
+                                        <td>{{ $cpendn }}</td>
+                                        <td>{{ number_format($cpendn/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendnlaki }}</td>
+                                        <td>{{ number_format($cpendnlaki/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendnperempuan }}</td>
+                                        <td>{{ number_format($cpendnperempuan/$ctotal*100, 2) }}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>2</td>
+                                        <td>SD/Sederajat</td>
+                                        <td>{{ $cpendsd }}</td>
+                                        <td>{{ number_format($cpendsd/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendsdlaki }}</td>
+                                        <td>{{ number_format($cpendsdlaki/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendsdperempuan }}</td>
+                                        <td>{{ number_format($cpendsdperempuan/$ctotal*100, 2) }}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>3</td>
+                                        <td>SMP/SLTP/Sederajat</td>
+                                        <td>{{ $cpendsmp }}</td>
+                                        <td>{{ number_format($cpendsmp/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendsmplaki }}</td>
+                                        <td>{{ number_format($cpendsmplaki/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendsmpperempuan }}</td>
+                                        <td>{{ number_format($cpendsmpperempuan/$ctotal*100, 2) }}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>4</td>
+                                        <td>SMA/SLTA/Sederajat</td>
+                                        <td>{{ $cpendsma }}</td>
+                                        <td>{{ number_format($cpendsma/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendsmalaki }}</td>
+                                        <td>{{ number_format($cpendsmalaki/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendsmaperempuan }}</td>
+                                        <td>{{ number_format($cpendsmaperempuan/$ctotal*100, 2) }}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>5</td>
+                                        <td>Diploma III (D3)</td>
+                                        <td>{{ $cpendd3 }}</td>
+                                        <td>{{ number_format($cpendd3/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendd3laki }}</td>
+                                        <td>{{ number_format($cpendd3laki/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendd3perempuan }}</td>
+                                        <td>{{ number_format($cpendd3perempuan/$ctotal*100, 2) }}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>6</td>
+                                        <td>Diploma IV (D4)</td>
+                                        <td>{{ $cpendd4 }}</td>
+                                        <td>{{ number_format($cpendd4/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendd4laki }}</td>
+                                        <td>{{ number_format($cpendd4laki/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpendd4perempuan }}</td>
+                                        <td>{{ number_format($cpendd4perempuan/$ctotal*100, 2) }}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>7</td>
+                                        <td>Sarjana (S1)</td>
+                                        <td>{{ $cpends1 }}</td>
+                                        <td>{{ number_format($cpends1/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpends1laki }}</td>
+                                        <td>{{ number_format($cpends1laki/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpends1perempuan }}</td>
+                                        <td>{{ number_format($cpends1perempuan/$ctotal*100, 2) }}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>8</td>
+                                        <td>Master (S2)</td>
+                                        <td>{{ $cpends2 }}</td>
+                                        <td>{{ number_format($cpends2/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpends2laki }}</td>
+                                        <td>{{ number_format($cpends2laki/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpends2perempuan }}</td>
+                                        <td>{{ number_format($cpends2perempuan/$ctotal*100, 2) }}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>9</td>
+                                        <td>Doktor (S3)</td>
+                                        <td>{{ $cpends3 }}</td>
+                                        <td>{{ number_format($cpends3/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpends3laki }}</td>
+                                        <td>{{ number_format($cpends3laki/$ctotal*100, 2) }}%</td>
+                                        <td>{{ $cpends3perempuan }}</td>
+                                        <td>{{ number_format($cpends3perempuan/$ctotal*100, 2) }}%</td>
+                                      </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -77,4 +155,79 @@
     </section>
   </div>
   <!-- End Content --> 
+
+  {{-- Script Chart --}}
+  <script type="text/javascript">
+    var cpendn       = <?php echo (number_format($cpendn/$ctotal*100, 2)) ?>;
+    var cpendsd      = <?php echo (number_format($cpendsd/$ctotal*100, 2)) ?>;
+    var cpendsmp     = <?php echo (number_format($cpendsmp/$ctotal*100, 2)) ?>;
+    var cpendsma     = <?php echo (number_format($cpendsma/$ctotal*100, 2)) ?>;
+    var cpendd3      = <?php echo (number_format($cpendd3/$ctotal*100, 2)) ?>;
+    var cpendd4      = <?php echo (number_format($cpendd4/$ctotal*100, 2)) ?>;
+    var cpends1      = <?php echo (number_format($cpends1/$ctotal*100, 2)) ?>;
+    var cpends2      = <?php echo (number_format($cpends2/$ctotal*100, 2)) ?>;
+    var cpends3      = <?php echo (number_format($cpends3/$ctotal*100, 2)) ?>;
+
+    Highcharts.chart('pie-chart', {
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+      },
+      title: {
+        text: ''
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      accessibility: {
+        point: {
+          valueSuffix: '%'
+        }
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+          }
+        }
+      },
+      series: [{
+        name: 'Total',
+        colorByPoint: true,
+        data: [{
+          name: 'Tidak Sekolah',
+          y: cpendn
+        }, {
+          name: 'SD',
+          y: cpendsd
+        }, {
+          name: 'SMP',
+          y: cpendsmp
+        }, {
+          name: 'SMA',
+          y: cpendsma
+        }, {
+          name: 'D3',
+          y: cpendd3
+        }, {
+          name: 'D4',
+          y: cpendd4
+        }, {
+          name: 'S1',
+          y: cpends1
+        }, {
+          name: 'S2',
+          y: cpends2
+        }, {
+          name: 'S3',
+          y: cpends3
+        }]
+      }]
+    });
+  </script>
 @endsection

@@ -40,6 +40,12 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+{{-- High Charts --}}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 </head>
 <body>
 <!-- LOADER ===========================================-->
@@ -103,13 +109,13 @@
                 <li><a href="{{ url('bpd') }}">Badan Permusyawaratan Desa</a></li>
               </ul>
             </li>
-            {{-- <li><a href="{{ url('lem') }}">LEM MAS</a>
+            <li><a href="{{ url('lem') }}">LEM MAS</a>
               <ul class="dropdown">
                 <li><a href="{{ url('lpm') }}">LPM</a></li>
                 <li><a href="{{ url('karangtaruna') }}">Karang Taruna</a></li>
                 <li><a href="{{ url('pkk') }}">PKK</a></li>
               </ul>
-            </li> --}}
+            </li>
             <li><a href="#">DATA DESA</a>
               <ul class="dropdown">
                 <li><a href="{{ url('dapen') }}">Data Pendidikan</a></li>
@@ -120,6 +126,7 @@
             </li>
             @if (session()->get('sakses') == 'usr')
               <li><a href="{{ url('/pengaduan') }}">PENGADUAN</a></li>
+              <li><a href="{{ url('/surat') }}">SURAT ONLINE</a></li>
             @endif
             {{-- <li><a href="{{ url('transparan') }}">TRANSPARANSI KEUANGAN</a></li> --}}
             

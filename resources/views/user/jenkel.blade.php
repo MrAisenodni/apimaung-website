@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Data Pekerjaan')
+@section('title', 'Data Jenis Kelamin')
 
 @section('content')
   <!--======= SUB BANNER =========-->
@@ -28,42 +28,37 @@
           <div class="col-md-12"> 
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Data Jenis Kelamin</h1>
+                    <div id="pie-chart"></div>
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead class="center">
                                         <tr>
-                                            <th>No</th>
-                                            <th>No KK</th>
-                                            <th>NIK</th>
-                                            <th>Nama</th>
+                                            <th width="10%">No</th>
                                             <th>Jenis Kelamin</th>
+                                            <th>Total</th>
+                                            <th>Persentase</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>327505091199010</td>
-                                            <td>327505100102110</td>
-                                            <td>Robert Downey Junior</td>
-                                            <td>Laki-laki</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>327505091199010</td>
-                                            <td>327505107052110</td>
-                                            <td>Ikhsan Cangcuter</td>
-                                            <td>Laki-laki</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>327505091199010</td>
-                                            <td>327505220599110</td>
-                                            <td>Afi Maung</td>
-                                            <td>Setengah Perempuan</td>
-                                        </tr>
+                                      <tr>
+                                        <td>1</td>
+                                        <td>Laki-laki</td>
+                                        <td>{{ $claki }}</td>
+                                        <td>{{ number_format($claki/$ctotal*100, 2) }}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td>2</td>
+                                        <td>Perempuan</td>
+                                        <td>{{ $cperempuan }}</td>
+                                        <td>{{ number_format($cperempuan/$ctotal*100, 2) }}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td colspan="2" class="text-bold">Total Penduduk</td>
+                                        <td>{{ $ctotal }}</td>
+                                        <td>100%</td>
+                                      </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -77,4 +72,51 @@
     </section>
   </div>
   <!-- End Content --> 
+
+  {{-- Script Chart --}}
+  <script type="text/javascript">
+    var countLaki       = <?php echo (number_format($claki/$ctotal*100, 2)) ?>;
+    var countPerempuan  = <?php echo (number_format($cperempuan/$ctotal*100, 2)) ?>;
+
+    Highcharts.chart('pie-chart', {
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+      },
+      title: {
+        text: '<b>Data Penduduk berdasarkan Jenis Kelamin</b>'
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      accessibility: {
+        point: {
+          valueSuffix: '%'
+        }
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+          }
+        }
+      },
+      series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+          name: 'Laki-laki',
+          y: countLaki
+        }, {
+          name: 'Perempuan',
+          y: countPerempuan
+        }]
+      }]
+    });
+  </script>
 @endsection
