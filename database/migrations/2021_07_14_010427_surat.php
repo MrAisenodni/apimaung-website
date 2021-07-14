@@ -18,9 +18,19 @@ class Surat extends Migration
             $table->id('id_surat');
             $table->bigInteger('id_penduduk');
             $table->bigInteger('id_angbpd')->nullable();
-            $table->longText('pesan');
-            $table->longText('balas_pesan')->nullable();
             $table->enum('jenis', ['sku', 'sktm', 'skm', 'skbpm', 'sklahir', 'skmati', 'skbn', 'skp', 'skht']);
+            $table->longText('pesan');
+            $table->string('fpengantar');
+            $table->string('fktp');
+            $table->string('fkk');
+            // Berkas Pendukung
+            $table->string('fusaha')->nullable();
+            $table->string('fnikah')->nullable();
+            $table->string('fketlahir')->nullable();
+            $table->string('fktpmati')->nullable();
+            $table->string('fketmati')->nullable();
+            $table->string('fbuktipbb')->nullable();
+            // ./Berkas Pendukung
             $table->enum('status', ['pending', 'complete']);
             $table->datetime('created_at')->nullable();
             $table->datetime('updated_at')->nullable(); 

@@ -27,9 +27,7 @@
                         <thead class="text-center">
                             <tr>
                                 <th>No</th>
-                                <th>judul</th>
-                                <th>Nama Penanggap</th>
-                                <th>Kategori</th>
+                                <th>Jenis Surat</th>
                                 <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
@@ -38,12 +36,22 @@
                             @foreach ($penduduk as $data)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $data->judul }}</td>
-                                <td>{{ $data->angbpd }}</td>
-                                @if ($data->kategori == 'penting')
-                                    <td class="text-center text-danger">PENTING</td>
+                                @if ($data->jenis == 'sku')
+                                    <td class="text-center">Surat Keterangan Usaha</td>
+                                @elseif ($data->jenis == 'sktm')
+                                    <td class="text-center">Surat Keterangan Tidak Mampu</td>
+                                @elseif ($data->jenis == 'skm')
+                                    <td class="text-center">Surat Keterangan Miskin</td>
+                                @elseif ($data->jenis == 'sklahir')
+                                    <td class="text-center">Surat Keterangan Kelahiran</td>
+                                @elseif ($data->jenis == 'skmati')
+                                    <td class="text-center">Surat Keterangan Kematian</td>
+                                @elseif ($data->jenis == 'skp')
+                                    <td class="text-center">Surat Keterangan Penghasilan</td>
+                                @elseif ($data->jenis == 'skbn')
+                                    <td class="text-center">Surat Keterangan Beda Nama</td>
                                 @else
-                                    <td class="text-center text-secondary">UMUM</td>
+                                    <td class="text-center">Surat Keterangan Harga Tanah</td>
                                 @endif
                                 @if ($data->status == 'pending')
                                     <td class="text-center"><p class="btn btn-warning">PENDING</p></td>
@@ -51,7 +59,7 @@
                                     <td class="text-center"><p class="btn btn-success">COMPLETED</p></td>
                                 @endif
                                 <td width="16%" class="text-center">
-                                    <a href="/pengaduan/{{ $data->id_pengaduan }}" class="btn btn-info">
+                                    <a href="/surat/{{ $data->id_surat }}" class="btn btn-info">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                 </td>

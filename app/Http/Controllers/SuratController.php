@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Penduduk;
 use App\Models\AnggotaBPD;
-use App\Models\Pengaduan;
+use App\Models\Surat;
 
 class SuratController extends Controller
 {
     public function __construct() {
         $this->penduduk = new Penduduk();
         $this->angbpd = new AnggotaBPD();
-        $this->pengaduan = new Pengaduan();
+        $this->surat = new Surat();
     }
     /**
      * Display a listing of the resource.
@@ -22,10 +22,10 @@ class SuratController extends Controller
      */
     public function index()
     {
-        // Menampilkan halaman pengaduan untuk Admin
+        // Menampilkan halaman surat untuk Admin
         $data = [
-            'pengaduan'     => $this->pengaduan->getAllData(),
-            'penduduk'      => $this->pengaduan->getAllDataUser(),
+            'surat'     => $this->surat->getAllData(),
+            'penduduk'      => $this->surat->getAllDataUser(),
         ];
 
         if(session()->get('sakses') == 'adm') {
@@ -46,7 +46,7 @@ class SuratController extends Controller
     {
         //
         $data= [
-            'pengaduan'      => $this->pengaduan->getAllDataUser(),
+            'surat'      => $this->surat->getAllDataUser(),
         ];
         return view('user.createsurat', $data);
     }
@@ -64,40 +64,225 @@ class SuratController extends Controller
         $status = 'pending';
 
         $validated = $request->validate([
-            // 'nik'           => 'required',
-            'judul'         => 'required',
-            'tgl_jadi'      => 'required',
-            'lokasi'        => 'required',
-            'instansi'      => 'required',
-            'kategori'      => 'required',
+            'jenis'         => 'required',
             'pesan'         => 'required',
+            'fpengantar'    => 'required|mimes:pdf|max:1000',
+            'fktp'          => 'required|mimes:jpeg,jpg,png|2000',
+            'fkk'           => 'required|mimes:jpeg,jpg,png|2000',
         ],[
-            'nik.required'          => 'NIK harus diisi.',
-            'judul.required'        => 'Judul Pengaduan harus diisi.',
-            'tgl_jadi.required'     => 'Tanggal kejadian harus diisi.',
-            'lokasi.required'       => 'Lokasi kejadian harus diisi.',
-            'instansi.required'     => 'Instansi tujuan harus diisi.',
-            'kategori.required'     => 'Kategori harus diisi.',
-            'pesan.required'        => 'Pesan harus diisi.',
-            // 'password.max'              => 'Password maksimal 12 huruf.',
-            // 'password.min'              => 'Password minimal 8 huruf.',
+            'jenis.required'        => 'Jenis Surat harus diisi.',
+            'pesan.required'        => 'Pesan Surat harus diisi.',
+            'fpengantar.required'   => 'Surat Pengantar harus diisi.',
+            'fpengantar.mimes'      => 'Format file harus: pdf.',
+            'fpengantar.max'        => 'File tidak boleh lebih dari 1 MB',
+            'fktp.required'         => 'Foto KTP harus diisi.',
+            'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+            'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
+            'fkk.required'          => 'Foto KK harus diisi.',
+            'fkk.mimes'             => 'Format file harus: jpeg, jpg, png.',
+            'fkk.max'               => 'File tidak boleh lebih dari 2 MB',
         ]);
 
-        $data = [
+        $data1 = [
             'id_penduduk'   => session()->get('sid_penduduk'),
-            'judul'         => $request->judul,
-            'tgl_kejadian'  => $request->tgl_jadi,
-            'lokasi'        => $request->lokasi,
-            'instansi'      => $request->instansi,
-            'kategori'      => $request->kategori,
+            'jenis'         => $request->jenis,
             'pesan'         => $request->pesan,
             'status'        => $status,
-            'created_at'    => $current_time
+            'created_at'    => $current_time,
         ];
+        
+        if ($request->jenis == 'sku') {
+            $validated = $request->validate([
+                'fusaha'         => 'required|mimes:pdf|max:1000',
+                'fbuktipbbsku'   => 'required|mimes:jpeg,jpg,png|max:2000',
+            ],[
+                'fusaha.required'           => 'Surat Pernyataan Usaha harus diisi.',
+                'fusaha.mimes'              => 'Format file harus: pdf.',
+                'fusaha.max'                => 'File tidak boleh lebih dari 1 MB',
+                'fbuktipbbsku.required'     => 'Bukti Lunas PBB harus diisi.',
+                'fbuktipbbsku.mimes'        => 'Format file harus: jpeg, jpg, png.',
+                'fbuktipbbsku.max'          => 'File tidak boleh lebih dari 2 MB',
+            ]);
 
-        $this->pengaduan->tambahData($data);
+            $pathktp = $request->file('fktp')->store('sku/'.$request->nik.'/data diri');
+            $pathkk = $request->file('fkk')->store('sku/'.$request->nik.'/data diri');
 
-        return redirect('/surat')->with('status', 'Pengaduan Anda berhasil dikirim.');
+            $pathpengantar = $request->file('fpengantar')->store('sku/'.$request->nik.'/data pendukung');
+            $pathusaha = $request->file('fusaha')->store('sku/'.$request->nik.'/data pendukung');
+            $pathbuktipbb = $request->file('fbuktipbbsku')->store('sku/'.$request->nik.'/data pendukung');
+
+            $data2 = [ 
+                'fpengantar'    => $pathpengantar,
+                'fktp'          => $pathktp,
+                'fkk'           => $pathkk,
+                'fusaha'        => $pathusaha,
+                'fbuktipbb'     => $pathbuktipbb,
+            ];
+
+            $data = $data1+$data2;
+
+            $this->surat->tambahData($data);
+        } else if ($request->jenis == 'sktm') {
+            $pathktp = $request->file('fktp')->store('sktm/'.$request->nik.'/data diri');
+            $pathkk = $request->file('fkk')->store('sktm/'.$request->nik.'/data diri');
+
+            $pathpengantar = $request->file('fpengantar')->store('sktm/'.$request->nik.'/data pendukung');
+
+            $data2 = [ 
+                'fpengantar'    => $pathpengantar,
+                'fktp'          => $pathktp,
+                'fkk'           => $pathkk,
+            ];
+
+            $data = $data1+$data2;
+
+            $this->surat->tambahData($data);
+        } else if ($request->jenis == 'skm') {
+            $pathktp = $request->file('fktp')->store('skm/'.$request->nik.'/data diri');
+            $pathkk = $request->file('fkk')->store('skm/'.$request->nik.'/data diri');
+
+            $pathpengantar = $request->file('fpengantar')->store('skm/'.$request->nik.'/data pendukung');
+
+            $data2 = [ 
+                'fpengantar'    => $pathpengantar,
+                'fktp'          => $pathktp,
+                'fkk'           => $pathkk,
+            ];
+
+            $data = $data1+$data2;
+
+            $this->surat->tambahData($data);
+        } else if ($request->jenis == 'skbpm') {
+            $pathktp = $request->file('fktp')->store('skbpm/'.$request->nik.'/data diri');
+            $pathkk = $request->file('fkk')->store('skbpm/'.$request->nik.'/data diri');
+
+            $pathpengantar = $request->file('fpengantar')->store('skbpm/'.$request->nik.'/data pendukung');
+
+            $data2 = [ 
+                'fpengantar'    => $pathpengantar,
+                'fktp'          => $pathktp,
+                'fkk'           => $pathkk,
+            ];
+
+            $data = $data1+$data2;
+
+            $this->surat->tambahData($data);
+        } else if ($request->jenis == 'sklahir') {
+            $validated = $request->validate([
+                'fketlahir'             => 'required|mimes:pdf|max:1000',
+                'fnikah'                => 'required|mimes:pdf|max:1000',
+                'fbuktipbblahir'        => 'required|mimes:jpeg,jpg,png|max:2000',
+            ],[
+                'fketlahir.required'        => 'Surat Keterangan Lahir harus diisi.',
+                'fketlahir.mimes'           => 'Format file harus: pdf.',
+                'fketlahir.max'             => 'File tidak boleh lebih dari 1 MB',
+                'fnikah.required'           => 'Surat Nikah harus diisi.',
+                'fnikah.mimes'              => 'Format file harus: pdf.',
+                'fnikah.max'                => 'File tidak boleh lebih dari 1 MB',
+                'fbuktipbblahir.required'   => 'Bukti Lunas PBB harus diisi.',
+                'fbuktipbblahir.mimes'      => 'Format file harus: jpeg, jpg, png.',
+                'fbuktipbblahir.max'        => 'File tidak boleh lebih dari 2 MB',
+            ]);
+
+            $pathktp    = $request->file('fktp')->store('sklahir/'.$request->nik.'/data diri');
+            $pathkk     = $request->file('fkk')->store('sklahir/'.$request->nik.'/data diri');
+
+            $pathpengantar  = $request->file('fpengantar')->store('sklahir/'.$request->nik.'/data pendukung');
+            $pathketlahir    = $request->file('fketlahir')->store('sklahir/'.$request->nik.'/data pendukung');
+            $pathnikah      = $request->file('fnikah')->store('sklahir/'.$request->nik.'/data pendukung');
+            $pathbuktipbb   = $request->file('fbuktipbblahir')->store('sklahir/'.$request->nik.'/data pendukung');
+
+            $data2 = [ 
+                'fpengantar'    => $pathpengantar,
+                'fktp'          => $pathktp,
+                'fkk'           => $pathkk,
+                'fnikah'        => $pathnikah,
+                'fketlahir'     => $pathketlahir,
+                'fbuktipbb'     => $pathbuktipbb,
+            ];
+
+            $data = $data1+$data2;
+
+            $this->surat->tambahData($data);
+        } else if ($request->jenis == 'skmati') {
+            $validated = $request->validate([
+                'fktpmati'          => 'required|mimes:pdf|max:1000',
+                'fketmati'            => 'required|mimes:pdf|max:1000',
+            ],[
+                'fktpmati.required'         => 'Surat Keterangan Lahir harus diisi.',
+                'fktpmati.mimes'            => 'Format file harus: pdf.',
+                'fktpmati.max'              => 'File tidak boleh lebih dari 1 MB',
+                'fketmati.required'           => 'Surat Nikah harus diisi.',
+                'fketmati.mimes'              => 'Format file harus: pdf.',
+                'fketmati.max'                => 'File tidak boleh lebih dari 1 MB',
+            ]);
+
+            $pathktp    = $request->file('fktp')->store('skmati/'.$request->nik.'/data diri');
+            $pathkk     = $request->file('fkk')->store('skmati/'.$request->nik.'/data diri');
+
+            $pathpengantar  = $request->file('fpengantar')->store('skmati/'.$request->nik.'/data pendukung');
+            $pathktpmati    = $request->file('fktpmati')->store('skmati/'.$request->nik.'/data pendukung');
+            $pathketmati    = $request->file('fketmati')->store('skmati/'.$request->nik.'/data pendukung');
+
+            $data2 = [ 
+                'fpengantar'    => $pathpengantar,
+                'fktp'          => $pathktp,
+                'fkk'           => $pathkk,
+                'fketmati'      => $pathketmati,
+                'fketlahir'     => $pathketlahir
+            ];
+
+            $data = $data1+$data2;
+
+            $this->surat->tambahData($data);
+        } else if ($request->jenis == 'skbn') {
+            $pathktp = $request->file('fktp')->store('skbn/'.$request->nik.'/data diri');
+            $pathkk = $request->file('fkk')->store('skbn/'.$request->nik.'/data diri');
+
+            $pathpengantar = $request->file('fpengantar')->store('skbn/'.$request->nik.'/data pendukung');
+
+            $data2 = [ 
+                'fpengantar'    => $pathpengantar,
+                'fktp'          => $pathktp,
+                'fkk'           => $pathkk,
+            ];
+
+            $data = $data1+$data2;
+
+            $this->surat->tambahData($data);
+        } else if ($request->jenis == 'skp') {
+            $pathktp = $request->file('fktp')->store('skp/'.$request->nik.'/data diri');
+            $pathkk = $request->file('fkk')->store('skp/'.$request->nik.'/data diri');
+
+            $pathpengantar = $request->file('fpengantar')->store('skp/'.$request->nik.'/data pendukung');
+
+            $data2 = [ 
+                'fpengantar'    => $pathpengantar,
+                'fktp'          => $pathktp,
+                'fkk'           => $pathkk,
+            ];
+
+            $data = $data1+$data2;
+
+            $this->surat->tambahData($data);
+        } else if ($request->jenis == 'skht') {     
+            $pathktp = $request->file('fktp')->store('skht/'.$request->nik.'/data diri');
+            $pathkk = $request->file('fkk')->store('skht/'.$request->nik.'/data diri');
+
+            $pathpengantar = $request->file('fpengantar')->store('skht/'.$request->nik.'/data pendukung');
+
+            $data2 = [ 
+                'fpengantar'    => $pathpengantar,
+                'fktp'          => $pathktp,
+                'fkk'           => $pathkk,
+            ];
+
+            $data = $data1+$data2;
+
+            $this->surat->tambahData($data);
+        } 
+
+        return redirect('/surat')->with('status', 'Surat Anda berhasil dikirim.');
     }
     
     /**
@@ -108,9 +293,9 @@ class SuratController extends Controller
      */
     public function show($id)
     {
-        // Menampilkan form detail pengaduan untuk Admin
+        // Menampilkan form detail surat untuk Admin
         $data = [
-            'pengaduan'     => $this->pengaduan->getData($id),
+            'surat'     => $this->surat->getData($id),
             'penduduk'      => $this->penduduk->getAllData(),
         ];
 
@@ -131,9 +316,9 @@ class SuratController extends Controller
      */
     public function edit($id)
     {
-        // Menampilkan form ubah pengaduan untuk Admin
+        // Menampilkan form ubah surat untuk Admin
         $data = [
-            'pengaduan'     => $this->pengaduan->getData($id),
+            'surat'     => $this->surat->getData($id),
             'penduduk'      => $this->penduduk->getAllData(),
             'angbpd'        => $this->angbpd->getAllData(),
         ];
@@ -149,7 +334,7 @@ class SuratController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Mengirimkan perubahan pengaduan ke database oleh Operator
+        // Mengirimkan perubahan surat ke database oleh Operator
         $current_time = Carbon::now()->toDateTimeString();
         $status = 'complete';
 
@@ -170,9 +355,9 @@ class SuratController extends Controller
             'updated_at'    => $current_time
         ];
 
-        $this->pengaduan->ubahData($data, $id);
+        $this->surat->ubahData($data, $id);
 
-        return redirect('/operator/surat')->with('status', 'Pengaduan berhasil ditanggapi.');
+        return redirect('/operator/surat')->with('status', 'Surat berhasil ditanggapi.');
     }
 
     /**
@@ -183,9 +368,9 @@ class SuratController extends Controller
      */
     public function destroy($id)
     {
-        // Menghapus pengaduan dari database oleh Admin
-        $this->pengaduan->hapusData($id);
+        // Menghapus surat dari database oleh Admin
+        $this->surat->hapusData($id);
 
-        return redirect('/surat')->with('status', 'Pengaduan berhasil dihapus.');
+        return redirect('/surat')->with('status', 'Surat berhasil dihapus.');
     }
 }
