@@ -17,6 +17,12 @@
         {{-- <link href="{{ url('admin/css/mdb.min.css') }}" rel="stylesheet" /> --}}
         <link href="{{ url('https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" crossorigin="anonymous" />
         <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js') }}" crossorigin="anonymous"></script>
+
+        {{-- High Charts --}}
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -68,6 +74,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                                 Pengaduan
                             </a>
+                            <a class="nav-link" href="{{ url('/surat') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
+                                Surat Online
+                            </a>
                             <a class="nav-link" href="{{ url('/kritiksaran') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                                 Kritik dan Saran
@@ -99,6 +109,7 @@
                 </footer>
             </div>
         </div>
+
         <script src="{{ url('https://code.jquery.com/jquery-3.5.1.slim.min.js') }}" crossorigin="anonymous"></script>
         <script src="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js') }}" crossorigin="anonymous"></script>
         <script src="{{ url('admin/js/scripts.js') }}"></script>

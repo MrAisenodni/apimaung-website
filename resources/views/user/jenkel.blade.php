@@ -28,6 +28,7 @@
           <div class="col-md-12"> 
             <main>
                 <div class="container-fluid">
+                    <h1 class="text-center">Data Penduduk</h1>
                     <div id="pie-chart"></div>
                     <div class="card mb-4">
                         <div class="card-body">
@@ -86,7 +87,7 @@
         type: 'pie'
       },
       title: {
-        text: '<b>Data Penduduk berdasarkan Jenis Kelamin</b>'
+        text: ''
       },
       tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

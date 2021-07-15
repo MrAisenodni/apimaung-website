@@ -119,9 +119,9 @@
             </li>
             <li><a href="#">DATA DESA</a>
               <ul class="dropdown">
+                <li><a href="{{ url('dajen') }}">Data Penduduk</a></li>
                 <li><a href="{{ url('dapen') }}">Data Pendidikan</a></li>
                 <li><a href="{{ url('dapek') }}">Data Pekerjaan</a></li>
-                <li><a href="{{ url('dajen') }}">Data Jenis Kelamin</a></li>
                 <li><a href="{{ url('daper') }}">Data Perkawinan</a></li>
               </ul>
             </li>

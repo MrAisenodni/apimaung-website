@@ -76,26 +76,265 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="row">
+                        <div class="row">
                             <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area mr-1"></i>
-                                        Area Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
+                                <div id="jenkel-chart"></div>
                             </div>
                             <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar mr-1"></i>
-                                        Bar Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
+                                <div id="status-chart"></div>
                             </div>
-                        </div> --}}
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div id="pendidikan-chart"></div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div id="pekerjaan-chart"></div>
+                            </div>
+                        </div>
                     </div>
                 </main>
+
+    {{-- Script Chart --}}
+    <script type="text/javascript">
+        var cpendn       = <?php echo (number_format($cpendn/$ctotal*100, 2)) ?>;
+        var cpendsd      = <?php echo (number_format($cpendsd/$ctotal*100, 2)) ?>;
+        var cpendsmp     = <?php echo (number_format($cpendsmp/$ctotal*100, 2)) ?>;
+        var cpendsma     = <?php echo (number_format($cpendsma/$ctotal*100, 2)) ?>;
+        var cpendd1      = <?php echo (number_format($cpendd1/$ctotal*100, 2)) ?>;
+        var cpendd2      = <?php echo (number_format($cpendd2/$ctotal*100, 2)) ?>;
+        var cpendd3      = <?php echo (number_format($cpendd3/$ctotal*100, 2)) ?>;
+        var cpends1      = <?php echo (number_format($cpends1/$ctotal*100, 2)) ?>;
+        var cpends2      = <?php echo (number_format($cpends2/$ctotal*100, 2)) ?>;
+        var cpends3      = <?php echo (number_format($cpends3/$ctotal*100, 2)) ?>;
+    
+        Highcharts.chart('pendidikan-chart', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: '<b>Data Pendidikan Desa Tengkurak</b>'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+                }
+            },
+            series: [{
+                name: 'Total',
+                colorByPoint: true,
+                data: [{
+                name: 'Tidak Sekolah',
+                y: cpendn
+                }, {
+                name: 'SD',
+                y: cpendsd
+                }, {
+                name: 'SMP',
+                y: cpendsmp
+                }, {
+                name: 'SMA',
+                y: cpendsma
+                }, {
+                name: 'D1',
+                y: cpendd1
+                }, {
+                name: 'D2',
+                y: cpendd2
+                }, {
+                name: 'D3',
+                y: cpendd3
+                }, {
+                name: 'S1',
+                y: cpends1
+                }, {
+                name: 'S2',
+                y: cpends2
+                }, {
+                name: 'S3',
+                y: cpends3
+                }]
+            }]
+        });
+
+        var countLaki       = <?php echo (number_format($claki/$ctotal*100, 2)) ?>;
+        var countPerempuan  = <?php echo (number_format($cperempuan/$ctotal*100, 2)) ?>;
+
+        Highcharts.chart('jenkel-chart', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: '<b>Data Jenis Kelamin Desa Tengkurak</b>'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                name: 'Laki-laki',
+                y: countLaki
+                }, {
+                name: 'Perempuan',
+                y: countPerempuan
+                }]
+            }]
+        });
+
+        var cstatusnikah    = <?php echo (number_format($cstatusnikah/$ctotal*100, 2)) ?>;
+        var cstatuslajang   = <?php echo (number_format($cstatuslajang/$ctotal*100, 2)) ?>;
+        var cstatusduda     = <?php echo (number_format($cstatusduda/$ctotal*100, 2)) ?>;
+        var cstatusjanda    = <?php echo (number_format($cstatusjanda/$ctotal*100, 2)) ?>;
+
+        Highcharts.chart('status-chart', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: '<b>Data Pernikahan Desa Tengkurak</b>'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+                }
+            },
+            series: [{
+                name: 'Total',
+                colorByPoint: true,
+                data: [{
+                name: 'Menikah',
+                y: cstatusnikah
+                }, {
+                name: 'Lajang',
+                y: cstatuslajang
+                }, {
+                name: 'Cerai Hidup',
+                y: cstatusduda
+                }, {
+                name: 'Cerai Mati',
+                y: cstatusjanda
+                }]
+            }]
+        });
+
+        var ckerjan       = <?php echo (number_format($ckerjan/$ctotal*100, 2)) ?>;
+        var ckerjasd      = <?php echo (number_format($ckerjasd/$ctotal*100, 2)) ?>;
+        var ckerjasmp     = <?php echo (number_format($ckerjasmp/$ctotal*100, 2)) ?>;
+        var ckerjasma     = <?php echo (number_format($ckerjasma/$ctotal*100, 2)) ?>;
+        var ckerjad1      = <?php echo (number_format($ckerjad1/$ctotal*100, 2)) ?>;
+        var ckerjad2      = <?php echo (number_format($ckerjad2/$ctotal*100, 2)) ?>;
+        var ckerjad3      = <?php echo (number_format($ckerjad3/$ctotal*100, 2)) ?>;
+        var ckerjas1      = <?php echo (number_format($ckerjas1/$ctotal*100, 2)) ?>;
+
+        Highcharts.chart('pekerjaan-chart', {
+        chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+                }
+            },
+            series: [{
+                name: 'Total',
+                colorByPoint: true,
+                data: [{
+                name: 'Tidak/Belum Bekerja',
+                y: ckerjan
+                }, {
+                name: 'Mengurus Rumah Tangga',
+                y: ckerjasd
+                }, {
+                name: 'Pelajar/Mahasiswa',
+                y: ckerjasmp
+                }, {
+                name: 'PNS',
+                y: ckerjasma
+                }, {
+                name: 'Nelayan',
+                y: ckerjad1
+                }, {
+                name: 'Petani',
+                y: ckerjad2
+                }, {
+                name: 'Tambak',
+                y: ckerjad3
+                }, {
+                name: 'Lain-lain',
+                y: ckerjas1
+                }]
+            }]
+        });
+      </script>
 @endsection

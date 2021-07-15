@@ -316,7 +316,7 @@
 
                         {{-- Surat Keterangan Domisili Usaha --}}
                         <div class="row skdu box">
-                            <div class="col-lg-6 col-xs-12">
+                            <div class="col-lg-4 col-xs-12">
                                 <div class="form-group">
                                     <label for="faktapendirian">Akta Pendirian PT, CV, UD <span class="text-danger">*(Bila Berbadan Hukum)</span> <span class="text-success">(pdf)</span></label>
                                     <input type="file" class="form-control @error('faktapendirian') is-invalid @enderror" id="faktapendirian" name="faktapendirian" value="{{ old('faktapendirian') }}">
@@ -325,7 +325,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-xs-12">
+                            <div class="col-lg-4 col-xs-12">
                                 <div class="form-group">
                                     <label for="fbuktiusaha">Bukti Kepemilikan Tempat Usaha <span class="text-danger">*(Milik Saham/AJB)</span> <span class="text-primary">(jpeg, jpg, png)</span></label>
                                     <input type="file" class="form-control @error('fbuktiusaha') is-invalid @enderror" id="fbuktiusaha" name="fbuktiusaha" value="{{ old('fbuktiusaha') }}">
@@ -334,7 +334,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-xs-12">
+                            <div class="col-lg-4 col-xs-12">
                                 <div class="form-group">
                                     <label for="fbuktisewa">Bukti Sewa <span class="text-danger">*(Bila Tempat Usaha Sewa)</span> <span class="text-primary">(jpeg, jpg, png)</span></label>
                                     <input type="file" class="form-control @error('fbuktisewa') is-invalid @enderror" id="fbuktisewa" name="fbuktisewa" value="{{ old('fbuktisewa') }}">
