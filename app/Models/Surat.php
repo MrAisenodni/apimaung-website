@@ -49,6 +49,12 @@ class Surat extends Model
                     ->get();
     }
 
+    public function checkJenis($check) {
+        return DB::table('surat')
+                    ->where('jenis', $check)
+                    ->count();
+    }
+
     public function tambahData($data) {
         return DB::table('surat')
                     ->insert($data);

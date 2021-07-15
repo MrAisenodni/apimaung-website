@@ -28,6 +28,11 @@
                                     <div class="col-md-3 form-group">
                                         <label for="jenkel" class="form-label">Jenis Kelamin</label><br>
                                         <select name="jenkel" id="jenkel" class="form-control @error('jenkel') is-invalid @enderror">
+                                            @if (old('jenkel') == 'l')
+                                                <option value="l">Laki-laki</option>
+                                            @elseif (old('jenkel') == 'p')
+                                                <option value="p">Perempuan</option>
+                                            @endif
                                             <option value="">--- Pilih Jenis Kelamin ---</option>
                                             <option value="l">Laki-laki</option>
                                             <option value="p">Perempuan</option>
@@ -39,6 +44,17 @@
                                     <div class="col-md-3 form-group">
                                         <label for="inputagama" class="form-label">Agama</label><br>
                                         <select name="agama" id="agama" class="form-control @error('agama') is-invalid @enderror">
+                                            @if (old('agama') == 'islam')
+                                                <option value="islam">Islam</option>
+                                            @elseif (old('agama') == 'kristen')
+                                                <option value="kristen">Kristen</option>
+                                            @elseif (old('agama') == 'hindu')
+                                                <option value="hindu">Hindu</option>
+                                            @elseif (old('agama') == 'buddha')
+                                                <option value="buddha">Buddha</option>
+                                            @elseif (old('agama') == 'konghucu')
+                                                <option value="konghucu">Konghucu</option>
+                                            @endif
                                             <option value="">--- Pilih Agama ---</option>
                                             <option value="islam">Islam</option>
                                             <option value="kristen">Kristen</option>

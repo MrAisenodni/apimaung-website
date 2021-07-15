@@ -33,6 +33,7 @@
 <link rel="stylesheet" type="text/css" href="{{ url('rs-plugin/css/settings.css') }}" media="screen" />
 
 <!-- JavaScripts -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="{{ url('js/vendors/modernizr.js') }}"></script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -252,6 +253,7 @@
 <script src="{{ url('js/vendors/jquery.bxslider.min.js') }}"></script> 
 <script src="{{ url('js/vendors/owl.carousel.min.js') }}"></script> 
 <script src="{{ url('js/vendors/jquery.sticky.js') }}"></script> 
+<script src="{{ url('https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js') }}"></script>
 <script src="{{ url('https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js') }}" crossorigin="anonymous"></script>
 <script src="{{ url('https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js') }}" crossorigin="anonymous"></script>
 <script src="{{ url('admin/assets/demo/datatables-demo.js') }}"></script>

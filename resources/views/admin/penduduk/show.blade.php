@@ -38,9 +38,9 @@
                                         @elseif ($penduduk->status == 'menikah')
                                             <input type="text" class="form-control" id="status" value="Menikah" disabled>
                                         @elseif ($penduduk->status == 'duda')
-                                            <input type="text" class="form-control" id="status" value="Duda" disabled>
+                                            <input type="text" class="form-control" id="status" value="Cerai Hidup" disabled>
                                         @else
-                                            <input type="text" class="form-control" id="status" value="Janda" disabled>
+                                            <input type="text" class="form-control" id="status" value="Cerai Mati" disabled>
                                         @endif
                                     </div>
                                     <div class="col-md-4 form-group">

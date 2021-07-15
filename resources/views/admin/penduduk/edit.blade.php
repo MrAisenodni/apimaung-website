@@ -53,23 +53,23 @@
                                             @if ($penduduk->status == 'lajang')
                                                 <option type="text" class="form-control" id="status" value="lajang">Lajang</option>
                                                 <option type="text" class="form-control" id="status" value="nikah">Menikah</option>
-                                                <option type="text" class="form-control" id="status" value="duda">Duda</option>
-                                                <option type="text" class="form-control" id="status" value="janda">Janda</option>
+                                                <option type="text" class="form-control" id="status" value="duda">Cerai Hidup</option>
+                                                <option type="text" class="form-control" id="status" value="janda">Cerai Mati</option>
                                             @elseif ($penduduk->status == 'nikah')
                                                 <option type="text" class="form-control" id="status" value="nikah">Menikah</option>
                                                 <option type="text" class="form-control" id="status" value="lajang">Lajang</option>
-                                                <option type="text" class="form-control" id="status" value="duda">Duda</option>
-                                                <option type="text" class="form-control" id="status" value="janda">Janda</option>
+                                                <option type="text" class="form-control" id="status" value="duda">Cerai Hidup</option>
+                                                <option type="text" class="form-control" id="status" value="janda">Cerai Mati</option>
                                             @elseif($penduduk->status == 'duda')
-                                                <option type="text" class="form-control" id="status" value="duda">Duda</option>
+                                                <option type="text" class="form-control" id="status" value="duda">Cerai Hidup</option>
                                                 <option type="text" class="form-control" id="status" value="lajang">Lajang</option>
                                                 <option type="text" class="form-control" id="status" value="nikah">Menikah</option>
-                                                <option type="text" class="form-control" id="status" value="janda">Janda</option>
+                                                <option type="text" class="form-control" id="status" value="janda">Cerai Mati</option>
                                             @else
-                                                <option type="text" class="form-control" id="status" value="janda">Janda</option>
+                                                <option type="text" class="form-control" id="status" value="janda">Cerai Mati</option>
                                                 <option type="text" class="form-control" id="status" value="lajang">Lajang</option>
                                                 <option type="text" class="form-control" id="status" value="nikah">Menikah</option>
-                                                <option type="text" class="form-control" id="status" value="duda">Duda</option>
+                                                <option type="text" class="form-control" id="status" value="duda">Cerai Hidup</option>
                                             @endif
                                         </select>
                                     </div>

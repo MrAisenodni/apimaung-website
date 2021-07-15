@@ -49,12 +49,20 @@
                                     <div class="col-md-4 form-group">
                                         <label for="status" class="form-label">Status</label>
                                         <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
-                                            {{-- <option value="{{ old('status') }}">{{ old('status') }}</option> --}}
+                                            @if (old('status') == 'lajang')
+                                                <option value="lajang">Lajang</option>
+                                            @elseif (old('status') == 'nikah')
+                                                <option value="nikah">Menikah</option>
+                                            @elseif (old('status') == 'duda')
+                                                <option value="duda">Cerai Hidup</option>
+                                            @elseif (old('status') == 'janda')
+                                                <option value="janda">Cerai Mati</option>
+                                            @endif
                                             <option value="">--- Pilih Status ---</option>
                                             <option value="lajang">Lajang</option>
                                             <option value="nikah">Menikah</option>
-                                            <option value="duda">Duda</option>
-                                            <option value="janda">Janda</option>
+                                            <option value="duda">Cerai Hidup</option>
+                                            <option value="janda">Cerai Mati</option>
                                         </select>
                                         @error('status')
                                             <div class="text-danger">{{ $message }}</div>
@@ -63,6 +71,11 @@
                                     <div class="col-md-4 form-group">
                                         <label for="jenkel" class="form-label">Jenis Kelamin</label><br>
                                         <select name="jenkel" id="jenkel" class="form-control @error('jenkel') is-invalid @enderror">
+                                            @if (old('jenkel') == 'l')
+                                                <option value="l">Laki-laki</option>
+                                            @elseif (old('jenkel') == 'p')
+                                                <option value="p">Perempuan</option>
+                                            @endif
                                             <option value="">--- Pilih Jenis Kelamin ---</option>
                                             <option value="l">Laki-laki</option>
                                             <option value="p">Perempuan</option>
@@ -74,6 +87,17 @@
                                     <div class="col-md-4 form-group">
                                         <label for="inputagama" class="form-label">Agama</label><br>
                                         <select name="agama" id="agama" class="form-control @error('agama') is-invalid @enderror">
+                                            @if (old('agama') == 'islam')
+                                                <option value="islam">Islam</option>
+                                            @elseif (old('agama') == 'kristen')
+                                                <option value="kristen">Kristen</option>
+                                            @elseif (old('agama') == 'hindu')
+                                                <option value="hindu">Hindu</option>
+                                            @elseif (old('agama') == 'buddha')
+                                                <option value="buddha">Buddha</option>
+                                            @elseif (old('agama') == 'konghucu')
+                                                <option value="konghucu">Konghucu</option>
+                                            @endif
                                             <option value="">--- Pilih Agama ---</option>
                                             <option value="islam">Islam</option>
                                             <option value="kristen">Kristen</option>

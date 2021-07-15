@@ -14,7 +14,13 @@
                                     <div class="col-md-2 form-group">
                                         <label for="akses" class="form-label">Akses</label>
                                         <select name="akses" id="akses" class="form-control @error('akses') is-invalid @enderror">
-                                            {{-- <option value="{{ old('akses') }}">{{ old('akses') }}</option> --}}
+                                            @if (old('akses') == 'usr')
+                                                <option value="usr">User</option>
+                                            @elseif (old('akses') == 'opr')
+                                                <option value="opr">Operator</option>
+                                            @elseif (old('akses') == 'adm')
+                                                <option value="adm">Admin</option>
+                                            @endif
                                             <option value="">--- Pilih Akses ---</option>
                                             <option value="usr">User</option>
                                             <option value="opr">Operator</option>

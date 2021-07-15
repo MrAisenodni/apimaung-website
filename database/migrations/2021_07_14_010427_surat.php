@@ -18,18 +18,18 @@ class Surat extends Migration
             $table->id('id_surat');
             $table->bigInteger('id_penduduk');
             $table->bigInteger('id_angbpd')->nullable();
-            $table->enum('jenis', ['sku', 'sktm', 'skm', 'skbpm', 'sklahir', 'skmati', 'skbn', 'skp', 'skht']);
+            $table->enum('jenis', ['skpanjangktp', 'skbuatktp', 'skpindah', 'skdatang', 'sklahir', 'skmati', 'skubahkk', 'sdtinggal', 'skrt', 'skdu', 'sku', 'spimb', 'spnikah', 'spnikahcp', 'spnikahdj', 'spskkm', 'spskck']);
             $table->longText('pesan');
             $table->string('fpengantar');
             $table->string('fktp');
             $table->string('fkk');
             // Berkas Pendukung
-            $table->string('fusaha')->nullable();
-            $table->string('fnikah')->nullable();
-            $table->string('fketlahir')->nullable();
-            $table->string('fktpmati')->nullable();
-            $table->string('fketmati')->nullable();
-            $table->string('fbuktipbb')->nullable();
+            $table->string('file1')->nullable();
+            $table->string('file2')->nullable();
+            $table->string('file3')->nullable();
+            $table->string('file4')->nullable();
+            $table->string('file5')->nullable();
+            $table->string('filesk')->nullable();
             // ./Berkas Pendukung
             $table->enum('status', ['pending', 'complete']);
             $table->datetime('created_at')->nullable();
