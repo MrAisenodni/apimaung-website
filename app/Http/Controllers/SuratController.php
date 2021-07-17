@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use App\Models\Penduduk;
 use App\Models\AnggotaBPD;
@@ -182,12 +183,11 @@ class SuratController extends Controller
         if ($check == 'skmati') {
             $validated = $request->validate([
                 'fktpmati'          => 'required|mimes:jpeg,jpg,png|max:2000',
-                'fskmati'           => 'required|mimes:pdf|max:2000',
+                'fskmati'           => 'mimes:pdf|max:2000',
             ],[
                 'fktpmati.required'         => 'Surat Keterangan Lahir harus diisi.',
                 'fktpmati.mimes'            => 'Format file harus: jpeg,jpg,png.',
                 'fktpmati.max'              => 'File tidak boleh lebih dari 2 MB',
-                'fskmati.required'          => 'Surat Nikah harus diisi.',
                 'fskmati.mimes'             => 'Format file harus: pdf.',
                 'fskmati.max'               => 'File tidak boleh lebih dari 2 MB',
             ]);
@@ -884,7 +884,7 @@ class SuratController extends Controller
         // Menampilkan form detail surat untuk Admin
         $data = [
             'surat'     => $this->surat->getData($id),
-            'penduduk'      => $this->penduduk->getAllData(),
+            'penduduk'  => $this->penduduk->getAllData(),
         ];
 
         if(session()->get('sakses') == 'adm') {
@@ -906,11 +906,14 @@ class SuratController extends Controller
     {
         // Menampilkan form ubah surat untuk Admin
         $data = [
-            'surat'     => $this->surat->getData($id),
+            'surat'         => $this->surat->getData($id),
             'penduduk'      => $this->penduduk->getAllData(),
-            'angbpd'        => $this->angbpd->getAllData(),
         ];
-        return view('operator.surat.edit', $data);
+        if(session()->get('sakses') == 'adm') {
+            return view('admin.surat.edit', $data);
+        } elseif(session()->get('sakses') == 'opr') {
+            return view('operator.surat.edit', $data);
+        }
     }
 
     /**
@@ -922,30 +925,74 @@ class SuratController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Mengirimkan perubahan surat ke database oleh Operator
+        // Mengirimkan perubahan surat ke database oleh Admin
         $current_time = Carbon::now()->toDateTimeString();
         $status = 'complete';
+        $check = $request->filesk;
+        $cstatus = $request->status;
 
-        $validated = $request->validate([
-            // 'nip'           => 'required',
-            'pesan'         => 'required',
-        ],[
-            'nip.required'          => 'NIP dan nama harus diisi.',
-            'pesan.required'        => 'Pesan harus diisi.',
-            // 'password.max'              => 'Password maksimal 12 huruf.',
-            // 'password.min'              => 'Password minimal 8 huruf.',
-        ]);
+        if(session()->get('sakses') == 'adm') {
+            $data = [
+                'status'        => $cstatus,
+                'updated_at'    => $current_time,
+            ];
+            
+            // Surat Keterangan Usaha
+            if ($cstatus == 'check' && $check != null) {
+                $validated = $request->validate([
+                    'filesk'         => 'mimes:pdf|max:10000',
+                ],[
+                    'filesk.mimes'              => 'Format file harus: pdf.',
+                    'filesk.max'                => 'File tidak boleh lebih dari 10 MB',
+                ]);
+    
+                $pathfilesk = $request->file('filesk')->store('tangapan/'.$request->nik);;
+    
+                $data = [ 
+                    'filesk'        => $pathfilesk,
+                    'status'        => 'validate',
+                    'updated_at'    => $current_time,
+                ];
+    
+                $this->surat->ubahData($data, $id);
+                
+                return redirect('/surat')->with('status', 'Berkas berhasil dikirim.');
+            } 
+    
+            if ($cstatus == 'reject') {
+                $validated = $request->validate([
+                    'alasan'            => 'required',
+                ],[
+                    'alasan.required'   => 'Alasan harus diisi'
+                ]);
+    
+                $data = [ 
+                    'alasan'        => $request->alasan,
+                    'status'        => $cstatus,
+                    'updated_at'    => $current_time,
+                ];
+    
+                $this->surat->ubahData($data, $id);
+                
+                return redirect('/surat')->with('status', 'Berkas berhasil dikirim.');
+            }
+    
+            $this->surat->ubahData($data, $id);
+            
+            return redirect('/surat')->with('status', 'Status berhasil diubah.');
+        } 
+        
+        if(session()->get('sakses') == 'usr') {
+            $data = [
+                'status'        => $status,
+                'updated_at'    => $current_time,
+            ];
 
-        $data = [
-            'id_angbpd'     => session()->get('sid_angbpd'),
-            'balas_pesan'   => $request->pesan,
-            'status'        => $status,
-            'updated_at'    => $current_time
-        ];
+            $this->surat->ubahData($data, $id);
+            
+            return back()->with('status', 'Berkas berhasil divalidasi.');
+        }
 
-        $this->surat->ubahData($data, $id);
-
-        return redirect('/operator/surat')->with('status', 'Surat berhasil ditanggapi.');
     }
 
     /**
@@ -960,5 +1007,9 @@ class SuratController extends Controller
         $this->surat->hapusData($id);
 
         return redirect('/surat')->with('status', 'Surat berhasil dihapus.');
+    }
+
+    public function download(Request $request) {
+        return Storage::download($request->file);
     }
 }

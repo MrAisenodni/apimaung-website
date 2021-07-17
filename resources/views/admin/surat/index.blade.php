@@ -76,22 +76,42 @@
                                                         <td class="text-center">Surat Pengantar SKCK</td>
                                                     @endif
                                                     @if ($data->status == 'pending')
-                                                        <td class="text-center"><p class="btn btn-warning">PENDING</p></td>
+                                                        <td class="text-center"><p class="btn btn-warning">MENUNGGU</p></td>
+                                                    @elseif ($data->status == 'validate')
+                                                        <td class="text-center"><p class="btn btn-warning">MENUNGGU VALIDASI</p></td>
+                                                    @elseif ($data->status == 'check')
+                                                        <td class="text-center"><p class="btn btn-primary">CEK BERKAS</p></td>
+                                                    @elseif ($data->status == 'reject')
+                                                        <td class="text-center"><p class="btn btn-danger">DITOLAK</p></td>
                                                     @else
-                                                        <td class="text-center"><p class="btn btn-success">COMPLETED</p></td>
+                                                        <td class="text-center"><p class="btn btn-success">SELESAI</p></td>
                                                     @endif
                                                     <td width="16%" class="text-center">
-                                                        @if ($data->status == 'pending')
+                                                        @if ($data->status == 'pending' || $data->status == 'check')
                                                             <a href="/surat/{{ $data->id_surat }}/edit" class="btn btn-success">
                                                                 <i class="fas fa-paper-plane"></i>
                                                             </a>
                                                             <a href="/surat/{{ $data->id_surat }}" class="btn btn-info">
                                                                 <i class="fas fa-eye"></i>
                                                             </a>
+                                                            <form action="/surat/{{ $data->id_surat }}" method="POST" class="d-inline">
+                                                                @method('delete')
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
+                                                                    <i class="fas fa-trash"></i>
+                                                                </button>
+                                                            </form>
                                                         @else
                                                             <a href="/surat/{{ $data->id_surat }}" class="btn btn-info">
                                                                 <i class="fas fa-eye"></i>
                                                             </a>
+                                                            <form action="/surat/{{ $data->id_surat }}" method="POST" class="d-inline">
+                                                                @method('delete')
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');">
+                                                                    <i class="fas fa-trash"></i>
+                                                                </button>
+                                                            </form>
                                                         @endif
                                                     </td>
                                                 </tr>

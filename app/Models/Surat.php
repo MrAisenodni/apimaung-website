@@ -12,7 +12,7 @@ class Surat extends Model
                     ->leftJoin('penduduk', 'penduduk.id_penduduk', '=', 'surat.id_penduduk')
                     ->leftJoin('angbpd', 'angbpd.id_angbpd', '=', 'surat.id_angbpd')
                     ->select('penduduk.*', 'surat.*')
-                    ->get(); // get() => SELECT * FROM surat
+                    ->get(); 
     }
 
     public function getData($id) {
@@ -44,6 +44,30 @@ class Surat extends Model
                     )
                     ->where('surat.id_penduduk', session()->get('sid_penduduk'))
                     ->get();
+    }
+
+    public function getCount() {
+        return DB::table('surat')
+                    ->count();
+    }
+
+    public function getCountSelesai() {
+        return DB::table('surat')
+                    ->where('status', 'complete')
+                    ->count();
+    }
+
+    public function getCountMenunggu() {
+        return DB::table('surat')
+                    ->where('status', 'pending')
+                    ->orwhere('status', 'validate')
+                    ->count();
+    }
+
+    public function getCountDitolak() {
+        return DB::table('surat')
+                    ->where('status', 'reject')
+                    ->count();
     }
 
     public function checkJenis($check) {

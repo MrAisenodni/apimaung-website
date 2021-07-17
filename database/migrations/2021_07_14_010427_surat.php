@@ -20,6 +20,7 @@ class Surat extends Migration
             $table->bigInteger('id_angbpd')->nullable();
             $table->enum('jenis', ['skpanjangktp', 'skbuatktp', 'skpindah', 'skdatang', 'sklahir', 'skmati', 'skubahkk', 'sdtinggal', 'skrt', 'skdu', 'sku', 'spimb', 'spnikah', 'spnikahcp', 'spnikahdj', 'spskkm', 'spskck']);
             $table->longText('pesan');
+            $table->longText('alasan')->nullable();
             $table->string('fpengantar');
             $table->string('fktp');
             $table->string('fkk');
@@ -31,7 +32,7 @@ class Surat extends Migration
             $table->string('file5')->nullable();
             $table->string('filesk')->nullable();
             // ./Berkas Pendukung
-            $table->enum('status', ['pending', 'complete']);
+            $table->enum('status', ['reject','pending','complete','check','validate']);
             $table->datetime('created_at')->nullable();
             $table->datetime('updated_at')->nullable(); 
             $table->datetime('deleted_at')->nullable();

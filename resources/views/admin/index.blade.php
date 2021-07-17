@@ -10,14 +10,160 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
+                        {{-- Data Surat Online --}}
                         <div class="row">
+                            <div class="col-xl-12 col-md-12">
+                                <h4>DATA SURAT ONLINE</h4>
+                            </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-info text-white mb-4 row">
+                                <div class="card bg-danger text-white mb-4 row">
                                     <div class="card-body">
                                         <table>
                                             <tr>
-                                                <td class="">Penduduk Laki-laki</td>
-                                                <th width="5%"><h1>{{ $claki }}</h1></th>
+                                                <td class="">Surat Ditolak</td>
+                                                <th width="5%"><h1>{{ $ctolak }}</h1></th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td class="">Surat Menunggu</td>
+                                                <th width="5%"><h1>{{ $ctunggu }}</h1></th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td class="">Surat Selesai</td>
+                                                <th width="5%"><h1>{{ $cselesai }}</h1></th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-info text-white mb-4">
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td class="">Total Surat Online</td>
+                                                <th width="5%"><h1>{{ $csurat }}</h1></th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Data Pengaduan --}}
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12">
+                                <h4>DATA PENGADUAN</h4>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4 row">
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td class="">Total Kritik Saran</td>
+                                                <th width="5%"><h1>{{ $ckritiksaran }}</h1></th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td class="">Pengaduan Menunggu</td>
+                                                <th width="5%"><h1>{{ $cptunggu }}</h1></th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td class="">Pengaduan Selesai</td>
+                                                <th width="5%"><h1>{{ $cpselesai }}</h1></th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-info text-white mb-4">
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td class="">Total Pengaduan</td>
+                                                <th width="5%"><h1>{{ $cpengaduan }}</h1></th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {{-- Data Penduduk --}}
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12">
+                                <h4>DATA KEPENDUDUKAN</h4>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4 row">
+                                    <div class="card-body">
+                                        <table>
+                                            <tr>
+                                                <td class="">Total Anggota BPD</td>
+                                                <th width="5%"><h1>{{ $cangbpd }}</h1></th>
                                             </tr>
                                         </table>
                                     </div>
@@ -48,8 +194,8 @@
                                     <div class="card-body">
                                         <table>
                                             <tr>
-                                                <td class="">Total Penduduk</td>
-                                                <th width="5%"><h1>{{ $cpenduduk }}</h1></th>
+                                                <td class="">Penduduk Laki-laki</td>
+                                                <th width="5%"><h1>{{ $claki }}</h1></th>
                                             </tr>
                                         </table>
                                     </div>
@@ -60,12 +206,12 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
+                                <div class="card bg-info text-white mb-4">
                                     <div class="card-body">
                                         <table>
                                             <tr>
-                                                <td class="">Total Anggota BPD</td>
-                                                <th width="5%"><h1>{{ $cangbpd }}</h1></th>
+                                                <td class="">Total Penduduk</td>
+                                                <th width="5%"><h1>{{ $cpenduduk }}</h1></th>
                                             </tr>
                                         </table>
                                     </div>
@@ -286,7 +432,7 @@
                 type: 'pie'
             },
             title: {
-                text: ''
+                text: 'Data Pekerjaan Desa Tengkurak'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

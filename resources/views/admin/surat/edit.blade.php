@@ -1,76 +1,502 @@
 @extends('layouts.admin')
 
-@section('title', 'Tanggapi Pengaduan')
+@section('title', 'Tanggapi Surat Online')
 
 @section('content')
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">TANGGAPI PENGADUAN</h1>
-                        <form class="" method="POST" action="/operator/pengaduan/{{ $pengaduan->id_pengaduan }}">
+                        <h1 class="mt-4">TANGGAPI SURAT ONLINE</h1>
+                        <form class="" method="POST" action="/surat/{{ $surat->id_surat }}" enctype="multipart/form-data">
                             @method('put')
                             @csrf
                             <div class="card mb-4">
                                 <div class="card-body">
-                                    <div class="row g-3">
+                                    <div class="row">
                                         <div class="col-md-4 form-group">
                                             <label for="nik" class="form-label">NIK</label>
-                                            <input type="text" class="form-control" id="nik" value="{{ $pengaduan->nik }}" disabled>
+                                            <input type="text" class="form-control" id="nik" name="nik" value="{{ $surat->nik }}" readonly>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <label for="nama" class="form-label">Nama Pengadu</label>
-                                            <input type="text" class="form-control" id="nama" value="{{ $pengaduan->penduduk }}" disabled>
-                                        </div>
-                                        <div class="col-md-4 form-group">
-                                            <label for="email" class="form-label">Email</label>
-                                            <input type="text" class="form-control" id="email" value="{{ $pengaduan->email }}" disabled>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <label for="judul" class="form-label">Judul</label>
-                                            <input type="text" class="form-control" id="judul" value="{{ $pengaduan->judul }}" disabled>
+                                            <label for="nama" class="form-label">Nama Pengaju</label>
+                                            <input type="text" class="form-control" id="nama" value="{{ $surat->nama }}" disabled>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <label for="pesan" class="form-label">Pesan</label>
-                                            {{-- <input type="text" class="form-control" id="pesan" disabled value=""> --}}
-                                            <textarea name="pesan" class="form-control" id="pesan" cols="30" rows="5" disabled>{{ $pengaduan->pesan }}</textarea>
-                                        </div>
-                                        <div class="col-md-4 form-group">
-                                            <label for="tgl_kejadian" class="form-label">Tanggal Kejadian</label>
-                                            <input type="text" class="form-control" id="tgl_kejadian" value="{{ $pengaduan->tgl_kejadian }}" disabled>
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <label for="lokasi" class="form-label">Lokasi</label>
-                                            <input type="text" class="form-control" id="lokasi" disabled value="{{ $pengaduan->lokasi }}">
-                                        </div>
-                                        <div class="col-md-2 form-group">
-                                            <label for="kategori" class="form-label">Kategori</label>
-                                            @if ($pengaduan->kategori == 'penting')
-                                            <input type="text" class="form-control text-danger" id="kategori" disabled value="PENTING">
-                                            @else
-                                            <input type="text" class="form-control text-warning" id="kategori" disabled value="UMUM"> 
+                                            <label for="jenis" class="form-label">Jenis Surat</label>
+                                            @if ($surat->jenis == 'skpanjangktp')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Keterangan Perpanjang KTP" disabled>
+                                            @elseif ($surat->jenis == 'skbuatktp')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Keterangan Pembuatan KTP" disabled>
+                                            @elseif ($surat->jenis == 'skpindah')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Keterangan PINDAH" disabled>
+                                            @elseif ($surat->jenis == 'skdatang')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Keterangan DATANG" disabled>
+                                            @elseif ($surat->jenis == 'sklahir')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Keterangan Lahir" disabled>
+                                            @elseif ($surat->jenis == 'skmati')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Keterangan Kematian" disabled>
+                                            @elseif ($surat->jenis == 'skubahkk')
+                                                <input type="text" class="form-control" id="jenis" value="Perubahan Data KK" disabled>
+                                            @elseif ($surat->jenis == 'sdtinggal')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Domisili Tempat Tinggal" disabled>
+                                            @elseif ($surat->jenis == 'skrt')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Keterangan Riwayat Tanah" disabled>
+                                            @elseif ($surat->jenis == 'skdu')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Keterangan Domisili Usaha" disabled>
+                                            @elseif ($surat->jenis == 'sku')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Keterangan Usaha" disabled>
+                                            @elseif ($surat->jenis == 'spimb')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Pengantar IMB" disabled>
+                                            @elseif ($surat->jenis == 'spnikah')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Pengantar Nikah" disabled>
+                                            @elseif ($surat->jenis == 'spnikahcp')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Pengantar Nikah di Catatan Sipil" disabled>
+                                            @elseif ($surat->jenis == 'spnikahdj')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Pengantar Nikah untuk Janda/Duda" disabled>
+                                            @elseif ($surat->jenis == 'spskkm')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Pengantar SKKM" disabled>
+                                            @elseif ($surat->jenis == 'spskck')
+                                                <input type="text" class="form-control" id="jenis" value="Surat Pengantar SKCK" disabled>
                                             @endif
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <label for="instansi" class="form-label">Instansi</label>
-                                            <input type="text" class="form-control" id="instansi" disabled value="{{ $pengaduan->instansi }}">
+                                            <label for="pesan" class="form-label">Pesan</label>
+                                            <textarea name="pesan" class="form-control" id="pesan" cols="30" rows="5" disabled>{{ $surat->pesan }}</textarea>
                                         </div>
+                                        @if ($surat->status == 'pending')
+                                            <div class="col-md-12 form-group">
+                                                <label for="status" class="form-label">Status</label>
+                                                <select name="status" id="status" class="form-control">
+                                                    @if (old('status') == 'check')
+                                                        <option value="check" class="btn btn-primary">CEK BERKAS</option>
+                                                    @elseif (old('status') == 'pending')
+                                                        <option value="pending" class="btn btn-warning">MENUNGGU</option>
+                                                    @elseif (old('status') == 'reject')
+                                                        <option value="reject" class="btn btn-danger">DITOLAK</option>
+                                                    @endif
+                                                    <option value="pending" class="btn btn-warning">MENUNGGU</option>
+                                                    <option value="check" class="btn btn-primary">CEK BERKAS</option>
+                                                    <option value="reject" class="btn btn-danger">DITOLAK</option>
+                                                </select>
+                                            </div>
+                                            @elseif ($surat->status == 'complete')
+                                            <div class="col-md-12 form-group">
+                                                <label for="status" class="form-label">Status</label>
+                                                <select name="status" id="status" class="form-control">
+                                                    <option value="check" class="btn btn-primary">CEK BERKAS</option>
+                                                    <option value="pending" class="btn btn-warning">MENUNGGU</option>
+                                                    <option value="reject" class="btn btn-danger">DITOLAK</option>
+                                                </select>
+                                            </div>
+                                            @elseif ($surat->status == 'check')
+                                            <div class="col-md-12 form-group">
+                                                <label for="status" class="form-label">Status</label>
+                                                <select name="status" id="status" class="form-control">
+                                                    <option value="check" class="btn btn-primary">CEK BERKAS</option>
+                                                    <option value="pending" class="btn btn-warning">MENUNGGU</option>
+                                                    <option value="reject" class="btn btn-danger">DITOLAK</option>
+                                                </select>
+                                            </div>
+                                        @else
+                                        <div class="col-md-12 form-group">
+                                            <label for="status" class="form-label">Status</label>
+                                            <select name="status" id="status" class="form-control">
+                                                <option value="reject" class="btn btn-danger">DITOLAK</option>
+                                                <option value="check" class="btn btn-primary">CEK BERKAS</option>
+                                                <option value="pending" class="btn btn-warning">MENUNGGU</option>
+                                                </select>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="col-md-12 form-group response reject">
+                                        <label for="alasan" class="form-label">Alasan Ditolak</label>
+                                        <textarea name="alasan" class="form-control @error('alasan') is-invalid @enderror" id="alasan" cols="30" rows="5" placeholder="Masukkan Alasan Surat Online tersebut Ditolak."></textarea>
+                                        @error('alasan')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-12 form-group response check">
+                                        <label for="filesk" class="form-label">Upload Berkas SK/SP <span class="text-danger">*Jika berkas pengaju sudah valid</span></label>
+                                        <input type="file" class="form-control @error('filesk') is-invalid @enderror" id="filesk" name="filesk" value="{{ old('filesk') }}">
+                                        @error('filesk')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
                             <div class="card mb-4">
                                 <div class="card-body">
-                                    <div class="row g-3">
-                                        <div class="col-md-12 form-group">
-                                            <label for="nip" class="form-label">NIP</label>
-                                            <input type="text" class="form-control" id="nip" value="{{ session()->get('snip') }} | {{ session()->get('sangbpd') }}" disabled>
+                                    <div class="row">
+                                        <div class="col-md-12 form-group text-center">
+                                            <h5 for="pesan">--------------------------- Download Data Diri Pengaju ---------------------------</h5>
                                         </div>
-                                        <div class="col-md-12 form-group">
-                                            <label for="pesan" class="form-label">Pesan</label>
-                                            <textarea name="pesan" class="form-control" id="pesan" cols="30" rows="5">{{ old('pesan') }}</textarea>
+                                        <div class="col-md-6 form-group text-center">
+                                            <label for="fktp" class="form-label">Foto KTP Pengaju</label><br>
+                                            <a href="/download/?file={{ $surat->fktp }}">
+                                                <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                            </a>
                                         </div>
-                                        <div class="col-12 mt-3">
-                                            <button type="button" class="btn btn-info"><a href="/operator/pengaduan" class="text-white"><span class="fas fa-times-circle"></span> KEMBALI</a></button>
-                                        <button type="submit" class="btn btn-success"><span class="fas fa-location-arrow"></span> SIMPAN</button>
+                                        <div class="col-md-6 form-group text-center">
+                                            <label for="fkk" class="form-label">Foto KK Pengaju</label><br>
+                                            <a href="/download/?file={{ $surat->fkk }}">
+                                                <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                            </a>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-12 form-group text-center">
+                                            <h5 for="pesan">--------------------------- Download Data Pendukung Pengaju ---------------------------</h5>
+                                        </div>
+                                        @if ($surat->jenis == 'skpanjangktp')
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file1" class="form-label">Pas Foto 3x4</label><br>
+                                                <a href="/download/?file={{ $surat->file1 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file2" class="form-label">Bukti Lunas PBB</label><br>
+                                                <a href="/download/?file={{ $surat->file2 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'skbuatktp')
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file1" class="form-label">Pas Foto 3x4</label><br>
+                                                <a href="/download/?file={{ $surat->file1 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file2" class="form-label">Bukti Lunas PBB</label><br>
+                                                <a href="/download/?file={{ $surat->file2 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'skpindah')
+                                            <div class="col-md-12 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'sku')
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file1" class="form-label">Surat Pernyataan Kepemilikan Usaha (Bermaterai)</label><br>
+                                                <a href="/download/?file={{ $surat->file1 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file2" class="form-label">Bukti Lunas PBB</label><br>
+                                                <a href="/download/?file={{ $surat->file2 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'sklahir')
+                                            <div class="col-md-3 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3 form-group text-center">
+                                                <label for="file1" class="form-label">Surat Nikah</label><br>
+                                                <a href="/download/?file={{ $surat->file1 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3 form-group text-center">
+                                                <label for="file2" class="form-label">Surat Keterangan Lahir dari Bidan/Rumah Sakit</label><br>
+                                                <a href="/download/?file={{ $surat->file2 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3 form-group text-center">
+                                                <label for="file3" class="form-label">Bukti Lunas PBB</label><br>
+                                                <a href="/download/?file={{ $surat->file2 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'skdatang')
+                                            <div class="col-md-6 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-6 form-group text-center">
+                                                <label for="file1" class="form-label">Surat Keterangan Pindah dari Daerah Asal</label><br>
+                                                <a href="/download/?file={{ $surat->file1 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'skmati')
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file1" class="form-label">KTP yang Meninggal</label><br>
+                                                <a href="/download/?file={{ $surat->file1 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            @if ($surat->file2 == null)
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file2" class="form-label">Surat Keterangan Kematian dari Rumah Sakit</label><br>
+                                                <div class="form-control btn btn-danger">KOSONG</div>
+                                            </div>
+                                            @else
+                                                <div class="col-md-4 form-group text-center">
+                                                    <label for="file2" class="form-label">Surat Keterangan Kematian dari Rumah Sakit</label><br>
+                                                    <a href="/download/?file={{ $surat->file2 }}">
+                                                        <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                    </a>
+                                                </div>
+                                            @endif
+                                        @elseif ($surat->jenis == 'skubahkk')
+                                            <div class="col-md-12 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'sdtinggal')
+                                            <div class="col-md-12 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'skrt')
+                                            <div class="col-md-3 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3 form-group text-center">
+                                                <label for="file1" class="form-label">Akta Jual Beli</label><br>
+                                                <a href="/download/?file={{ $surat->file1 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3 form-group text-center">
+                                                <label for="file2" class="form-label">Salinan C</label><br>
+                                                <a href="/download/?file={{ $surat->file2 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3 form-group text-center">
+                                                <label for="file3" class="form-label">Bukti Lunas PBB</label><br>
+                                                <a href="/download/?file={{ $surat->file3 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'skdu')
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            @if ($surat->file1 == null)
+                                                <div class="col-md-4 form-group text-center">
+                                                    <label for="file1" class="form-label">Akta Pendirian (CV, PT, UD)</label><br>
+                                                    <div class="btn btn-danger">KOSONG</div>
+                                                </div>
+                                            @else
+                                                <div class="col-md-4 form-group text-center">
+                                                    <label for="file1" class="form-label">Akta Pendirian (CV, PT, UD)</label><br>
+                                                    <a href="/download/?file={{ $surat->file1 }}">
+                                                        <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            @if ($surat->file2 == null)
+                                                <div class="col-md-4 form-group text-center">
+                                                    <label for="file2" class="form-label">Bukti Kepemilikan Tempat Usaha</label><br>
+                                                    <div class="btn btn-danger">KOSONG</div>
+                                                </div>
+                                            @else
+                                                <div class="col-md-4 form-group text-center">
+                                                    <label for="file2" class="form-label">Bukti Kepemilikan Tempat Usaha</label><br>
+                                                    <a href="/download/?file={{ $surat->file2 }}">
+                                                        <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            @if ($surat->file3 == null)
+                                                <div class="col-md-4 form-group text-center">
+                                                    <label for="file3" class="form-label">Bukti Sewa</label><br>
+                                                    <div class="btn btn-danger">KOSONG</div>
+                                                </div>
+                                            @else
+                                                <div class="col-md-4 form-group text-center">
+                                                    <label for="file3" class="form-label">Bukti Sewa</label><br>
+                                                    <a href="/download/?file={{ $surat->file3 }}">
+                                                        <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file4" class="form-label">Izin Lingkungan</label><br>
+                                                <a href="/download/?file={{ $surat->file4 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file5" class="form-label">Bukti Lunas PBB</label><br>
+                                                <a href="/download/?file={{ $surat->file5 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'spimb')
+                                            <div class="col-md-3 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3 form-group text-center">
+                                                <label for="file1" class="form-label">Surat Bukti Kepemilikan Tanah</label><br>
+                                                <a href="/download/?file={{ $surat->file1 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3 form-group text-center">
+                                                <label for="file2" class="form-label">SPPT PBB</label><br>
+                                                <a href="/download/?file={{ $surat->file2 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-3 form-group text-center">
+                                                <label for="file3" class="form-label">Bukti Lunas PBB</label><br>
+                                                <a href="/download/?file={{ $surat->file3 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'spnikah')
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file1" class="form-label">Surat Pernyataan Belum Menikah dari Pemohon (Bermaterai)</label><br>
+                                                <a href="/download/?file={{ $surat->file1 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file2" class="form-label">Bukti Lunas PBB</label><br>
+                                                <a href="/download/?file={{ $surat->file2 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'spnikahcp')
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            @if ($surat->file1 == null)
+                                                <div class="col-md-4 form-group text-center">
+                                                    <label for="file1" class="form-label">Surat Pengantar dari Gereja atau Pure</label><br>
+                                                    <div class="btn btn-danger">KOSONG</div>
+                                                </div>
+                                            @else
+                                                <div class="col-md-4 form-group text-center">
+                                                    <label for="file1" class="form-label">Surat Pengantar dari Gereja atau Pure</label><br>
+                                                    <a href="/download/?file={{ $surat->file1 }}">
+                                                        <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file2" class="form-label">Bukti Lunas PBB</label><br>
+                                                <a href="/download/?file={{ $surat->file2 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'spnikahdj')
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file1" class="form-label">Surat Cerai dari Pengadilan Agama</label><br>
+                                                <a href="/download/?file={{ $surat->file1 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file2" class="form-label">Bukti Lunas PBB</label><br>
+                                                <a href="/download/?file={{ $surat->file2 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'spskkm')
+                                            <div class="col-md-12 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @elseif ($surat->jenis == 'spskck')
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="fpengantar" class="form-label">Surat Pengantar RT/RW</label><br>
+                                                <a href="/download/?file={{ $surat->fpengantar }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file1" class="form-label">Pas Foto 3x4</label><br>
+                                                <a href="/download/?file={{ $surat->file1 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-4 form-group text-center">
+                                                <label for="file2" class="form-label">Bukti Lunas PBB</label><br>
+                                                <a href="/download/?file={{ $surat->file2 }}">
+                                                    <button type="button" class="btn btn-success"><i class="fas fa-download"></i> DOWNLOAD</button>
+                                                </a>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <button type="button" class="btn btn-info"><a href="/surat" class="text-white"><span class="fas fa-times-circle"></span> KEMBALI</a></button>
+                                            <button type="submit" class="btn btn-success"><span class="fas fa-location-arrow"></span> SIMPAN</button>
                                         </div>
                                     </div>
                                 </div>

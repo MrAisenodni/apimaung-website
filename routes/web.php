@@ -74,6 +74,7 @@ Route::get('/daper', [PageController::class, 'perkawinan']);
     Route::get('/surat', [SuratController::class, 'index'])->middleware('authcheck');
     Route::get('/surat/create', [SuratController::class, 'create'])->middleware('authcheck');
     Route::get('/surat/{id}', [SuratController::class, 'show'])->middleware('authcheck');
+    Route::get('/download', [SuratController::class, 'download']);
     Route::post('/surat', [SuratController::class, 'store']);
     
     /*
@@ -109,6 +110,13 @@ Route::get('/daper', [PageController::class, 'perkawinan']);
     Route::get('/pengaduan/{id}', [PengaduanController::class, 'show'])->middleware('authcheck');
     Route::put('/pengaduan/{id}', [PengaduanController::class, 'update']);
     Route::delete('/pengaduan/{id}', [PengaduanController::class, 'destroy']);
+
+    // Routes Admin mengelola Surat Online
+    Route::get('/surat', [SuratController::class, 'index'])->middleware('authcheck');
+    Route::get('/surat/{id}/edit', [SuratController::class, 'edit'])->middleware('authcheck');
+    Route::get('/surat/{id}', [SuratController::class, 'show'])->middleware('authcheck');
+    Route::put('/surat/{id}', [SuratController::class, 'update']);
+    Route::delete('/surat/{id}', [SuratController::class, 'destroy']);
     
     // Routes Admin mengelola Profil Desa
     Route::get('/profildesa', [DesaController::class, 'index'])->middleware('authcheck');

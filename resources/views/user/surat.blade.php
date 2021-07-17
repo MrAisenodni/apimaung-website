@@ -78,9 +78,15 @@
                                     <td class="text-center">Surat Pengantar SKCK</td>
                                 @endif
                                 @if ($data->status == 'pending')
-                                    <td class="text-center"><p class="btn btn-warning">PENDING</p></td>
+                                    <td class="text-center"><p class="btn btn-warning">MENUNGGU</p></td>
+                                @elseif ($data->status == 'complete')
+                                    <td class="text-center"><p class="btn btn-success">SELESAI</p></td>
+                                @elseif ($data->status == 'check')
+                                    <td class="text-center"><p class="btn btn-primary">CEK BERKAS</p></td>
+                                @elseif ($data->status == 'validate')
+                                    <td class="text-center"><p class="btn btn-warning">MENUNGGU VALIDASI</p></td>
                                 @else
-                                    <td class="text-center"><p class="btn btn-success">COMPLETED</p></td>
+                                    <td class="text-center"><p class="btn btn-danger">DITOLAK</p></td>
                                 @endif
                                 <td width="16%" class="text-center">
                                     <a href="/surat/{{ $data->id_surat }}" class="btn btn-info">

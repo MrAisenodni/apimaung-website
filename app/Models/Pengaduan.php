@@ -49,6 +49,23 @@ class Pengaduan extends Model
                     ->get();
     }
 
+    public function getCount() {
+        return DB::table('pengaduan')
+                    ->count();
+    }
+
+    public function getCountSelesai() {
+        return DB::table('pengaduan')
+                    ->where('status', 'complete')
+                    ->count();
+    }
+
+    public function getCountMenunggu() {
+        return DB::table('pengaduan')
+                    ->where('status', 'pending')
+                    ->count();
+    }
+
     public function tambahData($data) {
         return DB::table('pengaduan')
                     ->insert($data);

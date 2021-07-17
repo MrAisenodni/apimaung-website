@@ -17,6 +17,11 @@ class KritikSaran extends Model
                     ->first();
     }
 
+    public function getCount() {
+        return DB::table('kritiksaran')
+                    ->count();
+    }
+
     public function tambahData($data) {
         return DB::table('kritiksaran')->insert($data);
     }

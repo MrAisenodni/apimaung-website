@@ -109,7 +109,8 @@
                 </footer>
             </div>
         </div>
-
+        
+        <script src="{{ url('js/vendors/jquery/jquery.min.js') }}"></script> 
         <script src="{{ url('https://code.jquery.com/jquery-3.5.1.slim.min.js') }}" crossorigin="anonymous"></script>
         <script src="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js') }}" crossorigin="anonymous"></script>
         <script src="{{ url('admin/js/scripts.js') }}"></script>
