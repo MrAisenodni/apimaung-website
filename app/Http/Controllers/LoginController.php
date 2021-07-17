@@ -67,6 +67,8 @@ class LoginController extends Controller
                     return redirect()->intended('/dashboard');
                 } elseif($info_pengguna->akses == 'opr') {
                     return redirect()->intended('/operator/dashboard');
+                } elseif($info_pengguna->akses == 'des') {
+                    return redirect()->intended('/kepdes/dashboard');
                 } else {
                     return redirect()->intended('/');
                 }

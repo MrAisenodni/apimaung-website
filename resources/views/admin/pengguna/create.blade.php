@@ -20,11 +20,14 @@
                                                 <option value="opr">Operator</option>
                                             @elseif (old('akses') == 'adm')
                                                 <option value="adm">Admin</option>
+                                            @elseif (old('akses') == 'des')
+                                                <option value="des">Kepala Desa</option>
                                             @endif
                                             <option value="">--- Pilih Akses ---</option>
                                             <option value="usr">User</option>
                                             <option value="opr">Operator</option>
                                             <option value="adm">Admin</option>
+                                            <option value="des">Kepala Desa</option>
                                         </select>
                                         @error('akses')
                                             <div class="text-danger">{{ $message }}</div>

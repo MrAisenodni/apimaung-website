@@ -15,12 +15,27 @@
                                     <div class="col-md-2 form-group">
                                         <label for="akses" class="form-label">Akses</label>
                                         <select name="akses" id="akses" class="form-control @error('akses') is-invalid @enderror">
-                                            {{-- <option value="{{ old('akses') }}">{{ old('akses') }}</option> --}}
+                                            @if (old('akses') == 'usr')
+                                                <option value="usr">User</option>
+                                            @elseif (old('akses') == 'opr')
+                                                <option value="opr">Operator</option>
+                                            @elseif (old('akses') == 'adm')
+                                                <option value="adm">Admin</option>
+                                            @elseif (old('akses') == 'des')
+                                                <option value="des">Kepala Desa</option>
+                                            @endif
                                             @if ($pengguna->akses == 'usr')
                                                 <option value="usr">User</option>
                                                 <option value="opr">Operator</option>
                                                 <option value="adm">Admin</option>
+                                                <option value="des">Kepala Desa</option>
                                             @elseif ($pengguna->akses == 'adm')
+                                                <option value="adm">Admin</option>
+                                                <option value="usr">User</option>
+                                                <option value="opr">Operator</option>
+                                                <option value="des">Kepala Desa</option>
+                                            @elseif ($pengguna->akses == 'des')
+                                                <option value="des">Kepala Desa</option>
                                                 <option value="adm">Admin</option>
                                                 <option value="usr">User</option>
                                                 <option value="opr">Operator</option>
@@ -28,6 +43,7 @@
                                                 <option value="opr">Operator</option>
                                                 <option value="usr">User</option>
                                                 <option value="adm">Admin</option>
+                                                <option value="des">Kepala Desa</option>
                                             @endif
                                         </select>
                                         @error('akses')

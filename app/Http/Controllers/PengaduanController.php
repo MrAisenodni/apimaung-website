@@ -32,6 +32,8 @@ class PengaduanController extends Controller
             return view('admin.pengaduan.index', $data);
         } elseif(session()->get('sakses') == 'opr') {
             return view('operator.pengaduan.index', $data);
+        } elseif(session()->get('sakses') == 'des') {
+            return view('kepdes.pengaduan.index', $data);
         } else {
             return view('user.pengaduan', $data);
         }
@@ -118,6 +120,8 @@ class PengaduanController extends Controller
             return view('admin.pengaduan.show', $data);
         } elseif(session()->get('sakses') == 'opr') {
             return view('operator.pengaduan.show', $data);
+        } elseif(session()->get('sakses') == 'des') {
+            return view('kepdes.pengaduan.show', $data);
         } else {
             return view('user.showpengaduan ', $data);
         }

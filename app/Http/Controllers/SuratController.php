@@ -33,6 +33,8 @@ class SuratController extends Controller
             return view('admin.surat.index', $data);
         } elseif(session()->get('sakses') == 'opr') {
             return view('operator.surat.index', $data);
+        } elseif(session()->get('sakses') == 'des') {
+            return view('kepdes.surat.index', $data);
         } else {
             return view('user.surat', $data);
         }
@@ -891,6 +893,8 @@ class SuratController extends Controller
             return view('admin.surat.show', $data);
         } elseif(session()->get('sakses') == 'opr') {
             return view('operator.surat.show', $data);
+        } elseif(session()->get('sakses') == 'des') {
+            return view('kepdes.surat.show', $data);
         } else {
             return view('user.showsurat ', $data);
         }
@@ -911,9 +915,7 @@ class SuratController extends Controller
         ];
         if(session()->get('sakses') == 'adm') {
             return view('admin.surat.edit', $data);
-        } elseif(session()->get('sakses') == 'opr') {
-            return view('operator.surat.edit', $data);
-        }
+        } 
     }
 
     /**

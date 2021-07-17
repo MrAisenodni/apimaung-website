@@ -50,6 +50,8 @@
                                                     <td class="text-center text-success">User</td>
                                                 @elseif ($data->akses == 'adm')
                                                     <td class="text-center text-primary">Admin</td>
+                                                @elseif ($data->akses == 'des')
+                                                    <td class="text-center text-danger">Kepala Desas</td>
                                                 @else
                                                     <td class="text-center text-secondary">Operator</td>
                                                 @endif

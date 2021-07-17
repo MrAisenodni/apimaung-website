@@ -26,7 +26,13 @@ class KritikSaranController extends Controller
 
         if(session()->get('sakses') == 'adm') {
             return view('admin.kritiksaran.index', $data);
-        } else {
+        }
+        
+        if(session()->get('sakses') == 'des') {
+            return view('kepdes.kritiksaran.index', $data);
+        } 
+        
+        if(session()->get('sakses') == 'opr') {
             return view('operator.kritiksaran.index', $data);
         }
     }
@@ -79,7 +85,13 @@ class KritikSaranController extends Controller
         ];
         if(session()->get('sakses') == 'adm') {
             return view('admin.kritiksaran.show', $data);
-        } else {
+        } 
+        
+        if(session()->get('sakses') == 'des') {
+            return view('kepdes.kritiksaran.show', $data);
+        }
+
+        if(session()->get('sakses') == 'opr') {
             return view('operator.kritiksaran.show', $data);
         }
     }

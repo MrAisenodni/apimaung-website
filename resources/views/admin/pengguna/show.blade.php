@@ -17,6 +17,8 @@
                                             <input type="text" class="form-control" id="email" value="User" disabled>
                                         @elseif ($pengguna->akses == 'adm')
                                             <input type="text" class="form-control" id="email" value="Admin" disabled>
+                                        @elseif ($pengguna->akses == 'des')
+                                            <input type="text" class="form-control" id="email" value="Kepala Desa" disabled>
                                         @else
                                             <input type="text" class="form-control" id="email" value="Operator" disabled>
                                         @endif

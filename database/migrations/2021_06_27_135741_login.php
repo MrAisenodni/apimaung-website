@@ -19,7 +19,7 @@ class Login extends Migration
             $table->bigInteger('id_angbpd')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('akses', ['adm','usr','opr']);
+            $table->enum('akses', ['adm','usr','opr','des']);
             $table->rememberToken();
             $table->datetime('created_at')->nullable();
             $table->datetime('updated_at')->nullable();

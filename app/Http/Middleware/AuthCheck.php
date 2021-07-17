@@ -16,12 +16,6 @@ class AuthCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        // if(!session()->has('sid_login') && $request->path() == '/pengaduan/create') {
-        //     return redirect('/');
-        // } elseif (!session()->has('sid_login') && $request->path() != '/login' && $request->path() == '/pengaduan/create') {
-        //     return redirect('/login')->with('error', 'Anda belum login.');
-        // } 
-        
         if (!session()->get('sid_angbpd') && $request->path() == '/pengaduan/create') {
             return redirect('/');
         } elseif(!session()->has('sid_login') && $request->path() != '/login') {
@@ -35,39 +29,18 @@ class AuthCheck
                     $request->path() == '/pengaduan/create'
                 ) {
                     return redirect('/dashboard')->with('error', 'Anda sudah login.');
-                    // return back()->with('error', 'Anda sudah login.');
                 } 
-                // elseif (
-                //     $request->path() == '/operator/dashboard' ||
-                //     $request->path() == '/operator/pengaduan' ||
-                //     $request->path() == '/operator/pengaduan/create' ||
-                //     $request->path() == '/operator/pengaduan/{id}/edit' ||
-                //     $request->path() == '/operator/pengaduan/{id}' ||
-                //     $request->path() == '/operator/kritiksaran' ||
-                //     $request->path() == '/operator/kritiksaran/{id}'
-                // ) {
-                //     return redirect('/dashboard')->with('error', 'Anda merupakan admin.');
-                // }
             } elseif (session()->get('sakses') == 'opr') {
                 if($request->path() == '/login' || $request->path() == '/pengaduan/create') {
                     return redirect('/operator/dashboard')->with('error', 'Anda sudah login.');
-                    // return back()->with('error', 'Anda sudah login.');
                 } 
-                // elseif (
-                //     $request->path() != '/operator/dashboard' ||
-                //     $request->path() != '/operator/pengaduan' ||
-                //     $request->path() != '/operator/pengaduan/create' ||
-                //     $request->path() != '/operator/pengaduan/{id}/edit' ||
-                //     $request->path() != '/operator/pengaduan/{id}' ||
-                //     $request->path() != '/operator/kritiksaran' ||
-                //     $request->path() != '/operator/kritiksaran/{id}'
-                // ) {
-                //     return redirect('/operator/dashboard')->with('error', 'Anda merupakan admin.');
-                // }
+            } elseif (session()->get('sakses') == 'des') {
+                if($request->path() == '/login' || $request->path() == '/pengaduan/create') {
+                    return redirect('/kepdes/dashboard')->with('error', 'Anda sudah login.');
+                } 
             } else {
                 if($request->path() == '/login') {
                     return redirect('/');
-                    // return back()->with('error', 'Anda sudah login.');
                 }
             }
         }

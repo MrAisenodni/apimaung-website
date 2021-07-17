@@ -151,13 +151,39 @@ Route::get('/daper', [PageController::class, 'perkawinan']);
     // Routes Operator
     Route::get('/operator/dashboard', [PageController::class, 'operator'])->middleware('authcheck');
     
-    // Routes Admin mengelola Pengaduan
+    // Routes Operator mengelola Pengaduan
     Route::get('/operator/pengaduan', [PengaduanController::class, 'index'])->middleware('authcheck');
     Route::get('/operator/pengaduan/{id}/edit', [PengaduanController::class, 'edit'])->middleware('authcheck');
     Route::get('/operator/pengaduan/{id}', [PengaduanController::class, 'show'])->middleware('authcheck');
     Route::put('/operator/pengaduan/{id}', [PengaduanController::class, 'update']);
     
-    // Routes Admin mengelola Kritik dan Saran
+    // Routes Operator mengelola Surat Online
+    Route::get('/operator/surat', [SuratController::class, 'index'])->middleware('authcheck');
+    Route::get('/operator/surat/{id}', [SuratController::class, 'show'])->middleware('authcheck');
+
+    // Routes Operator mengelola Kritik dan Saran
     Route::get('/operator/kritiksaran', [KritikSaranController::class, 'index'])->middleware('authcheck');
     Route::get('/operator/kritiksaran/{id}', [KritikSaranController::class, 'show'])->middleware('authcheck');
+    
+    /*
+    ====================================
+    =       ROUTES KEPALA DESA         =
+    ====================================
+    */
+    
+    // Routes Kepala Desa
+    Route::get('/kepdes/dashboard', [PageController::class, 'kepdes'])->middleware('authcheck');
+    
+    // Routes Kepala Desa mengelola Pengaduan
+    Route::get('/kepdes/pengaduan', [PengaduanController::class, 'index'])->middleware('authcheck');
+    Route::get('/kepdes/pengaduan/{id}', [PengaduanController::class, 'show'])->middleware('authcheck');
+    Route::put('/kepdes/pengaduan/{id}', [PengaduanController::class, 'update']);
+    
+    // Routes Kepala Desa mengelola Surat Online
+    Route::get('/kepdes/surat', [SuratController::class, 'index'])->middleware('authcheck');
+    Route::get('/kepdes/surat/{id}', [SuratController::class, 'show'])->middleware('authcheck');
+
+    // Routes Kepala Desa mengelola Kritik dan Saran
+    Route::get('/kepdes/kritiksaran', [KritikSaranController::class, 'index'])->middleware('authcheck');
+    Route::get('/kepdes/kritiksaran/{id}', [KritikSaranController::class, 'show'])->middleware('authcheck');
 // });   
