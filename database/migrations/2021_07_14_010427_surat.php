@@ -22,7 +22,7 @@ class Surat extends Migration
             $table->longText('pesan');
             $table->longText('alasan')->nullable();
             $table->string('fpengantar');
-            $table->string('fktp');
+            $table->string('fktp')->nullable();
             $table->string('fkk');
             // Berkas Pendukung
             $table->string('file1')->nullable();

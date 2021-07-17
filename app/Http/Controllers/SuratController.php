@@ -71,7 +71,6 @@ class SuratController extends Controller
             'jenis'         => 'required',
             'pesan'         => 'required',
             'fpengantar'    => 'required|mimes:pdf|max:2000',
-            'fktp'          => 'required|mimes:jpeg,jpg,png|max:2000',
             'fkk'           => 'required|mimes:jpeg,jpg,png|max:2000',
         ],[
             'jenis.required'        => 'Jenis Surat harus diisi.',
@@ -79,9 +78,6 @@ class SuratController extends Controller
             'fpengantar.required'   => 'Surat Pengantar harus diisi.',
             'fpengantar.mimes'      => 'Format file harus: pdf.',
             'fpengantar.max'        => 'File tidak boleh lebih dari 2 MB',
-            'fktp.required'         => 'Foto KTP harus diisi.',
-            'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
-            'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
             'fkk.required'          => 'Foto KK harus diisi.',
             'fkk.mimes'             => 'Format file harus: jpeg, jpg, png.',
             'fkk.max'               => 'File tidak boleh lebih dari 2 MB',
@@ -98,12 +94,16 @@ class SuratController extends Controller
         // Surat Keterangan Usaha
         if ($check == 'sku') {
             $validated = $request->validate([
-                'fspusaha'         => 'required|mimes:pdf|max:2000',
-                'fpbbusaha'   => 'required|mimes:jpeg,jpg,png|max:2000',
+                'fktp'          => 'required|mimes:jpeg,jpg,png|max:2000',
+                'fspusaha'      => 'required|mimes:pdf|max:2000',
+                'fpbbusaha'     => 'required|mimes:jpeg,jpg,png|max:2000',
             ],[
-                'fspusaha.required'           => 'Surat Pernyataan Usaha harus diisi.',
-                'fspusaha.mimes'              => 'Format file harus: pdf.',
-                'fspusaha.max'                => 'File tidak boleh lebih dari 2 MB',
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
+                'fspusaha.required'     => 'Surat Pernyataan Usaha harus diisi.',
+                'fspusaha.mimes'        => 'Format file harus: pdf.',
+                'fspusaha.max'          => 'File tidak boleh lebih dari 2 MB',
                 'fpbbusaha.required'     => 'Bukti Lunas PBB harus diisi.',
                 'fpbbusaha.mimes'        => 'Format file harus: jpeg, jpg, png.',
                 'fpbbusaha.max'          => 'File tidak boleh lebih dari 2 MB',
@@ -138,10 +138,14 @@ class SuratController extends Controller
         // Surat Keterangan Lahir
         if ($check == 'sklahir') {
             $validated = $request->validate([
+                'fktp'        => 'required|mimes:jpeg,jpg,png|max:2000',
                 'fsklahir'             => 'required|mimes:pdf|max:2000',
                 'fsknikah'                => 'required|mimes:pdf|max:2000',
                 'fpbblahir'        => 'required|mimes:jpeg,jpg,png|max:2000',
             ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
                 'fsklahir.required'        => 'Surat Keterangan Lahir harus diisi.',
                 'fsklahir.mimes'           => 'Format file harus: pdf.',
                 'fsklahir.max'             => 'File tidak boleh lebih dari 2 MB',
@@ -184,9 +188,13 @@ class SuratController extends Controller
         // Surat Keterangan Kematian
         if ($check == 'skmati') {
             $validated = $request->validate([
+                'fktp'          => 'required|mimes:jpeg,jpg,png|max:2000',
                 'fktpmati'          => 'required|mimes:jpeg,jpg,png|max:2000',
                 'fskmati'           => 'mimes:pdf|max:2000',
             ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
                 'fktpmati.required'         => 'Surat Keterangan Lahir harus diisi.',
                 'fktpmati.mimes'            => 'Format file harus: jpeg,jpg,png.',
                 'fktpmati.max'              => 'File tidak boleh lebih dari 2 MB',
@@ -223,9 +231,13 @@ class SuratController extends Controller
         // Surat Keterangan Perpanjang KTP
         if ($check == 'skpanjangktp') {
             $validated = $request->validate([
+                'fktp'     => 'required|mimes:jpeg,jpg,png|max:2000',
                 'ffotopktp'     => 'required|mimes:jpeg,jpg,png|max:2000',
                 'fpbbpktp'      => 'required|mimes:jpeg,jpg,png|max:2000',
             ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
                 'ffotopktp.required'        => 'Surat Keterangan Lahir harus diisi.',
                 'ffotopktp.mimes'           => 'Format file harus: jpeg,jpg,png.',
                 'ffotopktp.max'             => 'File tidak boleh lebih dari 2 MB',
@@ -263,9 +275,12 @@ class SuratController extends Controller
         // Surat Keterangan Pembuatan KTP
         if ($check == 'skbuatktp') {
             $validated = $request->validate([
+                'fktp'          => 'mimes:jpeg,jpg,png|max:2000',
                 'ffotobktp'     => 'required|mimes:jpeg,jpg,png|max:2000',
                 'fpbbbktp'      => 'required|mimes:jpeg,jpg,png|max:2000',
             ],[
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
                 'ffotobktp.required'        => 'Surat Keterangan Lahir harus diisi.',
                 'ffotobktp.mimes'           => 'Format file harus: jpeg,jpg,png.',
                 'ffotobktp.max'             => 'File tidak boleh lebih dari 2 MB',
@@ -274,22 +289,39 @@ class SuratController extends Controller
                 'fpbbbktp.max'              => 'File tidak boleh lebih dari 2 MB',
             ]);
 
-            $pathktp    = $request->file('fktp')->store('skbuatktp/'.$request->nik.'/data diri');
-            $pathkk     = $request->file('fkk')->store('skbuatktp/'.$request->nik.'/data diri');
-
-            $pathpengantar  = $request->file('fpengantar')->store('skbuatktp/'.$request->nik.'/data pendukung');
-            $path1   = $request->file('ffotobktp')->store('skbuatktp/'.$request->nik.'/data pendukung');
-            $path2    = $request->file('fpbbbktp')->store('skbuatktp/'.$request->nik.'/data pendukung');
-
-            $data2 = [ 
-                'fpengantar'    => $pathpengantar,
-                'fktp'          => $pathktp,
-                'fkk'           => $pathkk,
-                'file1'         => $path1,
-                'file2'         => $path2,
-            ];
-
-            $data = $data1+$data2;
+            if ($request->file('fktp') == null) {
+                $pathkk     = $request->file('fkk')->store('skbuatktp/'.$request->nik.'/data diri');
+    
+                $pathpengantar  = $request->file('fpengantar')->store('skbuatktp/'.$request->nik.'/data pendukung');
+                $path1   = $request->file('ffotobktp')->store('skbuatktp/'.$request->nik.'/data pendukung');
+                $path2    = $request->file('fpbbbktp')->store('skbuatktp/'.$request->nik.'/data pendukung');
+    
+                $data2 = [ 
+                    'fpengantar'    => $pathpengantar,
+                    'fkk'           => $pathkk,
+                    'file1'         => $path1,
+                    'file2'         => $path2,
+                ];
+                
+                $data = $data1+$data2;
+            } else {
+                $pathktp    = $request->file('fktp')->store('skbuatktp/'.$request->nik.'/data diri');
+                $pathkk     = $request->file('fkk')->store('skbuatktp/'.$request->nik.'/data diri');
+    
+                $pathpengantar  = $request->file('fpengantar')->store('skbuatktp/'.$request->nik.'/data pendukung');
+                $path1   = $request->file('ffotobktp')->store('skbuatktp/'.$request->nik.'/data pendukung');
+                $path2    = $request->file('fpbbbktp')->store('skbuatktp/'.$request->nik.'/data pendukung');
+    
+                $data2 = [ 
+                    'fpengantar'    => $pathpengantar,
+                    'fktp'          => $pathktp,
+                    'fkk'           => $pathkk,
+                    'file1'         => $path1,
+                    'file2'         => $path2,
+                ];
+                
+                $data = $data1+$data2;
+            }
 
             if ($this->surat->checkJenis($check) > 0) {
                 return redirect('/surat')->with('error', 'Anda sudah pernah mengajukan surat ini.');
@@ -302,6 +334,14 @@ class SuratController extends Controller
 
         // Surat Keterangan PINDAH
         if ($check == 'skpindah') {
+            $validated = $request->validate([
+                'fktp'     => 'required|mimes:jpeg,jpg,png|max:2000',
+            ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
+            ]);
+
             $pathktp    = $request->file('fktp')->store('skpindah/'.$request->nik.'/data diri');
             $pathkk     = $request->file('fkk')->store('skpindah/'.$request->nik.'/data diri');
 
@@ -327,11 +367,11 @@ class SuratController extends Controller
         // Surat Keterangan DATANG
         if ($check == 'skdatang') {
             $validated = $request->validate([
-                'fskpindah'     => 'required|mimes:pdf|max:2000',
+                'fktp'     => 'required|mimes:jpeg,jpg,png|max:2000',
             ],[
-                'fskpindah.required'        => 'Surat Keterangan Lahir harus diisi.',
-                'fskpindah.mimes'           => 'Format file harus: pdf.',
-                'fskpindah.max'             => 'File tidak boleh lebih dari 2 MB',
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
             ]);
 
             $pathktp    = $request->file('fktp')->store('skdatang/'.$request->nik.'/data diri');
@@ -360,6 +400,14 @@ class SuratController extends Controller
 
         // Surat Keterangan Perubahan Data KK
         if ($check == 'skubahkk') {
+            $validated = $request->validate([
+                'fktp'     => 'required|mimes:jpeg,jpg,png|max:2000',
+            ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
+            ]);
+
             $pathktp    = $request->file('fktp')->store('skubahkk/'.$request->nik.'/data diri');
             $pathkk     = $request->file('fkk')->store('skubahkk/'.$request->nik.'/data diri');
 
@@ -384,6 +432,14 @@ class SuratController extends Controller
 
         // Surat Domisili Tempat Tinggal
         if ($check == 'sdtinggal') {
+            $validated = $request->validate([
+                'fktp'     => 'required|mimes:jpeg,jpg,png|max:2000',
+            ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
+            ]);
+
             $pathktp    = $request->file('fktp')->store('sdtinggal/'.$request->nik.'/data diri');
             $pathkk     = $request->file('fkk')->store('sdtinggal/'.$request->nik.'/data diri');
 
@@ -409,10 +465,14 @@ class SuratController extends Controller
         // Surat Keterangan Riwayat Tanah
         if ($check == 'skrt') {
             $validated = $request->validate([
+                'fktp'      => 'required|mimes:jpeg,jpg,png|max:2000',
                 'fajbtanah'     => 'required|mimes:pdf|max:2000',
                 'fsalinc'      => 'required|mimes:pdf|max:2000',
                 'fpbbtanah'      => 'required|mimes:jpeg,jpg,png|max:2000',
             ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
                 'fajbtanah.required'        => 'Surat Keterangan Lahir harus diisi.',
                 'fajbtanah.mimes'           => 'Format file harus: pdf.',
                 'fajbtanah.max'             => 'File tidak boleh lebih dari 2 MB',
@@ -455,12 +515,16 @@ class SuratController extends Controller
         // Surat Keterangan Domisili Usaha
         if ($check == 'skdu') {
             $validated = $request->validate([
+                'fktp'      => 'mimes:jpeg,jpg,png|max:2000',
                 'faktapendirian'     => 'mimes:pdf|max:2000',
                 'fbuktiusaha'      => 'mimes:jpeg,jpg,png|max:2000',
                 'fbuktisewa'      => 'mimes:jpeg,jpg,png|max:2000',
                 'fizinlingkungan'      => 'required|mimes:pdf|max:2000',
                 'fpbbdusaha'      => 'required|mimes:jpeg,jpg,png|max:2000',
             ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
                 'faktapendirian.required'        => 'Surat Keterangan Lahir harus diisi.',
                 'faktapendirian.mimes'           => 'Format file harus: pdf.',
                 'faktapendirian.max'             => 'File tidak boleh lebih dari 2 MB',
@@ -632,10 +696,14 @@ class SuratController extends Controller
         // Surat Pengantar IMB
         if ($check == 'spimb') {
             $validated = $request->validate([
+                'fktp'      => 'required|mimes:jpeg,jpg,png|max:2000',
                 'ftanahimb'     => 'required|mimes:pdf|max:2000',
                 'fspptpbbimb'      => 'required|mimes:jpeg,jpg,png|max:2000',
                 'fpbbimb'      => 'required|mimes:jpeg,jpg,png|max:2000',
             ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
                 'ftanahimb.required'        => 'Surat Keterangan Lahir harus diisi.',
                 'ftanahimb.mimes'           => 'Format file harus: pdf.',
                 'ftanahimb.max'             => 'File tidak boleh lebih dari 2 MB',
@@ -678,9 +746,14 @@ class SuratController extends Controller
         // Surat Pengantar Nikah
         if ($check == 'spnikah') {
             $validated = $request->validate([
+                'fktp'      => 'required|mimes:jpeg,jpg,png|max:2000',
+                'fpbbnikah'      => 'required|mimes:jpeg,jpg,png|max:2000',
                 'fspbelumnikah'     => 'required|mimes:pdf|max:2000',
                 'fpbbnikah'      => 'required|mimes:jpeg,jpg,png|max:2000',
             ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
                 'fspbelumnikah.required'        => 'Surat Keterangan Lahir harus diisi.',
                 'fspbelumnikah.mimes'           => 'Format file harus: pdf.',
                 'fspbelumnikah.max'             => 'File tidak boleh lebih dari 2 MB',
@@ -718,9 +791,13 @@ class SuratController extends Controller
         // Surat Pengantar Nikah di Catatan Sipil
         if ($check == 'spnikahcp') {
             $validated = $request->validate([
+                'fktp'      => 'required|mimes:jpeg,jpg,png|max:2000',
                 'fspcp'     => 'mimes:pdf|max:2000',
                 'fpbbcp'      => 'required|mimes:jpeg,jpg,png|max:2000',
             ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
                 'fspcp.mimes'           => 'Format file harus: pdf.',
                 'fspcp.max'             => 'File tidak boleh lebih dari 2 MB',
                 'fpbbcp.required'         => 'Surat Nikah harus diisi.',
@@ -771,9 +848,13 @@ class SuratController extends Controller
         // Surat Pengantar Nikah untuk Janda/Duda
         if ($check == 'spnikahdj') {
             $validated = $request->validate([
+                'fktp'      => 'required|mimes:jpeg,jpg,png|max:2000',
                 'fcerai'     => 'required|mimes:pdf|max:2000',
                 'fpbbcerai'      => 'required|mimes:jpeg,jpg,png|max:2000',
             ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
                 'fcerai.required'        => 'Surat Keterangan Lahir harus diisi.',
                 'fcerai.mimes'           => 'Format file harus: pdf.',
                 'fcerai.max'             => 'File tidak boleh lebih dari 2 MB',
@@ -810,6 +891,14 @@ class SuratController extends Controller
 
         // Surat Pengantar SKKM
         if ($check == 'spskkm') {
+            $validated = $request->validate([
+                'fktp'      => 'required|mimes:jpeg,jpg,png|max:2000',
+            ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
+            ]);
+
             $pathktp    = $request->file('fktp')->store('spskkm/'.$request->nik.'/data diri');
             $pathkk     = $request->file('fkk')->store('spskkm/'.$request->nik.'/data diri');
 
@@ -835,9 +924,13 @@ class SuratController extends Controller
         // Surat Pengantar SKCK
         if ($check == 'spskck') {
             $validated = $request->validate([
+                'fktp'     => 'required|mimes:jpeg,jpg,png|max:2000',
                 'ffotoskck'     => 'required|mimes:jpeg,jpg,png|max:2000',
                 'fpbbskck'      => 'required|mimes:jpeg,jpg,png|max:2000',
             ],[
+                'fktp.required'         => 'Foto KTP harus diisi.',
+                'fktp.mimes'            => 'Format file harus: jpeg, jpg, png.',
+                'fktp.max'              => 'File tidak boleh lebih dari 2 MB',
                 'ffotoskck.required'        => 'Surat Keterangan Lahir harus diisi.',
                 'ffotoskck.mimes'           => 'Format file harus: jpeg,jpg,png.',
                 'ffotoskck.max'             => 'File tidak boleh lebih dari 2 MB',

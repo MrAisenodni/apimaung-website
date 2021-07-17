@@ -30,7 +30,7 @@
                             <div class="col-lg-8 col-xs-12">
                                 <div class="form-group">
                                     <label for="nama">Nama Lengkap</label>
-                                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Judul Pengaduan" name="nama" value="{{ session()->get('spenduduk') }}">
+                                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Judul Pengaduan" name="nama" value="{{ session()->get('spenduduk') }}" readonly>
                                     @error('nama')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
