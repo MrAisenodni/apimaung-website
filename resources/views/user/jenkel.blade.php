@@ -1,16 +1,16 @@
 @extends('layouts.user')
 
-@section('title', 'Data Jenis Kelamin')
+@section('title', 'Data Penduduk')
 
 @section('content')
   <!--======= SUB BANNER =========-->
   <section class="sub-banner">
     <div class="container">
       <div class="position-center-center">
-        <h2>Data Jenis Kelamin</h2>
+        <h2>Data Penduduk</h2>
         <ul class="breadcrumb">
           <li><a href="{{ url('/') }}">home</a></li>
-          <li>data jenis kelamin</li>
+          <li>data penduduk</li>
         </ul>
       </div>
     </div>
@@ -37,7 +37,7 @@
                                     <thead class="center">
                                         <tr>
                                             <th>No</th>
-                                            <th>Jenis Kelamin</th>
+                                            <th>Penduduk</th>
                                             <th>Total</th>
                                             <th>Persentase</th>
                                         </tr>

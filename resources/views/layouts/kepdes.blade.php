@@ -67,6 +67,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                                 Kritik dan Saran
                             </a>
+                            <a class="nav-link" href="{{ url('/kepdes/laporan') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-report"></i></div>
+                                Laporan
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

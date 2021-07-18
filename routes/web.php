@@ -12,6 +12,7 @@ use App\Http\Controllers\AnggotaBPDController;
 use App\Http\Controllers\KritikSaranController;
 use App\Http\Controllers\SuratController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -186,4 +187,8 @@ Route::get('/daper', [PageController::class, 'perkawinan']);
     // Routes Kepala Desa mengelola Kritik dan Saran
     Route::get('/kepdes/kritiksaran', [KritikSaranController::class, 'index'])->middleware('authcheck');
     Route::get('/kepdes/kritiksaran/{id}', [KritikSaranController::class, 'show'])->middleware('authcheck');
+
+    // Routes Kepala Desa Cetak Laporan
+    Route::get('/kepdes/laporan', [LaporanController::class, 'index'])->middleware('authcheck');
+    Route::get('/kepdes/laporan/show', [LaporanController::class, 'show'])->middleware('authcheck');
 // });   
