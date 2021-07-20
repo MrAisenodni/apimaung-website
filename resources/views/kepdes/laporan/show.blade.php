@@ -198,8 +198,109 @@
     </table>
 @elseif ($jenis == 'kritiksaran')
     <h1 class="text-center">Laporan Kritik dan Saran</h1>
+    <table class="table">
+        <tr>
+            <td class="text-left">Dari Tanggal: {{ $dari_tanggal }}</td>
+            <td class="text-right">Sampai Tanggal: {{ $ke_tanggal }}</td>
+        </tr>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Nomor HP</th>
+                <th>Pesan</th>
+                <th>Tanggal</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            @foreach ($laporan as $data)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $data->nama }}</td>
+                    <td>{{ $data->no_hp }}</td>
+                    <td>{{ $data->pesan }}</td>
+                    <td>{{ date('d M Y h:m:s', strtotime($data->created_at)) }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 @else
     <h1 class="text-center">Laporan Penduduk</h1>
+    <table class="table">
+        <tr>
+            <td class="text-left">Dari Tanggal: {{ $dari_tanggal }}</td>
+            <td class="text-right">Sampai Tanggal: {{ $ke_tanggal }}</td>
+        </tr>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>NIK</th>
+                <th>Nama</th>
+                <th>Jenis Kelamin</th>
+                <th>Pendidikan</th>
+                <th>Pekerjaan</th>
+                <th>Tanggal</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            @foreach ($laporan as $data)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $data->nik }}</td>
+                    <td>{{ $data->nama }}</td>
+                    @if ($data->jenkel == 'l')
+                        <td>Laki-Laki</td>
+                    @else
+                        <td>Perempuan</td>
+                    @endif
+                    @if ($data->pendidikan == 'n')
+                        <td>Belum/Tidak Sekolah</td>
+                    @elseif ($data->pendidikan == 'sd')
+                        <td>SD Sederajat</td>
+                    @elseif ($data->pendidikan == 'smp')
+                        <td>SMP/SLTP Sederajat</td>
+                    @elseif ($data->pendidikan == 'sma')
+                        <td>SMA/SLTA Sederajat</td>
+                    @elseif ($data->pendidikan == 'd1')
+                        <td>Diploma I</td>
+                    @elseif ($data->pendidikan == 'd2')
+                        <td>Diploma II</td>
+                    @elseif ($data->pendidikan == 'd3')
+                        <td>Diploma III</td>
+                    @elseif ($data->pendidikan == 's1')
+                        <td>Diploma IV/Strata I</td>
+                    @elseif ($data->pendidikan == 's2')
+                        <td>Strata II</td>
+                    @elseif ($data->pendidikan == 's3')
+                        <td>Strata III</td>
+                    @endif
+                    @if ($data->pekerjaan == 'n')
+                        <td>Belum/Tidak Bekerja</td>
+                    @elseif ($data->pekerjaan == 'rumahtangga')
+                        <td>Mengurus Rumah Tangga</td>
+                    @elseif ($data->pekerjaan == 'siswa')
+                        <td>Pelajar Siswa/Mahasiswa</td>
+                    @elseif ($data->pekerjaan == 'pns')
+                        <td>Pegawai Negeri Sipil</td>
+                    @elseif ($data->pekerjaan == 'nelayan')
+                        <td>Nelayan</td>
+                    @elseif ($data->pekerjaan == 'petani')
+                        <td>Tambak</td>
+                    @elseif ($data->pekerjaan == 'tambak')
+                        <td>Tambak</td>
+                    @else
+                        <td>Lain-Lain</td>
+                    @endif
+                    <td>{{ $data->pekerjaan }}</td>
+                    <td>{{ date('d M Y h:m:s', strtotime($data->created_at)) }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 @endif
 </body>
 </html>
