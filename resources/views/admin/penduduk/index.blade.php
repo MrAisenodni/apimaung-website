@@ -49,8 +49,48 @@
                                                 @else
                                                     <td>Perempuan</td>
                                                 @endif
-                                                <td>{{ $data->pendidikan }}</td>
-                                                <td>{{ $data->pekerjaan }}</td>
+                                                <td>
+                                                    @if ($data->pendidikan == 'n')
+                                                        Belum/Tidak Sekolah
+                                                    @elseif ($data->pendidikan == 'sd')
+                                                        SD Sederajat
+                                                    @elseif ($data->pendidikan == 'smp')
+                                                        SMP/SLTP Sederajat
+                                                    @elseif ($data->pendidikan == 'sma')
+                                                        SMA/SLTA Sederajat
+                                                    @elseif ($data->pendidikan == 'd1')
+                                                        Diploma I
+                                                    @elseif ($data->pendidikan == 'd2')
+                                                        Diploma II
+                                                    @elseif ($data->pendidikan == 'd3')
+                                                        Diploma III
+                                                    @elseif ($data->pendidikan == 's1')
+                                                        Diploma IV/Strata I
+                                                    @elseif ($data->pendidikan == 's2')
+                                                        Strata II
+                                                    @elseif ($data->pendidikan == 's3')
+                                                        Strata III
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if ($data->pekerjaan == 'n')
+                                                        Belum/Tidak Bekerja
+                                                    @elseif ($data->pekerjaan == 'rumahtangga')
+                                                        Mengurus Rumah Tangga
+                                                    @elseif ($data->pekerjaan == 'siswa')
+                                                        Pelajar/Mahasiswa
+                                                    @elseif ($data->pekerjaan == 'pns')
+                                                        Pegawai Negeri Sipil
+                                                    @elseif ($data->pekerjaan == 'nelayan')
+                                                        Nelayan
+                                                    @elseif ($data->pekerjaan == 'petani')
+                                                        Petani
+                                                    @elseif ($data->pekerjaan == 'tambak')
+                                                        Tambak
+                                                    @elseif ($data->pekerjaan == 'lain')
+                                                        Lain-lain
+                                                    @endif
+                                                </td>
                                                 <td width="16%" class="text-center">
                                                     <a href="/penduduk/{{ $data->id_penduduk }}/edit" class="btn btn-warning">
                                                         <i class="fas fa-edit"></i>

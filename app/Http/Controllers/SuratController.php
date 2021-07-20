@@ -1078,14 +1078,36 @@ class SuratController extends Controller
         } 
         
         if(session()->get('sakses') == 'usr') {
-            $data = [
-                'status'        => $status,
-                'updated_at'    => $current_time,
-            ];
+            if($request->input('simpan')) {
+                $status = 'check';
 
-            $this->surat->ubahData($data, $id);
+                $validated = $request->validate([
+                    'pesan'            => 'required',
+                ],[
+                    'pesan.required'   => 'Alasan harus diisi'
+                ]);
+
+                $data = [
+                    'pesan'         => $request->pesan,
+                    'status'        => $status,
+                    'updated_at'    => $current_time,
+                ];
+    
+                $this->surat->ubahData($data, $id);
+                
+                return redirect('/surat')->with('status', 'Berkas berhasil dikembalikan.');
+            }
             
-            return back()->with('status', 'Berkas berhasil divalidasi.');
+            if ($request->input('validasi')) {
+                $data = [
+                    'status'        => $status,
+                    'updated_at'    => $current_time,
+                ];
+    
+                $this->surat->ubahData($data, $id);
+                
+                return redirect('/surat')->with('status', 'Berkas berhasil divalidasi.');
+            }
         }
 
     }

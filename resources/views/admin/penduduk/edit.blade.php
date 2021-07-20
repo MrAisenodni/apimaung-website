@@ -49,81 +49,153 @@
                                     </div>
                                     <div class="col-md-4 form-group">
                                         <label for="status" class="form-label">Status</label>
-                                        <select name="status" id="status" class="form-control">
-                                            @if ($penduduk->status == 'lajang')
-                                                <option type="text" class="form-control" id="status" value="lajang">Lajang</option>
-                                                <option type="text" class="form-control" id="status" value="nikah">Menikah</option>
-                                                <option type="text" class="form-control" id="status" value="duda">Cerai Hidup</option>
-                                                <option type="text" class="form-control" id="status" value="janda">Cerai Mati</option>
-                                            @elseif ($penduduk->status == 'nikah')
-                                                <option type="text" class="form-control" id="status" value="nikah">Menikah</option>
-                                                <option type="text" class="form-control" id="status" value="lajang">Lajang</option>
-                                                <option type="text" class="form-control" id="status" value="duda">Cerai Hidup</option>
-                                                <option type="text" class="form-control" id="status" value="janda">Cerai Mati</option>
-                                            @elseif($penduduk->status == 'duda')
-                                                <option type="text" class="form-control" id="status" value="duda">Cerai Hidup</option>
-                                                <option type="text" class="form-control" id="status" value="lajang">Lajang</option>
-                                                <option type="text" class="form-control" id="status" value="nikah">Menikah</option>
-                                                <option type="text" class="form-control" id="status" value="janda">Cerai Mati</option>
-                                            @else
-                                                <option type="text" class="form-control" id="status" value="janda">Cerai Mati</option>
-                                                <option type="text" class="form-control" id="status" value="lajang">Lajang</option>
-                                                <option type="text" class="form-control" id="status" value="nikah">Menikah</option>
-                                                <option type="text" class="form-control" id="status" value="duda">Cerai Hidup</option>
+                                        <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
+                                            @if (old('status') == 'lajang')
+                                                <option value="lajang">Lajang</option>
+                                            @elseif (old('status') == 'nikah')
+                                                <option value="nikah">Menikah</option>
+                                            @elseif (old('status') == 'duda')
+                                                <option value="duda">Cerai Hidup</option>
+                                            @elseif (old('status') == 'janda')
+                                                <option value="janda">Cerai Mati</option>
                                             @endif
+                                            <option value="{{ $penduduk->status }}" hidden>
+                                                @if ($penduduk->status == 'lajang')
+                                                    Lajang
+                                                @elseif ($penduduk->status == 'nikah')
+                                                    Menikah
+                                                @elseif ($penduduk->status == 'duda')
+                                                    Cerai Hidup
+                                                @elseif ($penduduk->status == 'janda')
+                                                    Cerai Mati
+                                                @endif
+                                            </option>
+                                            <option value="lajang">Lajang</option>
+                                            <option value="nikah">Menikah</option>
+                                            <option value="duda">Cerai Hidup</option>
+                                            <option value="janda">Cerai Mati</option>
                                         </select>
+                                        @error('status')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-4 form-group">
                                         <label for="jenkel" class="form-label">Jenis Kelamin</label>
-                                        <select name="jenkel" id="jenkel" class="form-control">
-                                            @if ($penduduk->jenkel == 'l')
-                                                <option type="text" class="form-control" id="jenkel" value="l">Laki-laki</option>
-                                                <option type="text" class="form-control" id="jenkel" value="p">Perempuan</option>
-                                            @else
-                                                <option type="text" class="form-control" id="jenkel" value="p">Perempuan</option>
-                                                <option type="text" class="form-control" id="jenkel" value="l">Laki-laki</option>
+                                        <select name="jenkel" id="jenkel" class="form-control @error('jenkel') is-invalid @enderror">
+                                            @if (old('jenkel') == 'l')
+                                                <option value="l">Laki-Laki</option>
+                                            @elseif (old('jenkel') == 'p')
+                                                <option value="p">Perempuan</option>
                                             @endif
+                                            <option value="{{ $penduduk->jenkel }}" hidden>
+                                                @if ($penduduk->jenkel == 'l')
+                                                    Laki-Laki
+                                                @elseif ($penduduk->jenkel == 'p')
+                                                    Perempuan
+                                                @endif
+                                            </option>
+                                            <option value="l">Laki-Laki</option>
+                                            <option value="kristen">Kristen</option>
                                         </select>
+                                        @error('jenkel')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-4 form-group">
                                         <label for="agama" class="form-label">Agama</label>
-                                        <select name="agama" id="agama" class="form-control">
-                                            @if ($penduduk->agama == 'islam')
+                                        <select name="agama" id="agama" class="form-control @error('agama') is-invalid @enderror">
+                                            @if (old('agama') == 'islam')
                                                 <option value="islam">Islam</option>
-                                                <option value="kristen">Kristen</option>
+                                            @elseif (old('agama') == 'konghucu')
                                                 <option value="konghucu">Konghucu</option>
-                                                <option value="hindu">Hindu</option>
+                                            @elseif (old('agama') == 'buddha')
                                                 <option value="buddha">Buddha</option>
-                                            @elseif ($penduduk->agama == 'kristen')
+                                            @elseif (old('agama') == 'hindu')
+                                                <option value="hindu">Hindu</option>
+                                            @elseif (old('agama') == 'kristen')
                                                 <option value="kristen">Kristen</option>
-                                                <option value="islam">Islam</option>
-                                                <option value="konghucu">Konghucu</option>
-                                                <option value="hindu">Hindu</option>
-                                                <option value="buddha">Buddha</option>
-                                            @elseif ($penduduk->agama == 'hindu')
-                                                <option value="hindu">Hindu</option>
-                                                <option value="islam">Islam</option>
-                                                <option value="kristen">Kristen</option>
-                                                <option value="konghucu">Konghucu</option>
-                                                <option value="buddha">Buddha</option>
-                                            @elseif ($penduduk->agama == 'konghucu')
-                                                <option value="konghucu">Konghucu</option>
-                                                <option value="islam">Islam</option>
-                                                <option value="kristen">Kristen</option>
-                                                <option value="hindu">Hindu</option>
-                                                <option value="buddha">Buddha</option>
-                                            @else
-                                                <option value="buddha">Buddha</option>
-                                                <option value="islam">Islam</option>
-                                                <option value="kristen">Kristen</option>
-                                                <option value="konghucu">Konghucu</option>
-                                                <option value="hindu">Hindu</option>
                                             @endif
+                                            <option value="{{ $penduduk->agama }}" hidden>
+                                                @if ($penduduk->agama == 'islam')
+                                                    Islam
+                                                @elseif ($penduduk->agama == 'konghucu')
+                                                    Konghucu
+                                                @elseif ($penduduk->agama == 'buddha')
+                                                    Buddha
+                                                @elseif ($penduduk->agama == 'hindu')
+                                                    Hindu
+                                                @elseif ($penduduk->agama == 'kristen')
+                                                    Kristen
+                                                @endif
+                                            </option>
+                                            <option value="islam">Islam</option>
+                                            <option value="kristen">Kristen</option>
+                                            <option value="hindu">Hindu</option>
+                                            <option value="buddha">Buddha</option>
+                                            <option value="konghucu">Konghucu</option>
                                         </select>
+                                        @error('agama')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-4 form-group">
                                         <label for="pendidikan" class="form-label">Pendidikan</label>
-                                        <input type="text" class="form-control @error('pendidikan') is-invalid @enderror" id="pendidikan" name="pendidikan" placeholder="Masukkan Pendidikan" value="{{ $penduduk->pendidikan }}">
+                                        <select name="pendidikan" id="pendidikan" class="form-control @error('pendidikan') is-invalid @enderror">
+                                            @if (old('pendidikan') == 'n')
+                                                <option value="n">Belum/Tidak Sekolah</option>
+                                            @elseif (old('pendidikan') == 'sd')
+                                                <option value="sd">SD Sederajat</option>
+                                            @elseif (old('pendidikan') == 'smp')
+                                                <option value="smp">SMP/SLTP Sederajat</option>
+                                            @elseif (old('pendidikan') == 'sma')
+                                                <option value="sma">SMA/SLTA Sederajat</option>
+                                            @elseif (old('pendidikan') == 'd1')
+                                                <option value="d1">Diploma I</option>
+                                            @elseif (old('pendidikan') == 'd2')
+                                                <option value="d2">Diploma II</option>
+                                            @elseif (old('pendidikan') == 'd3')
+                                                <option value="d3">Diploma III</option>
+                                            @elseif (old('pendidikan') == 's1')
+                                                <option value="s1">Diploma IV/Strata I</option>
+                                            @elseif (old('pendidikan') == 's2')
+                                                <option value="s2">Strata II</option>
+                                            @elseif (old('pendidikan') == 's3')
+                                                <option value="s3">Strata III</option>
+                                            @endif
+                                            <option value="{{ $penduduk->pendidikan }}" hidden>
+                                                @if ($penduduk->pendidikan == 'n')
+                                                    Belum/Tidak Sekolah
+                                                @elseif ($penduduk->pendidikan == 'sd')
+                                                    SD Sederajat
+                                                @elseif ($penduduk->pendidikan == 'smp')
+                                                    SMP/SLTP Sederajat
+                                                @elseif ($penduduk->pendidikan == 'sma')
+                                                    SMA/SLTA Sederajat
+                                                @elseif ($penduduk->pendidikan == 'd1')
+                                                    Diploma I
+                                                @elseif ($penduduk->pendidikan == 'd2')
+                                                    Diploma II
+                                                @elseif ($penduduk->pendidikan == 'd3')
+                                                    Diploma III
+                                                @elseif ($penduduk->pendidikan == 's1')
+                                                    Diploma IV/Strata I
+                                                @elseif ($penduduk->pendidikan == 's2')
+                                                    Strata II
+                                                @elseif ($penduduk->pendidikan == 's3')
+                                                    Strata III
+                                                @endif
+                                            </option>
+                                            <option value="n">Belum/Tidak Sekolah</option>
+                                            <option value="sd">SD Sederajat</option>
+                                            <option value="smp">SMP/SLTP Sederajat</option>
+                                            <option value="sma">SMA/SLTA Sederajat</option>
+                                            <option value="d1">Diploma I</option>
+                                            <option value="d2">Diploma II</option>
+                                            <option value="d3">Diploma III</option>
+                                            <option value="s1">Diploma IV/Strata I</option>
+                                            <option value="s2">Strata II</option>
+                                            <option value="s3">Strata III</option>
+                                        </select>
                                         @error('pendidikan')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -151,7 +223,52 @@
                                     </div>
                                     <div class="col-md-10 form-group">
                                         <label for="pekerjaan" class="form-label">Pekerjaan</label>
-                                        <input type="text" class="form-control @error('pekerjaan') is-invalid @enderror" id="pekerjaan" name="pekerjaan" placeholder="Masukkan Pekerjaan" value="{{ $penduduk->pekerjaan }}">
+                                        <select name="pekerjaan" id="pekerjaan" class="form-control @error('pekerjaan') is-invalid @enderror">
+                                        @if (old('pekerjaan') == 'n')
+                                                <option value="n">Belum/Tidak Bekerja</option>
+                                            @elseif (old('pekerjaan') == 'rumahtangga')
+                                                <option value="rumahtangga">Mengurus Rumah Tangga</option>
+                                            @elseif (old('pekerjaan') == 'siswa')
+                                                <option value="siswa">Pelajar/Mahasiswa</option>
+                                            @elseif (old('pekerjaan') == 'pns')
+                                                <option value="pns">Pegawai Negeri Sipil</option>
+                                            @elseif (old('pekerjaan') == 'nelayan')
+                                                <option value="nelayan">Nelayan</option>
+                                            @elseif (old('pekerjaan') == 'petani')
+                                                <option value="petani">Petani</option>
+                                            @elseif (old('pekerjaan') == 'tambak')
+                                                <option value="tambak">Tambak</option>
+                                            @elseif (old('pekerjaan') == 'lain')
+                                                <option value="lain">Lain-lain</option>
+                                            @endif
+                                            <option value="{{ $penduduk->pekerjaan }}" hidden>
+                                                @if ($penduduk->pekerjaan == 'n')
+                                                    Belum/Tidak Bekerja
+                                                @elseif ($penduduk->pekerjaan == 'rumahtangga')
+                                                    Mengurus Rumah Tangga
+                                                @elseif ($penduduk->pekerjaan == 'siswa')
+                                                    Pelajar/Mahasiswa
+                                                @elseif ($penduduk->pekerjaan == 'pns')
+                                                    Pegawai Negeri Sipil
+                                                @elseif ($penduduk->pekerjaan == 'nelayan')
+                                                    Nelayan
+                                                @elseif ($penduduk->pekerjaan == 'petani')
+                                                    Petani
+                                                @elseif ($penduduk->pekerjaan == 'tambak')
+                                                    Tambak
+                                                @elseif ($penduduk->pekerjaan == 'lain')
+                                                    Lain-lain
+                                                @endif
+                                            </option>
+                                            <option value="n">Belum/Tidak Bekerja</option>
+                                            <option value="rumahtangga">Mengurus Rumah Tangga</option>
+                                            <option value="siswa">Pelajar/Mahasiswa</option>
+                                            <option value="pns">Pegawai Negeri Sipil</option>
+                                            <option value="nelayan">Nelayan</option>
+                                            <option value="petani">Petani</option>
+                                            <option value="tambak">Tambak</option>
+                                            <option value="lain">Lain-lain</option>
+                                        </select>
                                         @error('pekerjaan')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror

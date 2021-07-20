@@ -67,10 +67,20 @@
                                 <input type="text" class="form-control" id="jenis" value="Surat Pengantar SKCK" disabled>
                             @endif
                         </div>
-                        <div class="col-md-12 form-group">
-                            <label for="pesan" class="form-label">Pesan</label>
-                            <textarea name="pesan" class="form-control" id="pesan" cols="30" rows="5" disabled>{{ $surat->pesan }}</textarea>
-                        </div>
+                        @if ($surat->status == 'validate')
+                            <div class="col-md-12 form-group">
+                                <label for="pesan" class="form-label">Pesan</label>
+                                <textarea name="pesan" class="form-control @error('pesan') is-invalid @enderror" id="pesan" cols="30" rows="5"></textarea>
+                                @error('pesan')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        @else
+                            <div class="col-md-12 form-group">
+                                <label for="pesan" class="form-label">Pesan</label>
+                                <textarea name="pesan" class="form-control" id="pesan" cols="30" rows="5" disabled>{{ $surat->pesan }}</textarea>
+                            </div>
+                        @endif
                         @if ($surat->status == 'pending')
                             <div class="col-md-12 form-group">
                                 <div class="form-control text-white btn btn-warning">MENUNGGU</div>
@@ -484,7 +494,8 @@
                         <div class="col-lg-12 col-xs-10">
                             <button type="button" class="btn btn-info"><a href="/surat" class="text-white"><span class="fa fa-times-circle"></span> KEMBALI</a></button>
                             @if ($surat->status == 'validate')
-                                <button type="submit" class="btn btn-success"><span class="fa fa-location-arrow"></span> SIMPAN</button>
+                                <button type="submit" name="simpan" class="btn btn-warning" value="-"><span class="fa fa-location-arrow"></span> KIRIM</button>
+                                <button type="submit" name="validasi" class="btn btn-success" value="-"><span class="fa fa-check-circle"></span> VALIDASI</button>
                             @endif
                         </div>
                     </div>

@@ -40,7 +40,7 @@
                                         @elseif ($penduduk->status == 'duda')
                                             <input type="text" class="form-control" id="status" value="Cerai Hidup" disabled>
                                         @else
-                                            <input type="text" class="form-control" id="status" value="Cerai Mati" disabled>
+                                            <input type="text" class="form-control" id="status" value="Cerai Matiss" disabled>
                                         @endif
                                     </div>
                                     <div class="col-md-4 form-group">
@@ -53,21 +53,46 @@
                                     </div>
                                     <div class="col-md-4 form-group">
                                         <label for="agama" class="form-label">Agama</label>
+                                        <input type="text" class="form-control" id="agama" 
                                         @if ($penduduk->agama == 'islam')
-                                            <input type="text" class="form-control" id="agama" value="Islam" disabled>
-                                        @elseif ($penduduk->agama == 'kristen')
-                                            <input type="text" class="form-control" id="agama" value="Kristen" disabled>
-                                        @elseif ($penduduk->agama == 'hindu')
-                                            <input type="text" class="form-control" id="agama" value="Hindu" disabled>
+                                            value="Islam"
                                         @elseif ($penduduk->agama == 'konghucu')
-                                            <input type="text" class="form-control" id="agama" value="Konghucu" disabled>
-                                        @else
-                                            <input type="text" class="form-control" id="agama" value="Buddha" disabled>
-                                        @endif
+                                            value="Kongucu"
+                                        @elseif ($penduduk->agama == 'buddha')
+                                            value="Buddha"
+                                        @elseif ($penduduk->agama == 'hindu')
+                                            value="Hindu"
+                                        @elseif ($penduduk->agama == 'kristen')
+                                            value="Kristen"
+                                        @endif disabled>
                                     </div>
                                     <div class="col-md-4 form-group">
                                         <label for="pendidikan" class="form-label">Pendidikan</label>
-                                        <input type="text" class="form-control" id="pendidikan" value="{{ $penduduk->pendidikan }}" disabled>
+                                        <select name="pendidikan" id="pendidikan" class="form-control @error('pendidikan') is-invalid @enderror" disabled>
+                                            <option value="{{ $penduduk->pendidikan }}" hidden>
+                                                @if ($penduduk->pendidikan == 'n')
+                                                    Belum/Tidak Sekolah
+                                                @elseif ($penduduk->pendidikan == 'sd')
+                                                    SD Sederajat
+                                                @elseif ($penduduk->pendidikan == 'smp')
+                                                    SMP/SLTP Sederajat
+                                                @elseif ($penduduk->pendidikan == 'sma')
+                                                    SMA/SLTA Sederajat
+                                                @elseif ($penduduk->pendidikan == 'd1')
+                                                    Diploma I
+                                                @elseif ($penduduk->pendidikan == 'd2')
+                                                    Diploma II
+                                                @elseif ($penduduk->pendidikan == 'd3')
+                                                    Diploma III
+                                                @elseif ($penduduk->pendidikan == 's1')
+                                                    Diploma IV/Strata I
+                                                @elseif ($penduduk->pendidikan == 's2')
+                                                    Strata II
+                                                @elseif ($penduduk->pendidikan == 's3')
+                                                    Strata III
+                                                @endif
+                                            </option>
+                                        </select>
                                     </div>
                                     <div class="col-md-12 form-group">
                                         <label for="alamat" class="form-label">Alamat</label>
@@ -83,7 +108,27 @@
                                     </div>
                                     <div class="col-md-10 form-group">
                                         <label for="pekerjaan" class="form-label">Pekerjaan</label>
-                                        <input type="text" class="form-control" id="pekerjaan" value="{{ $penduduk->pekerjaan }}" disabled>
+                                        <select name="pekerjaan" id="pekerjaan" class="form-control @error('pekerjaan') is-invalid @enderror" disabled>
+                                            <option value="{{ $penduduk->pekerjaan }}" hidden>
+                                                @if ($penduduk->pekerjaan == 'n')
+                                                    Belum/Tidak Bekerja
+                                                @elseif ($penduduk->pekerjaan == 'rumahtangga')
+                                                    Mengurus Rumah Tangga
+                                                @elseif ($penduduk->pekerjaan == 'siswa')
+                                                    Pelajar/Mahasiswa
+                                                @elseif ($penduduk->pekerjaan == 'pns')
+                                                    Pegawai Negeri Sipil
+                                                @elseif ($penduduk->pekerjaan == 'nelayan')
+                                                    Nelayan
+                                                @elseif ($penduduk->pekerjaan == 'petani')
+                                                    Petani
+                                                @elseif ($penduduk->pekerjaan == 'tambak')
+                                                    Tambak
+                                                @elseif ($penduduk->pekerjaan == 'lain')
+                                                    Lain-lain
+                                                @endif
+                                            </option>
+                                        </select>
                                     </div>
                                     <div class="col-12 mt-3">
                                         <button type="button" class="btn btn-info"><a href="/penduduk" class="text-white"><span class="fas fa-times-circle"></span> KEMBALI</a></button>
