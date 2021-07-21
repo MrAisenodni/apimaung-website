@@ -47,7 +47,7 @@ Route::get('/bpd', [PageController::class, 'bpd']);
 Route::get('/lpm', [PageController::class, 'lpm']);
 Route::get('/karangtaruna', [PageController::class, 'karangtaruna']);
 Route::get('/pkk', [PageController::class, 'pkk']);
-Route::get('/bumdesa', [PageController::class, 'bumdesa']);
+Route::get('/bumdes', [PageController::class, 'bumdes']);
 
 
 // Routes Data Desa

@@ -43,6 +43,11 @@ class PageController extends Controller
     public function peta() {
         return view('user.peta');
     }
+
+    // Halaman Potensi Desa
+    public function potensi() {
+        return view('user.potensi');
+    }
     
     /*  
     =======================================
@@ -92,6 +97,11 @@ class PageController extends Controller
     // Halaman Peta Desa
     public function pkk() {
         return view('user.pkk');
+    }
+
+    // Halaman Bumi Desa
+    public function bumdes() {
+        return view('user.bumdes');
     }
 
     /*  

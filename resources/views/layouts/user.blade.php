@@ -116,7 +116,7 @@
                 <li><a href="{{ url('lpm') }}">LPM</a></li>
                 <li><a href="{{ url('karangtaruna') }}">Karang Taruna</a></li>
                 <li><a href="{{ url('pkk') }}">PKK</a></li>
-                <li><a href="{{ url('bumdesa') }}">Bum Desa</a></li>
+                <li><a href="{{ url('bumdes') }}">Bum Desa</a></li>
               </ul>
             </li>
             <li><a href="#">DATA DESA</a>
