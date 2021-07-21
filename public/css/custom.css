@@ -39,10 +39,11 @@ header .logo {
 	background:blue;
 	color:#fff;
 }
-.btn-primary{
+*/
+.sidebar-nav .btn-primary{
 	background:blue;
 	border-bottom:3px solid rgba(0,0,0,0.4);
 }
-.btn-primary:hover{
+.sidebar-nav .btn-primary:hover{
 	background:#222935;
-} */
+}
