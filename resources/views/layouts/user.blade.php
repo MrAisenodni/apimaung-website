@@ -159,7 +159,10 @@
                       @error('password')
                         <div class="text-danger">{{ $message }}</div>
                       @enderror
-                      <button type="submit" class="btn btn-orange text-white margin-top-20">MASUK</button>
+                      <div class="margin-top-20">
+                        <button type="submit" class="btn btn-orange text-white margin-left-10">MASUK</button>
+                        <button type="button" class="btn bg-primary"><a href="/login" class="text-white">LOGIN</a></button>
+                      </div>
                     </form>
                   </li>
                 </ul>
@@ -212,7 +215,7 @@
               </div>
             @endif
             <div class="quote">
-              <form method="POST" action="/kritiksaran">
+              <form method="POST" action="/kritiksaran" id="kritiksaran">
                 @csrf
                 @error('nama')
                     <div class="text-danger">{{ $message }}</div>

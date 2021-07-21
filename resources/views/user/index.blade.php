@@ -18,17 +18,17 @@
         <ul class="row text-center">
           
           <!-- Layanan Mandiri -->
-          <li class="col-md-3"> <img src="{{ url('images/services/mandiri.png') }}" alt="Layanan Mandiri" width="100px" height="100px">
+          {{-- <li class="col-md-3"> <img src="{{ url('images/services/mandiri.png') }}" alt="Layanan Mandiri" width="100px" height="100px">
             <h6>Layanan Mandiri</h6>
             <p>Diberikan kepada masyarakat
               di Desa Tengkurak untuk memberikan
               pengaduan terhadap layanan yang
               diberikan oleh Pemerintah.
             </p>
-          </li>
+          </li> --}}
           
           <!-- Pengaduan Online -->
-          <li class="col-md-3"> <img src="{{ url('images/services/complaint.png') }}" alt="Pengaduan Online" width="100px" height="100px">
+          <li class="col-md-4"><a href="/pengaduan"> <img src="{{ url('images/services/complaint.png') }}" alt="Pengaduan Online" width="100px" height="100px"></a>
             <h6>Pengaduan Online</h6>
             <p>Memudahkan masyarakat mengirimkan 
               berbagai keluhan terkait pelayanan 
@@ -36,7 +36,7 @@
           </li>
           
           <!-- Surat Online -->
-          <li class="col-md-3"> <img src="{{ url('images/services/mail.png') }}" alt="Surat Online" width="100px" height="100px">
+          <li class="col-md-4"><a href="/surat"> <img src="{{ url('images/services/mail.png') }}" alt="Surat Online" width="100px" height="100px"></a>
             <h6>Surat Online</h6>
             <p>Layanan pembuatan surat untuk
               kebutuhan administrasi masyarakat 
@@ -44,7 +44,7 @@
           </li>
           
           <!-- Kritik dan Saran -->
-          <li class="col-md-3"> <img src="{{ url('images/services/chat.png') }}" alt="Kritik dan Saran" width="100px" height="100px">
+          <li class="col-md-4"><a href="#kritiksaran"> <img src="{{ url('images/services/chat.png') }}" alt="Kritik dan Saran" width="100px" height="100px"></a>
             <h6>Kritik dan Saran</h6>
             <p>Memberikan wadah kepada masyarakat
               untuk menyampaikan aspirasi demi

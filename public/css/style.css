@@ -499,6 +499,9 @@ header nav .ownmenu .indicator {
 header .search-nav {
 	float: right !important;
 }
+header .search-nav .btn {
+	float: right !important;
+}
 header .search-nav a{
 	padding:0px;
 }
