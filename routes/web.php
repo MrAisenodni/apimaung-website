@@ -36,6 +36,7 @@ Route::get('/', [PageController::class, 'home']);
 Route::get('/sejarah', [PageController::class, 'sejarah']);
 Route::get('/wilayah', [PageController::class, 'wilayah']);
 Route::get('/peta', [PageController::class, 'peta']);
+Route::get('/potensi', [PageController::class, 'potensi']);
 
 // Routes Pemerintah Desa
 Route::get('/pemda', [PageController::class, 'pemda']);
@@ -46,6 +47,8 @@ Route::get('/bpd', [PageController::class, 'bpd']);
 Route::get('/lpm', [PageController::class, 'lpm']);
 Route::get('/karangtaruna', [PageController::class, 'karangtaruna']);
 Route::get('/pkk', [PageController::class, 'pkk']);
+Route::get('/bumdesa', [PageController::class, 'bumdesa']);
+
 
 // Routes Data Desa
 Route::get('/dapen', [PageController::class, 'pendidikan']);

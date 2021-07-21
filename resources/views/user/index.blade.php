@@ -12,7 +12,7 @@
         
         <!-- Tittle -->
         <div class="heading-block text-center margin-bottom-80">
-          <h2>Selamat Datang di E-Government Tengkurak</h2>
+          <h2>Selamat Datang di Informasi Desa Tengkurak</h2>
           <span>E-Government Tengkurak merupakan sebuah wadah yang memberikan pelayanan terpadu kepada masyarakat di Desa Tengkurak Kabupaten Serang, Banten</span> 
         </div>
         <ul class="row text-center">

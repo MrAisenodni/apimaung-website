@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Pemerintah Desa')
+@section('title', 'Bum Desa')
 
 @section('content')
   <!--======= SUB BANNER =========-->
@@ -20,26 +20,30 @@
           <div class="col-md-9"> 
             <div class="container">
               <div class="position-left-left">
-                <h2>Pemerintah Desa Tengkurak</h2>
+                <h2>Bum Desa</h2>
                 <ul class="breadcrumb">
                   <li><a href="{{ url('/') }}">home</a></li>
-                  <li>pemerintah desa</li>
+                  <li>bum desa</li>
                 </ul>
               </div>
             </div>
-            
+
             <!-- News 1 -->
-            <div class="artikel-konten clearfix"><p style="text-align: center;"><strong>SUSUNAN ORGANISASI DAN TATA KERJA PEMERINTAH DESA</strong></p>
-              <p style="text-align: center;"><strong>DESA TENGKURAK KECAMATAN TIRTAYASA KABUPATEN SERANG </strong></p>
-              <p>&nbsp;&nbsp;</p>
-              
-            </div>
+            <article class="margin-bottom-50"> <a href="#.">  </a>
+                <div class="news-detail">
+                    <div class="row">
+                        <div class="col-md-11"> <a href="#.">Bum-Desa</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </article> 
           </div>
           
           <!-- Side Bar -->
           <div class="col-md-3">
             <div class="side-bar"> 
-              
+                       
               <!-- Categories -->
               <h5 class="font-alegreya ">Arsip</h5>
               <ul class="cate bg-defult">

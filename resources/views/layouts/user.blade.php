@@ -101,6 +101,7 @@
                 <li><a href="{{ url('sejarah') }}">Sejarah Desa</a></li>
                 <li><a href="{{ url('wilayah') }}">Profil Wilayah Desa</a></li>
                 <li><a href="{{ url('peta') }}">Peta Desa</a></li>
+                <li><a href="{{ url('potensi') }}"> Potensi Desa</a></li>
               </ul>
             </li>
             <li><a href="{{ url('pemda') }}">PEMERINTAH DESA</a>
@@ -115,6 +116,7 @@
                 <li><a href="{{ url('lpm') }}">LPM</a></li>
                 <li><a href="{{ url('karangtaruna') }}">Karang Taruna</a></li>
                 <li><a href="{{ url('pkk') }}">PKK</a></li>
+                <li><a href="{{ url('bumdesa') }}">Bum Desa</a></li>
               </ul>
             </li>
             <li><a href="#">DATA DESA</a>
