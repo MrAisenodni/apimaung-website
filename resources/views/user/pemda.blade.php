@@ -32,7 +32,7 @@
             <div class="artikel-konten clearfix"><p style="text-align: center;"><strong>SUSUNAN ORGANISASI DAN TATA KERJA PEMERINTAH DESA</strong></p>
               <p style="text-align: center;"><strong>DESA TENGKURAK KECAMATAN TIRTAYASA KABUPATEN SERANG </strong></p>
               <p>&nbsp;&nbsp;</p>
-              
+              <img src="{{ url('images/struktur.jpeg') }}" alt="Struktur Organisasi">
             </div>
           </div>
           
