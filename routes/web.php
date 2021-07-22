@@ -49,6 +49,8 @@ Route::get('/karangtaruna', [PageController::class, 'karangtaruna']);
 Route::get('/pkk', [PageController::class, 'pkk']);
 Route::get('/bumdes', [PageController::class, 'bumdes']);
 
+// Routes Transparansi Keuangan
+Route::get('/transparan', [PageController::class, 'transparan']);
 
 // Routes Data Desa
 Route::get('/dapen', [PageController::class, 'pendidikan']);

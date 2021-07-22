@@ -119,6 +119,7 @@
                 <li><a href="{{ url('bumdes') }}">Bum Desa</a></li>
               </ul>
             </li>
+            <li><a href="/transparan">TRANSPARANSI KEUANGAN</a></li>
             <li><a href="#">DATA DESA</a>
               <ul class="dropdown">
                 <li><a href="{{ url('dajen') }}">Data Penduduk</a></li>

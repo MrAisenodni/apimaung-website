@@ -104,6 +104,11 @@ class PageController extends Controller
         return view('user.bumdes');
     }
 
+    // Halaman Tranparansi Keuangan
+    public function transparan() {
+        return view('user.transparan');
+    }
+
     /*  
         =====================================
         =            DATA DESA              =
