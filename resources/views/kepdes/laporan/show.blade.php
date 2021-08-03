@@ -73,6 +73,9 @@
         .table-bordered td {
             border: 1px solid #000 !important;
         }
+        footer { position: fixed; bottom: -60px; left: 0px; right: 0px; height: 50px; }
+        main { page-break-after: always; }
+        main:last-child { page-break-after: never; }
     </style>
     @if ($jenis == 'pengaduan')
         <title>Laporan Pengaduan</title>
@@ -86,6 +89,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body>
+    
+<footer>Halaman {{ $loop->first }}</footer>
 @if ($jenis == 'pengaduan')
     <h1 class="text-center">Laporan Pengaduan</h1>
     <table class="table">
@@ -227,6 +232,7 @@
         </tbody>
     </table>
 @else
+<main>
     <h1 class="text-center">Laporan Penduduk</h1>
     <table class="table">
         <tr>
@@ -301,9 +307,8 @@
             @endforeach
         </tbody>
     </table>
+</main>
 @endif
 </body>
 </html>
-{{-- <div class="page-break"></div>
-<h1>Page 2</h1> --}}
     

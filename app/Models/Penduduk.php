@@ -10,6 +10,8 @@ class Penduduk extends Model
 {
     use HasFactory;
 
+    protected $table = 'penduduk';
+
     public function getAllData() {
         return DB::table('penduduk')
                     ->get(); // get() => SELECT * FROM penduduk
