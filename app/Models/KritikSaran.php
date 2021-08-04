@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class KritikSaran extends Model
 {
+    use HasFactory;
+
+    protected $table = 'kritiksaran';
+
     public function getAllData() {
         return DB::table('kritiksaran')->get();
     }

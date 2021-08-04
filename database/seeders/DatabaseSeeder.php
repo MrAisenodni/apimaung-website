@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PenggunaSeeder::class,
             PendudukSeeder::class,
             AnggotaBPDSeeder::class,
+            KritikSaranSeeder::class,
         ]);
     }
 }
