@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pengaduan extends Model
 {
+    use HasFactory;
+
+    protected $table = 'pengaduan';
+
     public function getAllData() {
         return DB::table('pengaduan')
                     ->leftJoin('penduduk', 'penduduk.id_penduduk', '=', 'pengaduan.id_penduduk')
