@@ -26,27 +26,47 @@ class PageController extends Controller
 
     // Halaman Profil Desa
     public function home() {
-        return view('user.index');
+        $data = [
+            'active'        => 'home',
+        ];
+
+        return view('user.index', $data);
     }
 
     // Halaman Sejarah Desa
     public function sejarah() {
-        return view('user.sejarah');
+        $data = [
+            'active'        => 'profile sejarah',
+        ];
+        
+        return view('user.sejarah', $data);
     }
     
     // Halaman Profil Wilayah Desa
     public function wilayah() {
-        return view('user.wilayah');
+        $data = [
+            'active'        => 'profile wilayah',
+        ];
+        
+        return view('user.wilayah', $data);
     }
 
     // Halaman Peta Desa
     public function peta() {
-        return view('user.peta');
+        $data = [
+            'active'        => 'profile peta',
+        ];
+        
+        return view('user.peta', $data);
     }
 
     // Halaman Potensi Desa
     public function potensi() {
-        return view('user.potensi');
+        $data = [
+            'active'        => 'profile potensi',
+        ];
+        
+        return view('user.potensi', $data);
     }
     
     /*  
@@ -57,17 +77,26 @@ class PageController extends Controller
     
     // Halaman Pemerintah Desa
     public function pemda() {
-        return view('user.pemda');
+        $data = [
+            'active'        => 'pemda',
+        ];
+        
+        return view('user.pemda', $data);
     }
     
     // Halaman Visi dan Misi
     public function visimisi() {
-        return view('user.visimisi');
+        $data = [
+            'active'        => 'pemda visimisi',
+        ];
+        
+        return view('user.visimisi', $data);
     }
     
     // Halaman Profil Wilayah Desa
     public function bpd() {
         $data = [
+            'active'        => 'pemda angbpd',
             'angbpd'        => $this->angbpd->getAllData(),
         ];
         return view('user.bpd', $data);
@@ -81,32 +110,56 @@ class PageController extends Controller
 
     // Halaman Profil Desa
     public function lem() {
-        return view('user.lem');
+        $data = [
+            'active'        => 'lem',
+        ];
+        
+        return view('user.lem', $data);
     }
 
     // Halaman Sejarah Desa
     public function lpm() {
-        return view('user.lpm');
+        $data = [
+            'active'        => 'lem lpm',
+        ];
+        
+        return view('user.lpm', $data);
     }
     
-    // Halaman Profil Wilayah Desa
+    // Halaman Kareang Taruna
     public function karangtaruna() {
-        return view('user.karangtaruna');
+        $data = [
+            'active'        => 'lem karangtaruna',
+        ];
+        
+        return view('user.karangtaruna', $data);
     }
 
-    // Halaman Peta Desa
+    // Halaman PKK
     public function pkk() {
-        return view('user.pkk');
+        $data = [
+            'active'        => 'lem',
+        ];
+        
+        return view('user.pkk', $data);
     }
 
     // Halaman Bumi Desa
     public function bumdes() {
-        return view('user.bumdes');
+        $data = [
+            'active'        => 'bumdes',
+        ];
+        
+        return view('user.bumdes', $data);
     }
 
     // Halaman Tranparansi Keuangan
     public function transparan() {
-        return view('user.transparan');
+        $data = [
+            'active'        => 'trans',
+        ];
+        
+        return view('user.transparan', $data);
     }
 
     /*  
@@ -118,6 +171,7 @@ class PageController extends Controller
     // Halaman Data Pendidikan
     public function pendidikan() {
         $data = [
+            'active'            => 'desa pendidikan',
             'ctotal'            => $this->penduduk->getCount(),
             'claki'             => $this->penduduk->getCountLaki(),
             'cperempuan'        => $this->penduduk->getCountPerempuan(),
@@ -158,6 +212,7 @@ class PageController extends Controller
     // Halaman Data Pekerjaan
     public function pekerjaan() {
         $data = [
+            'active'            => 'desa pekerjaan',
             'ctotal'            => $this->penduduk->getCount(),
             'claki'             => $this->penduduk->getCountLaki(),
             'cperempuan'        => $this->penduduk->getCountPerempuan(),
@@ -192,9 +247,10 @@ class PageController extends Controller
     // Halaman Data Jenis Kelamin
     public function jenkel() {
         $data = [
-            'claki'      => $this->penduduk->getCountLaki(),
-            'cperempuan' => $this->penduduk->getCountPerempuan(),
-            'ctotal'     => $this->penduduk->getCount(),
+            'active'            => 'desa jenkel',
+            'claki'             => $this->penduduk->getCountLaki(),
+            'cperempuan'        => $this->penduduk->getCountPerempuan(),
+            'ctotal'            => $this->penduduk->getCount(),
         ];
         return view('user.jenkel', $data);
     }
@@ -202,6 +258,7 @@ class PageController extends Controller
     // Halaman Data Perkawinan
     public function perkawinan() {
         $data = [
+            'active'                => 'desa kawin',
             'ctotal'                => $this->penduduk->getCount(),
             'claki'                 => $this->penduduk->getCountLaki(),
             'cperempuan'            => $this->penduduk->getCountPerempuan(),

@@ -36,7 +36,7 @@
                       <h5>STRUKTUR ORGANISASI BADAN PERMUSYAWARATAN DESA</h5>
                       <h5>DESA TENGKURAK KABUPATEN SERANG BANTEN</h5>
 
-                      <table class="table table-info margin-top-20">
+                      <table class="table table-info margin-top-20" id="dataTable" width="100%" cellspacing="0">
                           <thead class="bg-info">
                               <tr>
                                   <th class="text-center">No</th>

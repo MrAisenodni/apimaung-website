@@ -96,7 +96,7 @@
         <!-- Nav -->
         <nav>
           <ul id="ownmenu" class="ownmenu">
-            <li><a href="{{ url('/') }}">PROFIL DESA</a>
+            <li class="@if (substr($active, 0, 7) == 'profile') active @endif"><a href="{{ url('sejarah') }}"><a href="{{ url('/') }}">PROFIL DESA</a>
               <ul class="dropdown">
                 <li><a href="{{ url('sejarah') }}">Sejarah Desa</a></li>
                 <li><a href="{{ url('wilayah') }}">Profil Wilayah Desa</a></li>
@@ -104,14 +104,14 @@
                 <li><a href="{{ url('potensi') }}"> Potensi Desa</a></li>
               </ul>
             </li>
-            <li><a href="{{ url('pemda') }}">PEMERINTAH DESA</a>
+            <li class="@if (substr($active, 0, 5) == 'pemda') active @endif"><a href="{{ url('pemda') }}">PEMERINTAH DESA</a>
               <ul class="dropdown">
                 <li><a href="{{ url('pemda') }}">Pemerintah Desa</a></li>
                 <li><a href="{{ url('visimisi') }}">Visi dan Misi</a></li>
                 <li><a href="{{ url('bpd') }}">Badan Permusyawaratan Desa</a></li>
               </ul>
             </li>
-            <li><a href="{{ url('lem') }}">LEM MAS</a>
+            <li class="@if (substr($active, 0, 3) == 'lem') active @endif"><a href="{{ url('lem') }}">LEM MAS</a>
               <ul class="dropdown">
                 <li><a href="{{ url('lpm') }}">LPM</a></li>
                 <li><a href="{{ url('karangtaruna') }}">Karang Taruna</a></li>
@@ -119,8 +119,8 @@
                 <li><a href="{{ url('bumdes') }}">Bum Desa</a></li>
               </ul>
             </li>
-            <li><a href="/transparan">TRANSPARANSI KEUANGAN</a></li>
-            <li><a href="#">DATA DESA</a>
+            <li class="@if (substr($active, 0, 5) == 'trans') active @endif"><a href="/transparan">TRANSPARANSI KEUANGAN</a></li>
+            <li class="@if (substr($active, 0, 4) == 'desa') active @endif"><a href="#">DATA DESA</a>
               <ul class="dropdown">
                 <li><a href="{{ url('dajen') }}">Data Penduduk</a></li>
                 <li><a href="{{ url('dapen') }}">Data Pendidikan</a></li>
@@ -129,8 +129,8 @@
               </ul>
             </li>
             @if (session()->get('sakses') == 'usr')
-              <li><a href="{{ url('/pengaduan') }}">PENGADUAN</a></li>
-              <li><a href="{{ url('/surat') }}">SURAT ONLINE</a></li>
+              <li class="@if (substr($active, 0, 5) == 'pengaduan') active @endif"><a href="{{ url('/pengaduan') }}">PENGADUAN</a></li>
+              <li class="@if (substr($active, 0, 5) == 'surat') active @endif"><a href="{{ url('/surat') }}">SURAT ONLINE</a></li>
             @endif
             {{-- <li><a href="{{ url('transparan') }}">TRANSPARANSI KEUANGAN</a></li> --}}
             

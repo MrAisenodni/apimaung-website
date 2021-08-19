@@ -24,6 +24,7 @@ class PengaduanController extends Controller
     {
         // Menampilkan halaman pengaduan untuk Admin
         $data = [
+            'active'        => 'pengaduan',
             'pengaduan'     => $this->pengaduan->getAllData(),
             'penduduk'      => $this->pengaduan->getAllDataUser(),
         ];
@@ -48,6 +49,7 @@ class PengaduanController extends Controller
     {
         //
         $data= [
+            'active'        => 'pengaduan',
             'pengaduan'      => $this->pengaduan->getAllDataUser(),
         ];
         return view('user.createpengaduan', $data);
@@ -112,6 +114,7 @@ class PengaduanController extends Controller
     {
         // Menampilkan form detail pengaduan untuk Admin
         $data = [
+            'active'        => 'pengaduan',
             'pengaduan'     => $this->pengaduan->getData($id),
             'penduduk'      => $this->penduduk->getAllData(),
         ];

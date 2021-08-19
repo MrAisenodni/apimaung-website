@@ -25,7 +25,8 @@ class SuratController extends Controller
     {
         // Menampilkan halaman surat untuk Admin
         $data = [
-            'surat'     => $this->surat->getAllData(),
+            'active'        => 'surat',
+            'surat'         => $this->surat->getAllData(),
             'penduduk'      => $this->surat->getAllDataUser(),
         ];
 
@@ -49,6 +50,7 @@ class SuratController extends Controller
     {
         //
         $data= [
+            'active'        => 'surat',
             'surat'      => $this->surat->getAllDataUser(),
         ];
         return view('user.createsurat', $data);
@@ -978,6 +980,7 @@ class SuratController extends Controller
     {
         // Menampilkan form detail surat untuk Admin
         $data = [
+            'active'    => 'surat',
             'surat'     => $this->surat->getData($id),
             'penduduk'  => $this->penduduk->getAllData(),
         ];
